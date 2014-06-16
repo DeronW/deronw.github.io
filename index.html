@@ -4,104 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="keywords" content="delong, story" />
     <meta name="description" content="well, this is my personal page, tell everyone a little story about me and my life" />
-    <title>my story</title>
+
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>delongw</title>
+
     <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-    <script>
-        var data = {
-            "timeline" : {
-                "headline" : "delong",
-                "type" : "default",
-                "text" : "<p>life is a river!</p><p>I want to cross it, but I can't swim</p>",
-                "asset" : {
-                    "media" : "static/img/IMG_1247.JPG",
-                    "credit" : "Credit Name Goes Here",
-                    "caption" : "Caption text goes here"
-                },
-                "date" : [{
-                    "startDate" : "2013,8,5",
-                    "endDate" : "2013,8,5",
-                    "headline" : "绿野的聚餐",
-                    "text" : "<p>与绿野的缘分已尽</p><p>但大家的缘分还在</p>",
-                    "tag" : ["绿野", "聚餐"],
-                    "classname" : "",
-                    "asset" : {
-                        "media" : "static/img/IMG_1115.JPG",
-                        "credit" : "北京市海淀区金源燕莎购物广场4层",
-                        "caption" : "离开绿野的时候叫大家一起聚餐, 当作告别, 祝大家也祝我自己: 笑容常在"
-                    }
-                }, {
-                    "startDate" : "2013,9,7",
-                    "endDate" : "2013,9,7",
-                    "headline" : "肯德基",
-                    "text" : "<p>作为90后的姑娘, 彬彬超喜欢卖萌</p>",
-                    "tag" : ["卖萌"],
-                    "classname" : "",
-                    "asset" : {
-                        "media" : "static/img/IMG_1244.JPG",
-                        "credit" : "北京市太阳宫凯德MALL商场",
-                        "caption" : "女孩子都喜欢吃甜品~~"
-                    }
-                }, {
-                    "startDate" : "2013,8,25",
-                    "endDate" : "2013,8,25",
-                    "headline" : "大头贴",
-                    "text" : "<p>来一张大头贴, 还挺般配的嘛</p>",
-                    "tag" : ["合照"],
-                    "classname" : "",
-                    "asset" : {
-                        "media" : "static/img/IMG_1198.JPG",
-                        "credit" : "北京市朝阳区西坝河东里",
-                        "caption" : "所谓夫妻相, 就是对上眼儿了"
-                    }
-                }, {
-                    "startDate" : "2013,9,27",
-                    "endDate" : "2013,9,27",
-                    "headline" : "婚礼",
-                    "text" : "<p>红颜结婚了, 婚纱很漂亮啊</p>",
-                    "tag" : ["婚礼"],
-                    "classname" : "",
-                    "asset" : {
-                        "media" : "static/img/IMG_1302.JPG",
-                        "credit" : "辽宁省抚顺市城东新区",
-                        "caption" : "祝你们幸福"
-                    }
-                }, {
-                    "startDate" : "2013,8,24",
-                    "endDate" : "2013,8,24",
-                    "headline" : "青岛",
-                    "text" : "<p>青岛金沙滩</p>",
-                    "tag" : ["沙滩"],
-                    "classname" : "",
-                    "asset" : {
-                        "media" : "static/img/IMG_1180.JPG",
-                        "credit" : "山东省青岛市金沙滩",
-                        "caption" : "大海, 我们来了"
-                    }
-                }],
-                "era" : [{
-                    "startDate" : "2011,12,10",
-                    "endDate" : "2011,12,11",
-                    "headline" : "Headline Goes Here",
-                    "text" : "<p>Body text goes here, some HTML is OK</p>",
-                    "tag" : "story start"
-                }]
-            }
-        }
-
-        $(function() {
-            createStoryJS({
-                type : 'timeline',
-                width : '800',
-                height : '600',
-                source : data,
-                embed_id : 'my-timeline'
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <div id="my-timeline"></div>
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">BRAND</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/story/story.html">Story</a></li>
+        <li><a href="/blog/blog.html">Blog</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">动画<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/animate/vector_bg.html">多边形背景</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/about.html">About</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 </body>
