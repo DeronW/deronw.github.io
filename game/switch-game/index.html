@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="game.css" />
+
+<ul>
+    <li>
+        <h4>游戏介绍:</h4>
+    </li>
+    <li>
+        一组开关对应一组灯泡，每组中一个开关控制多个灯泡，
+    </li>
+    <li>
+        点击开关后，被它控制的灯泡会切换状态（明到暗，或暗到明）
+    </li>
+    <li>
+        灯泡全亮即可过关
+    </li>
+    <li>
+        通过（困难）模式可以换取幻腾礼物一份。。。The seed
+    </li>
+</ul>
+
+<section id="easy">
+    简单模式，4个开关4个灯，2～5步
+</section>
+
+<section id="hard">
+    困难模式，8个开关10个灯，6～10步
+</section>
+
+<p>
+    使用须知： 无js库依赖, 不支持IE8，使用了IE8不支持的 getElementsByClassName 方法
+</p>
+
+<p>
+    
+</p>
+
+<p>
+    特别感谢： <a target="_blank" href="http://www.huantengsmart.com">幻腾科技</a>
+</p>
+
+<script src="SG.js"></script>
+
+<script>
+    SwitchGame("easy");
+
+    SwitchGame({
+        elementId : "hard",
+        bulbCount : 8,
+        switchCount : 8,
+        level : 10
+    })
+
+</script>
