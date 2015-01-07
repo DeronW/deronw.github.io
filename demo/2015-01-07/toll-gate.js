@@ -213,12 +213,26 @@ var questions = [{
 	}]
 }];
 
-setInterval(function (){
+setInterval(function() {
 	var colors = ["#97FFF0", "#ABE86B", "#FFD882", "#E87C73", "#C99AFF"];
 	var i = window.__sectionBackgroundColorIndex || 0;
 	i++;
-	if(i >= colors.length) i = 0;
-	$(".section").css("background-color", colors[i]);
+	if (i >= colors.length)
+		i = 0;
+	document.getElementsByTagName("body")[0].style.backgroundColor = colors[i];
 	window.__sectionBackgroundColorIndex = i;
 }, 10000);
 
+$(function() {
+	$(".section-0").addClass("active");
+
+	$(".btn-start").on("touchstart", function() {
+		$(".section-0").addClass("press-down")
+	}).on("touchend", function() {
+		$(".section-0").removeClass("press-down").addClass("top-out");
+		// show question panel
+		setTimeout(function() {
+			$(".section-question").css("left", 0)
+		}, 400)
+	})
+});
