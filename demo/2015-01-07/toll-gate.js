@@ -236,3 +236,7 @@ $(function() {
 		}, 400)
 	})
 });
+
+function showNextQuestion(){
+	
+}
