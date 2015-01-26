@@ -4,7 +4,8 @@ window.__currentQuestionIndex = 0;
 
 // 背景自动变色
 setInterval(function () {
-    var colors = ["#97FFF0", "#ABE86B", "#FFD882", "#E87C73", "#C99AFF"];
+    //var colors = ["#97FFF0", "#ABE86B", "#FFD882", "#E87C73", "#C99AFF"];
+    var colors = ["#ffcc33"];
     var i = window.__sectionBackgroundColorIndex;
     i++;
     if (i >= colors.length)
@@ -16,7 +17,7 @@ setInterval(function () {
 $(function () {
     $(".section-0").addClass("active");
 
-    $(".btn-start").on("touchstart", function () {
+    $(".btn-start, .section-0").on("touchstart", function () {
         $(".section-0").addClass("press-down")
     }).on("touchend", function () {
         $(".section-0").removeClass("press-down").addClass("top-out");
