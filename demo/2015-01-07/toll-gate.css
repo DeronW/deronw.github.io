@@ -45,52 +45,21 @@ body {
 	display: block;
 }
 
-.section-0 {
-	background: #BBD6EE url("./images/section-0.png") no-repeat center center;
-	background-size: 100%;
+.section-0 img {
+	width: 100%;
 }
 
-.section-0 .logo-title {
-	width: 300px;
-	height: 86px;
-	/*background: transparent url("./images/logo.png") no-repeat;*/
-	background-size: 100%;
-	margin: 50px auto 30px auto;
+.section-0-top  {
+    background: #ffffff;
+    height: 100%;
 }
-.section-0 .describe {
-	background-color: rgba(255, 255, 255, 0.498039);
-	border-radius: 4px;
-	color: rgb(70, 70, 70);
-	display: block;
-	height: 168px;
-	line-height: 18px;
-	margin: 20px auto 0;
-	padding: 17px;
-	width: 234px;
-	font-size: 12px;
-}
-
-.section-0 .describe p {
-	-webkit-margin-before: 0;
-	-webkit-margin-after: 0;
-	line-height: 1.9em;
-}
-
-.section-0 .btn-start {
-	display: block;
-	margin: 20px auto 10px;
-	width: 124px;
-	height: 57px;
-	border-radius: 30px;
-	-webkit-box-shadow: 1px 2px 2px 0 rgba(0,0,0,.23);
-	box-shadow: 1px 2px 2px 0 rgba(0,0,0,.23);
-	background: #ffd800 url("./images/start_btn.png") no-repeat center center;
-	background-size: 95px 23px;
-	-webkit-transition: background-color .2s;
-	transition: background-color .2s;
-}
-.section-0 .btn-start:active {
-	background-color: #ffba00;
+.section-0-bottom  {
+	height: 275px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+    background: #5b9bd5;
 }
 
 .section-0 .copyright {
