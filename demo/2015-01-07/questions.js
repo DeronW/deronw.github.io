@@ -12,12 +12,15 @@
         answers: [{
             text: "是",
             points: 1,
-            next: "next_question"
+            next: {
+                picture: "./images/result_2.png",
+                next: "next_question"
+            }
         }, {
             text: "否",
             points: 0,
             next: {
-                text: "不想你还点？强行变成小明",
+                picture: "./images/result_1.png",
                 next: "next_question"
             }
         }]
@@ -27,7 +30,7 @@
         answers: [{
             text: "闷头看手机笑话，等领导分配",
             points: 0,
-            next: "self"
+            next: "end"
         }, {
             text: "眼瞅着领导，脉脉含情，说，领导，随便您怎么整",
             points: 9,

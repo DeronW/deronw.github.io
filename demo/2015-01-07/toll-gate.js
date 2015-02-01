@@ -15,6 +15,24 @@ setInterval(function () {
 }, 10000);
 
 $(function () {
+    // 开始界面， 点击后自动上划隐藏
+    $(".section-welcome").click(function () {
+        $(this).css("top", "-100%")
+    });
+
+    // 插图界面
+    $(".section-iconograph").click(function () {
+        var e = $(this);
+        e.css("top", "-100%");
+        var callback = e.data("callback");
+        if (typeof callback === "function") {
+            e.data("callback", null);
+            callback();
+        }
+    });
+});
+
+$(function () {
     $(".section-0").addClass("active");
 
     $(".btn-start, .section-0").on("touchstart", function () {
@@ -31,7 +49,6 @@ $(function () {
 
 function showNextQuestion() {
     var questionIndex = window.__currentQuestionIndex;
-
     var panel = $(".next-question");
     panel.find(".question-sequence").text("第 " + (questionIndex + 1) + " 题");
     panel.find(".question-panel p").text(Questions[questionIndex].question);
@@ -51,17 +68,24 @@ function showNextQuestion() {
             answers = answers.slice(0, sliceCursor).concat(answers.slice(sliceCursor + 1));
             choice.find("p").text(answer.text);
             choice.data("points", answer.points);
-            //choice.data("next", answer.next);
+            choice.data("next", answer.next);
             choice.data("answer-order", answer.order);
             choice.data("question-index", questionIndex);
             choice.on("touchend", function () {
                 var e = $(this);
                 if (window.__disableChoiceSelect) return;
-                e.data("next");
                 Questions[e.data("question-index")].selectedAnswerOrder = e.data("answer-order");
                 $(this).removeClass("on-hold");
-                showNextQuestion();
-                refreshScore();
+                // 判断下一步去哪
+                var next = e.data("next");
+                if (next == "next_question") {
+                    showNextQuestion();
+                } else if (next == "end") {
+                    showEnd();
+                } else if (next.picture) {
+                    showIconograph(next.picture, next.next);
+                }
+                //refreshScore();
             }).on("touchstart", function () {
                 $(this).addClass("on-hold");
                 return false;
@@ -104,4 +128,17 @@ function refreshScore() {
         }
     }
     $("#total-score").find("span").text(score);
+}
+
+function showIconograph(picture, next) {
+    $(".section-iconograph").css({
+        "top": 0
+    }).data("callback", function () {
+        if (next == "next_question")
+            showNextQuestion();
+    }).find("img").attr("src", picture);
+}
+
+function showEnd() {
+    $(".section-end").css("top", 0).find(".total-score").text("??");
 }
