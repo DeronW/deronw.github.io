@@ -1,11 +1,5 @@
 (function () {
 
-    var NextAction = {
-        question: {},
-        self: {},
-        end: {}
-    };
-
     var Questions = [{
         background: "现在小明终于圆梦，成为了一个合（bei）格(cui)的核电厂备件采购工程师，假如你就是小明，请继续作答？别打我，也就是个假设",
         question: "你是否愿意自己被假设为小明，天天被老师训话的小明，天天滚来滚去的小明，好傻好天真的小明？",

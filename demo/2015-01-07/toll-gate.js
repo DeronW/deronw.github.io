@@ -128,6 +128,7 @@ function refreshScore() {
         }
     }
     $("#total-score").find("span").text(score);
+    return score;
 }
 
 function showIconograph(picture, next) {
@@ -140,5 +141,6 @@ function showIconograph(picture, next) {
 }
 
 function showEnd() {
-    $(".section-end").css("top", 0).find(".total-score").text("??");
+    var totalScore = refreshScore();
+    $(".section-end").css("top", 0).find(".total-score").text(totalScore);
 }
