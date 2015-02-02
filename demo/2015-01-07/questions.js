@@ -24,7 +24,11 @@
         answers: [{
             text: "闷头看手机笑话，等领导分配",
             points: 0,
-            next: "end"
+            next: {
+                text: "笑话真心不错，你抬头的时候，看到了领导呵呵的表情",
+                picture: "./images/result_0.png",
+                next: "end"
+            }
         }, {
             text: "眼瞅着领导，脉脉含情，说，领导，随便您怎么整",
             points: 9,
@@ -42,6 +46,7 @@
             points: 0,
             next: {
                 text: "逼格太高了，连211都没毕业就敢自行核实，自宫应该没问题",
+                picture: "./images/result_3.png",
                 next: "end"
             }
         }, {
@@ -56,34 +61,38 @@
     }, {
         background: null,
         question: "饭要一口一口吃，事要一步步干，下面该到您掷骰子选择怎么买东西了（专业术语采购方式选择），您是否做好了心理准备",
-        answers: [{
-            text: "两家或以上代理商询价/竞争性谈判采购",
-            points: 5,
-            next: "next_question"
-        }, {
-            text: "两家或以上原供货商和代理商询价/竞争性谈判采购",
-            points: 8,
-            next: "next_question"
-        }, {
-            text: "原供应商单一来源采购",
-            points: 10,
-            next: "next_question"
-        }, {
-            text: "招标采购",
-            points: 9,
-            next: "next_question"
-        }, {
-            text: "找个亲戚，赶紧注册个公司，从他那买",
-            points: 0,
-            next: {
-                text: "警告",
+        answers: [
+            /*{
+             text: "两家或以上代理商询价/竞争性谈判采购",
+             points: 5,
+             next: "next_question"
+             }, {
+             text: "两家或以上原供货商和代理商询价/竞争性谈判采购",
+             points: 8,
+             next: "next_question"
+             }, {
+             text: "原供应商单一来源采购",
+             points: 10,
+             next: "next_question"
+             },
+             */
+            {
+                text: "招标采购",
+                points: 9,
                 next: "next_question"
-            }
-        }, {
-            text: "淘宝采购，方便快捷",
-            points: 2,
-            next: "next_question"
-        }]
+            }, {
+                text: "找个亲戚，赶紧注册个公司，从他那买",
+                points: 0,
+                next: {
+                    text: "警告",
+                    picture: "./images/result_4.png",
+                    next: "end"
+                }
+            }, {
+                text: "淘宝采购，方便快捷",
+                points: 2,
+                next: "next_question"
+            }]
     }, {
         background: null,
         question: "我们这里不是赌石市场，拿个罩子，两只手在罩子下一握手，成交，我们这里的，要专业，怎么也得见个纸片飞来飞去吧，专业点，询报价阶段，您准备咋操办",
@@ -92,8 +101,8 @@
             points: 0,
             next: {
                 text: "国家审计署找您喝茶",
-                img: "",
-                type: "end"
+                picture: "./images/result_5.png",
+                next: "end"
             }
         }, {
             text: "不管如何，全部要求密封报价",
@@ -116,8 +125,8 @@
             points: 0,
             next: {
                 text: "检察院找您喝茶，廉洁从业，干净做人",
-                img: "",
-                type: "end"
+                picture: "./images/result_6.png",
+                next: "end"
             }
         }, {
             text: "约上其他不相干的同学一起AA聚餐，饭后坚决拒绝表达要做好人",
@@ -132,8 +141,8 @@
             points: 0,
             next: {
                 text: "技术上和现场有细微差别怎么办，供应商拿到订单后反悔怎么办，慎重啊慎重",
-                img: "",
-                type: "end"
+                picture: "./images/result_7.png",
+                next: "end"
             }
         }, {
             text: "经评审的满足技术要求的最低价中标",
@@ -168,7 +177,8 @@
             points: 5,
             next: {
                 text: "你把合同人员想得太简单了",
-                type: "end"
+                picture: "./images/result_8.png",
+                next: "end"
             }
         }, {
             text: "否",
@@ -197,25 +207,16 @@
         answers: [{
             text: "梳理自己的采购流程，挑出缺陷，主动找领导，一起弥补",
             points: 5,
-            next: {
-                type: "end",
-                img: ""
-            }
+            next: "end"
         }, {
             text: "与现场技术人员一起分析产品的质量，找出产品的问题，与制造厂一起解决现存实际困难",
             points: 10,
-            next: {
-                img: "",
-                type: "end"
-            }
+            next: "end"
+
         }, {
             text: "辞职，拿上收受的2万元现金继续找工作",
             points: 0,
-            next: {
-                text: "您到底是来干活的还是来骗钱的",
-                img: "",
-                type: "end"
-            }
+            next: "end"
         }]
     }];
 

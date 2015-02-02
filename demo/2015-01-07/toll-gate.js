@@ -135,8 +135,11 @@ function showIconograph(picture, next) {
     $(".section-iconograph").css({
         "top": 0
     }).data("callback", function () {
-        if (next == "next_question")
+        if (next == "next_question") {
             showNextQuestion();
+        } else if (next == "end") {
+            showEnd();
+        }
     }).find("img").attr("src", picture);
 }
 

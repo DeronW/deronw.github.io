@@ -67,7 +67,7 @@ body {
 
 .section-end {
     top: -100%;
-    background: white;
+    background: white url("./images/iconograph-bg.png");
 }
 
 .section-end p {
