@@ -18,6 +18,38 @@ body {
     display: none !important;
 }
 
+/* 复用 bootstrap2 的按钮样式 */
+.btn-primary {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #006dcc;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: linear-gradient(to bottom, #08c, #04c);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #b3b3b3;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 26px;
+    font-size: 26px;
+    padding: 14px 0;
+}
+
+.btn-primary:active {
+    background-image: none;
+    outline: 0;
+    color: #fff;
+    background-color: #04c;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
 .press-down {
     -webkit-transform: translate3d(0, 10px, 0);
     transform: translate3d(0, 10px, 0);
@@ -60,6 +92,13 @@ body {
     width: 100%;
 }
 
+.section-0-bottom .btn-primary {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin-left: -100px;
+}
+
 .section-iconograph {
     top: -100%;
     background: transparent url("./images/iconograph-bg.png");
@@ -95,15 +134,11 @@ body {
     width: 100%;
     text-align: center;
 }
-
-.section-end .buttons a {
-    border-radius: 4px;
-    background-color: #5B9BD5;
-    color: white;
-    display: inline-block;
-    width: 40%;
-    height: 50px;
-    line-height: 50px;
+.section-end .buttons .btn-primary{
+    font-size: 16px;
+    width: 140px;
+    padding: 6px;
+    height: 24px;
 }
 
 .section-end .buttons a:nth-child(1) {
