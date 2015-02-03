@@ -37,7 +37,7 @@ body {
     display: block;
     margin: 0 auto;
     width: 200px;
-    height: 26px;
+    height: 24px;
     font-size: 26px;
     padding: 14px 0;
 }
@@ -89,7 +89,9 @@ body {
 }
 
 .section-welcome img, .section-iconograph img {
-    width: 100%;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
 }
 
 .section-0-bottom .btn-primary {
@@ -134,11 +136,12 @@ body {
     width: 100%;
     text-align: center;
 }
-.section-end .buttons .btn-primary{
+
+.section-end .buttons .btn-primary {
     font-size: 16px;
     width: 140px;
     padding: 6px;
-    height: 24px;
+    height: 22px;
 }
 
 .section-end .buttons a:nth-child(1) {
