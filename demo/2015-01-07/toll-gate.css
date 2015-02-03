@@ -94,6 +94,11 @@ body {
     margin: 0 auto;
 }
 
+.section-welcome .btn-primary {
+    position: relative;
+    top: -80px;
+}
+
 .section-0-bottom .btn-primary {
     position: absolute;
     top: 150px;
