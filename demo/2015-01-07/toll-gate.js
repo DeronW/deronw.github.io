@@ -132,16 +132,19 @@ function refreshScore() {
 }
 
 function showIconograph(picture, next) {
-    $(".section-iconograph").css({
-        "top": 0
-    }).data("callback", function () {
-        if (next == "next_question") {
-            showNextQuestion();
-        } else if (next == "end") {
-            showEnd();
-        }
-    }).find("img").attr("src", picture);
-}
+    $(".section-iconograph img").attr("src", picture);
+    setTimeout(function () {
+        $(".section-iconograph").css({
+            "top": 0
+        }).data("callback", function () {
+            if (next == "next_question") {
+                showNextQuestion();
+            } else if (next == "end") {
+                showEnd();
+            }
+        });
+    }, 500);
+};
 
 function showEnd() {
     var totalScore = refreshScore();

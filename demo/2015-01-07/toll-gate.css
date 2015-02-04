@@ -23,7 +23,8 @@ body {
     color: #fff;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
     background-color: #006dcc;
-    line-height: 24px;
+    height: 22px;
+    line-height: 22px;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
@@ -37,7 +38,6 @@ body {
     display: block;
     margin: 0 auto;
     width: 200px;
-    height: 20px;
     font-size: 26px;
     padding: 14px 0;
     outline: 0;
@@ -96,13 +96,15 @@ body {
 }
 
 .section-welcome .btn-primary {
-    position: relative;
-    top: -80px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    margin-left: -100px;
 }
 
 .section-0-bottom .btn-primary {
     position: absolute;
-    top: 150px;
+    top: 100px;
     left: 50%;
     margin-left: -100px;
 }
@@ -110,6 +112,13 @@ body {
 .section-iconograph {
     top: -100%;
     background: transparent url("./images/iconograph-bg.png");
+}
+
+.section-iconograph .btn-primary {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -100px;
 }
 
 .section-end {
@@ -144,8 +153,8 @@ body {
 }
 
 .section-end .buttons .btn-primary {
-    font-size: 16px;
-    width: 140px;
+    font-size: 14px;
+    width: 120px;
     padding: 6px;
     height: 22px;
 }
@@ -170,7 +179,7 @@ body {
 }
 
 .section-0-bottom {
-    height: 275px;
+    height: 215px;
     position: absolute;
     left: 0;
     right: 0;
@@ -184,7 +193,7 @@ body {
     text-align: center;
     margin-top: 12px;
     position: absolute;
-    bottom: 20px;
+    bottom: 5px;
     width: 100%;
 }
 
