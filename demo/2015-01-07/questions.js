@@ -27,7 +27,7 @@
             next: {
                 text: "笑话真心不错，你抬头的时候，看到了领导呵呵的表情",
                 picture: "./images/result_0.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "眼瞅着领导，脉脉含情，说，领导，随便您怎么整",

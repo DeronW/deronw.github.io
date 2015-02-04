@@ -133,6 +133,11 @@ function refreshScore() {
 
 function showIconograph(picture, next) {
     $(".section-iconograph img").attr("src", picture);
+    if (next == "retry") {
+        $(".section-iconograph .btn-primary").removeClass("hide")
+    } else {
+        $(".section-iconograph .btn-primary").addClass("hide")
+    }
     setTimeout(function () {
         $(".section-iconograph").css({
             "top": 0
@@ -141,12 +146,35 @@ function showIconograph(picture, next) {
                 showNextQuestion();
             } else if (next == "end") {
                 showEnd();
+            } else if (next == "retry") {
+                window.location.reload()
             }
         });
     }, 500);
-};
+}
 
 function showEnd() {
     var totalScore = refreshScore();
     $(".section-end").css("top", 0).find(".total-score").text(totalScore);
+}
+
+function postData() {
+    var username = $("#username").val(), company = $("#company").val();
+    if (!username) {
+        alert("请填写姓名");
+        $("#username").focus();
+        return;
+    }
+    if (!company) {
+        alert("请填写所属公司");
+        $("#company").focus();
+        return;
+    }
+    $.post("./", {
+        "score": refreshScore(),
+        "username": username,
+        "company": company
+    }, function (data) {
+        $(".post-data-panel").addClass("hide");
+    }, "json");
 }
