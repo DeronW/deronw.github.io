@@ -21,7 +21,7 @@ $(function () {
     });
 
     // 插图界面
-    $(".section-iconograph").click(function () {
+    $(".section-iconograph").on("touchstart", function () {
         var e = $(this);
         e.css("top", "-100%");
         var callback = e.data("callback");
