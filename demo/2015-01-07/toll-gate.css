@@ -38,13 +38,14 @@ body {
     display: block;
     margin: 0 auto;
     width: 200px;
-    font-size: 26px;
-    padding: 14px 0;
+    font-size: 20px;
+    padding: 8px 0;
     outline: 0;
 }
-.btn-primary.green{
+
+.btn-primary.green {
     background-color: #5bb75b;
-    background-image: linear-gradient(to bottom,#62c462,#51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
 }
 
 .btn-primary:active {
@@ -141,6 +142,15 @@ body {
     color: blue;
     font-size: 36px;
     margin: 0 5px;
+    position: relative;
+    top: 5px;
+    border-radius: 20px;
+
+    -webkit-animation-name: glow;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
 }
 
 .section-end img {
@@ -375,16 +385,34 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.post-data-panel .input{
+.post-data-panel .input {
     color: white;
-    width: 80%;
-    margin: 25px auto 15px;
-    font-size: 20px;
+    width: 200px;
+    margin: 0 auto 30px;
+    font-size: 18px;
     line-height: 24px;
 }
 
-.post-data-panel input{
+.post-data-panel .input.m100 {
+    margin-top: 100px;
+}
+
+.post-data-panel input {
     height: 24px;
-    line-height: 24px;
-    font-size: 20px;
+    padding: 3px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 4px;
+    border: 0;
+}
+
+@-webkit-keyframes glow {
+    0% {
+        -webkit-box-shadow: 0 0 16px rgba(66, 140, 240, 0.5);
+        border-color: rgba(0, 0, 255, 0.5);
+    }
+    100% {
+        -webkit-box-shadow: 0 0 16px rgba(66, 140, 240, 1.0), 0 0 36px rgba(0, 140, 255, 1.0);
+        border-color: rgba(0, 0, 255, 1.0);
+    }
 }
