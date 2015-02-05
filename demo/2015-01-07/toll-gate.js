@@ -24,7 +24,6 @@ $(function () {
     $(".section-iconograph").on("touchstart", function () {
         var e = $(this);
         e.css("top", "-100%");
-        e.find("img").remove();
         var callback = e.data("callback");
         if (typeof callback === "function") {
             e.data("callback", null);
@@ -136,7 +135,8 @@ function refreshScore() {
 
 function showIconograph(picture, next) {
     var graph = $(".section-iconograph");
-    graph.append($('<img src="' + picture + '">'));
+    graph.find("img").remove();
+    graph.append('<img src="' + picture + '">');
     if (next == "retry") {
         $(".section-iconograph .btn-primary").removeClass("hide")
     } else {

@@ -111,6 +111,14 @@ body {
     margin-left: -100px;
 }
 
+.section-welcome .pre-loading {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
 .section-0-bottom .btn-primary {
     position: absolute;
     top: 100px;
