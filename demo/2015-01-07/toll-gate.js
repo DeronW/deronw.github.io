@@ -24,19 +24,22 @@ $(function () {
     $(".section-iconograph").on("touchstart", function () {
         var e = $(this);
         e.css("top", "-100%");
+        e.find("img").remove();
         var callback = e.data("callback");
         if (typeof callback === "function") {
             e.data("callback", null);
             callback();
         }
     });
+    //禁止弹出菜单
+    document.documentElement.style.webkitTouchCallout = "none";
 });
 
 $(function () {
     $(".section-0").addClass("active");
 
     $(".btn-start, .section-0").on("touchstart", function () {
-        $(".section-0").addClass("press-down")
+        //$(".section-0").addClass("press-down")
     }).on("touchend", function () {
         $(".section-0").removeClass("press-down").addClass("top-out");
         // show question panel
@@ -132,7 +135,8 @@ function refreshScore() {
 }
 
 function showIconograph(picture, next) {
-    $(".section-iconograph img").attr("src", picture);
+    var graph = $(".section-iconograph");
+    graph.append($('<img src="' + picture + '">'));
     if (next == "retry") {
         $(".section-iconograph .btn-primary").removeClass("hide")
     } else {
@@ -147,7 +151,9 @@ function showIconograph(picture, next) {
             } else if (next == "end") {
                 showEnd();
             } else if (next == "retry") {
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload()
+                }, 500)
             }
         });
     }, 500);
@@ -175,6 +181,8 @@ function postData() {
         "username": username,
         "company": company
     }, function (data) {
-        $(".post-data-panel").addClass("hide");
     }, "json");
+
+
+    $(".post-data-panel").addClass("hide");
 }
