@@ -24,6 +24,7 @@ $(function () {
     $(".section-iconograph").on("touchstart", function () {
         var e = $(this);
         e.css("top", "-100%");
+        e.find("img").attr("src", "");
         var callback = e.data("callback");
         if (typeof callback === "function") {
             e.data("callback", null);
