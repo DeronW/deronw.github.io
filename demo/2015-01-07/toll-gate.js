@@ -30,13 +30,15 @@ $(function () {
             callback();
         }
     });
+    //禁止弹出菜单
+    document.documentElement.style.webkitTouchCallout = "none";
 });
 
 $(function () {
     $(".section-0").addClass("active");
 
     $(".btn-start, .section-0").on("touchstart", function () {
-        $(".section-0").addClass("press-down")
+        //$(".section-0").addClass("press-down")
     }).on("touchend", function () {
         $(".section-0").removeClass("press-down").addClass("top-out");
         // show question panel
@@ -147,7 +149,9 @@ function showIconograph(picture, next) {
             } else if (next == "end") {
                 showEnd();
             } else if (next == "retry") {
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload()
+                }, 500)
             }
         });
     }, 500);
@@ -175,6 +179,8 @@ function postData() {
         "username": username,
         "company": company
     }, function (data) {
-        $(".post-data-panel").addClass("hide");
     }, "json");
+
+
+    $(".post-data-panel").addClass("hide");
 }

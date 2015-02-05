@@ -47,7 +47,7 @@
             next: {
                 text: "逼格太高了，连211都没毕业就敢自行核实，自宫应该没问题",
                 picture: "./images/result_3.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "联系潜在供方核实参数是否齐全",
@@ -86,7 +86,7 @@
                 next: {
                     text: "警告",
                     picture: "./images/result_4.png",
-                    next: "end"
+                    next: "retry"
                 }
             }, {
                 text: "淘宝采购，方便快捷",
@@ -102,7 +102,7 @@
             next: {
                 text: "国家审计署找您喝茶",
                 picture: "./images/result_5.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "不管如何，全部要求密封报价",
@@ -126,7 +126,7 @@
             next: {
                 text: "检察院找您喝茶，廉洁从业，干净做人",
                 picture: "./images/result_6.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "约上其他不相干的同学一起AA聚餐，饭后坚决拒绝表达要做好人",
@@ -142,7 +142,7 @@
             next: {
                 text: "技术上和现场有细微差别怎么办，供应商拿到订单后反悔怎么办，慎重啊慎重",
                 picture: "./images/result_7.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "经评审的满足技术要求的最低价中标",
@@ -178,7 +178,7 @@
             next: {
                 text: "你把合同人员想得太简单了",
                 picture: "./images/result_8.png",
-                next: "end"
+                next: "retry"
             }
         }, {
             text: "否",

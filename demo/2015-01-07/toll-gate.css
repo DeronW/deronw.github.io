@@ -9,6 +9,10 @@ body {
     position: absolute;
     background: #ffcc33;
     box-sizing: border-box;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+
 }
 
 /*
@@ -42,9 +46,10 @@ body {
     padding: 14px 0;
     outline: 0;
 }
-.btn-primary.green{
+
+.btn-primary.green {
     background-color: #5bb75b;
-    background-image: linear-gradient(to bottom,#62c462,#51a351);
+    background-image: linear-gradient(to bottom, #62c462, #51a351);
 }
 
 .btn-primary:active {
@@ -61,8 +66,8 @@ body {
 }
 
 .top-out {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+    -webkit-transform: translate3d(0, -110%, 0);
+    transform: translate3d(0, -110%, 0);
 }
 
 /*
@@ -115,7 +120,8 @@ body {
 
 .section-iconograph {
     top: -100%;
-    background: transparent url("./images/iconograph-bg.png");
+    /*background: transparent url("./images/iconograph-bg.png");*/
+    background: #73CBFF;
 }
 
 .section-iconograph .btn-primary {
@@ -128,6 +134,7 @@ body {
 .section-end {
     top: -100%;
     background: white url("./images/iconograph-bg.png");
+    background: #73CBFF;
 }
 
 .section-end p {
@@ -375,16 +382,18 @@ body {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.post-data-panel .input{
+.post-data-panel .input {
     color: white;
-    width: 80%;
-    margin: 25px auto 15px;
+    width: 280px;
+    margin: 25px auto;
     font-size: 20px;
     line-height: 24px;
 }
 
-.post-data-panel input{
+.post-data-panel input {
     height: 24px;
     line-height: 24px;
     font-size: 20px;
+    width: 100%;
+    padding: 8px 3px;
 }
