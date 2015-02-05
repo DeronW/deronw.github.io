@@ -186,3 +186,19 @@ function postData() {
 
     $(".post-data-panel").addClass("hide");
 }
+
+// 有关微信分享
+var O = {
+    app: "", img: function () {
+        return location.origin + "/images/share-icon.jpg"
+    },
+    link: location.origin,
+    desc: "核电采购员测试 快来看看你能得多少分",
+    title: "核电那些事"
+};
+var P = function (e) {
+    "send_app_msg:confirm" === e.err_msg ? b("wechat_share_friend", "success") : "send_app_msg:cancel" === e.err_msg ? b("wechat_share_friend", "cancel") : "share_timeline:ok" === e.err_msg ? b("wechat_share_timeline", "success") : "share_timeline:cancel" === e.err_msg ? b("wechat_share_timeline", "cancel") : b("wechat_share", "unknow")
+};
+
+wechat("friend", O, P);
+wechat("timeline", O, P);
