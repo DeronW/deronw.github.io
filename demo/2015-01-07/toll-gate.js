@@ -176,20 +176,30 @@ function postData() {
         $("#company").focus();
         return;
     }
+    var position = "";
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (currentPosition) {
+            position = currentPosition.coords.longitude + "," + currentPosition.coords.latitude
+        });
+    }
     $.post("./", {
         "score": refreshScore(),
         "username": username,
-        "company": company
+        "company": company,
+        "position": position
     }, function (data) {
     }, "json");
-
 
     $(".post-data-panel").addClass("hide");
 }
 
 // 有关微信分享
+function b(e, n) {
+    console.log(e, n)
+}
 var O = {
-    app: "", img: function () {
+    app: "",
+    img: function () {
         return location.origin + "/images/share-icon.jpg"
     },
     link: location.origin,
@@ -197,7 +207,15 @@ var O = {
     title: "核电那些事"
 };
 var P = function (e) {
-    "send_app_msg:confirm" === e.err_msg ? b("wechat_share_friend", "success") : "send_app_msg:cancel" === e.err_msg ? b("wechat_share_friend", "cancel") : "share_timeline:ok" === e.err_msg ? b("wechat_share_timeline", "success") : "share_timeline:cancel" === e.err_msg ? b("wechat_share_timeline", "cancel") : b("wechat_share", "unknow")
+    "send_app_msg:confirm" === e.err_msg ?
+        b("wechat_share_friend", "success") :
+        "send_app_msg:cancel" === e.err_msg ?
+            b("wechat_share_friend", "cancel") :
+            "share_timeline:ok" === e.err_msg ?
+                b("wechat_share_timeline", "success") :
+                "share_timeline:cancel" === e.err_msg ?
+                    b("wechat_share_timeline", "cancel") :
+                    b("wechat_share", "unknow")
 };
 
 wechat("friend", O, P);

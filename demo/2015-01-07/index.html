@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="sharecontent"
-          data-msg-img="http://delongw.github.io/demo/2015-01-07/images/share-icon.jpg"
-          data-msg-title="核电那些事"
-          data-msg-content="核电采购员测试 快来看看你能得多少分"
-          data-msg-callback="http://delongw.github.io/demo/2015-01-07/">
+    <!--<meta name="sharecontent"-->
+    <!--data-msg-img="http://delongw.github.io/demo/2015-01-07/images/share-icon.jpg"-->
+    <!--data-msg-title="核电那些事"-->
+    <!--data-msg-content="核电采购员测试 快来看看你能得多少分"-->
+    <!--data-msg-callback="http://delongw.github.io/demo/2015-01-07/">-->
 
+    <title>核电那些事</title>
     <link rel="stylesheet" href="toll-gate.css"/>
     <script src="jquery-2.1.3.min.js"></script>
     <script src="fastclick.min.js"></script>
@@ -19,8 +20,14 @@
 <body>
 
 <div class="section section-welcome">
+    <div style="height:1px;overflow:hidden;">
+        <!-- 用于微信分享的图片 -->
+        <img src="http://delongw.github.io/demo/2015-01-07/images/share-icon.jpg"/>
+    </div>
     <img src="./images/backstory.png">
     <a class="btn-primary" onclick="javascript:;">免费体验</a>
+
+    <h2 class="pre-loading">核电采购员测试 快来看看你能得多少分</h2>
 
     <div class="pre-loading">
         <img src="./images/result_0.png">
@@ -33,6 +40,7 @@
         <img src="./images/result_7.png">
         <img src="./images/result_8.png">
     </div>
+
 </div>
 
 <div class="section section-0">
