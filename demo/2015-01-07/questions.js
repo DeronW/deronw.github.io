@@ -121,7 +121,7 @@
             points: 8,
             next: "next_question"
         }, {
-            text: "吃饭喝酒唱歌一条龙，玩high了再说",
+            text: "娱乐一条龙，玩high了再说",
             points: 0,
             next: {
                 text: "检察院找您喝茶，廉洁从业，干净做人",
@@ -129,7 +129,7 @@
                 next: "retry"
             }
         }, {
-            text: "约上其他不相干的同学一起AA聚餐，饭后坚决拒绝表达要做好人",
+            text: "约上其他同学AA聚餐，坚决拒绝表达要做好人",
             points: 10,
             next: "next_question"
         }]

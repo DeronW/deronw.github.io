@@ -160,8 +160,7 @@ function showIconograph(picture, next) {
 }
 
 function showEnd() {
-    var totalScore = refreshScore();
-    $(".section-end").css("top", 0).find(".total-score").text(totalScore);
+    $(".section-end").css("top", 0);
 }
 
 function postData() {
@@ -182,8 +181,10 @@ function postData() {
             position = currentPosition.coords.longitude + "," + currentPosition.coords.latitude
         });
     }
+
+    var totalScore = refreshScore();
     $.post("./", {
-        "score": refreshScore(),
+        "score": totalScore,
         "username": username,
         "company": company,
         "position": position
@@ -191,6 +192,7 @@ function postData() {
     }, "json");
 
     $(".post-data-panel").addClass("hide");
+    $(".section-end .total-score").text(totalScore);
 }
 
 // 有关微信分享

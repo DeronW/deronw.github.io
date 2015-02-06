@@ -159,7 +159,8 @@ body {
     margin: 0 5px;
     position: relative;
     top: 5px;
-    border-radius: 20px;
+    padding: 0 3px;
+    border-radius: 30px;
 
     -webkit-animation-name: glow;
     -webkit-animation-duration: 1s;
