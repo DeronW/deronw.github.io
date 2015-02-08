@@ -183,7 +183,17 @@ function postData() {
     }
 
     var totalScore = refreshScore();
-    $.post("./", {
+
+    $.post("http://120.24.226.80:8080/hends/commit", {
+        "score": totalScore,
+        "username": username,
+        "company": company,
+        "position": position
+    }, function (data) {
+        console.log(data)
+    }, "json");
+
+    $.post("http://120.24.226.80/questions/post", {
         "score": totalScore,
         "username": username,
         "company": company,
