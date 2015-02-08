@@ -191,6 +191,8 @@ function postData() {
         "position": position
     }, function (data) {
         console.log(data)
+        alert("感谢您的参与")
+        alert(data)
     }, "json");
 
     /*
