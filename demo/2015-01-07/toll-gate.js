@@ -152,7 +152,8 @@ function showIconograph(picture, next) {
                 showEnd();
             } else if (next == "retry") {
                 setTimeout(function () {
-                    window.location.reload()
+                    // window.location.reload()
+                    window.location.href = "http://mp.weixin.qq.com/s?__biz=MzA4NDQ2OTUyOA==&mid=204619279&idx=1&sn=b7008c5ebfa79c1c719cf343e85f0da1#rd"
                 }, 500)
             }
         });
@@ -190,20 +191,18 @@ function postData() {
         "company": company,
         "position": position
     }, function (data) {
-        console.log(data)
-        alert("感谢您的参与")
-        alert(data)
+        console.log(data);
     }, "json");
 
-    /*
-     $.post("http://120.24.226.80/questions/post", {
-     "score": totalScore,
-     "username": username,
-     "company": company,
-     "position": position
-     }, function (data) {
-     }, "json");
-     */
+    $.post("/update_score/", {
+        "score": totalScore,
+        "username": username,
+        "company": company,
+        "position": position
+    }, function (data) {
+        console.log(data);
+        alert("感谢您的参与");
+    }, "json");
 
     $(".post-data-panel").addClass("hide");
     $(".section-end .total-score").text(totalScore);
