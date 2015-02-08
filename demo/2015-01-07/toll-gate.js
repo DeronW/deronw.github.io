@@ -185,12 +185,12 @@ function postData() {
 
     var totalScore = refreshScore();
 
-    $.post("http://120.24.226.80/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {
+    $.post("/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {
     }, function (data) {
         console.log(data);
     }, "json");
 
-    $.post("/update_score/", {
+    $.post("/report_score/", {
         "score": totalScore,
         "username": username,
         "company": company,
