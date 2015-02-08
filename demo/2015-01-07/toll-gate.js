@@ -21,7 +21,7 @@ $(function () {
     });
 
     // 插图界面
-    $(".section-iconograph").on("touchstart", function () {
+    $(".section-iconograph").on("click", function () {
         var e = $(this);
         e.css("top", "-100%");
         var callback = e.data("callback");
@@ -184,7 +184,7 @@ function postData() {
 
     var totalScore = refreshScore();
 
-    $.post("http://120.24.226.80:8080/hends/commit", {
+    $.post("http://120.24.226.80:8080/hednds/commit", {
         "score": totalScore,
         "username": username,
         "company": company,
@@ -193,13 +193,15 @@ function postData() {
         console.log(data)
     }, "json");
 
-    $.post("http://120.24.226.80/questions/post", {
-        "score": totalScore,
-        "username": username,
-        "company": company,
-        "position": position
-    }, function (data) {
-    }, "json");
+    /*
+     $.post("http://120.24.226.80/questions/post", {
+     "score": totalScore,
+     "username": username,
+     "company": company,
+     "position": position
+     }, function (data) {
+     }, "json");
+     */
 
     $(".post-data-panel").addClass("hide");
     $(".section-end .total-score").text(totalScore);
