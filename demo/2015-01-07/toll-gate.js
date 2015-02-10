@@ -185,7 +185,7 @@ function postData() {
 
     var totalScore = refreshScore();
 
-    $.post("/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {
+    $.get("/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {
     }, function (data) {
         console.log(data);
     }, "json");
