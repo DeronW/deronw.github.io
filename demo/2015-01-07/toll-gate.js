@@ -176,7 +176,7 @@ function postData() {
         $("#company").focus();
         return;
     }
-    var position = "";
+    var position = "unknown";
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (currentPosition) {
             position = currentPosition.coords.longitude + "," + currentPosition.coords.latitude
