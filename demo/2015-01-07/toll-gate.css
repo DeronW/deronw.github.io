@@ -99,7 +99,17 @@ body {
     overflow: hidden;
 }
 
-.section-welcome img, .section-iconograph img {
+.section-welcome {
+    background: gold;
+}
+
+.section-welcome img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.section-iconograph img {
     width: 90%;
     display: block;
     margin: 0 auto;
@@ -434,6 +444,21 @@ body {
 
 .post-data-panel .input.m100 {
     margin-top: 100px;
+}
+
+.share-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.share-cover img {
+    display: block;
+    width: 100%;
 }
 
 @-webkit-keyframes glow {

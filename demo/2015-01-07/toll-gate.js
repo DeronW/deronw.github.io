@@ -16,8 +16,8 @@ setInterval(function () {
 
 $(function () {
     // 开始界面， 点击后自动上划隐藏
-    $(".section-welcome").click(function () {
-        $(this).css("top", "-100%")
+    $(".section-welcome a").click(function () {
+        $(this).parent().css("top", "-100%")
     });
 
     // 插图界面
@@ -32,14 +32,15 @@ $(function () {
     });
     //禁止弹出菜单
     document.documentElement.style.webkitTouchCallout = "none";
+
+    $("#btn-share").click(function () {
+        $(".share-cover").removeClass("hide")
+    })
 });
 
 $(function () {
     $(".section-0").addClass("active");
-
-    $(".btn-start, .section-0").on("touchstart", function () {
-        //$(".section-0").addClass("press-down")
-    }).on("touchend", function () {
+    $(".section-0 a").on("touchend", function () {
         $(".section-0").removeClass("press-down").addClass("top-out");
         // show question panel
         setTimeout(function () {
