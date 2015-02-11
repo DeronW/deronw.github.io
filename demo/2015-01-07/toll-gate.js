@@ -185,8 +185,7 @@ function postData() {
 
     var totalScore = refreshScore();
 
-    $.get("/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {
-    }, function (data) {
+    $.get("/hdnds/commit/" + totalScore + "/" + username + "/" + company + "/" + position, {}, function (data) {
         console.log(data);
     }, "json");
 
@@ -202,4 +201,7 @@ function postData() {
 
     $(".post-data-panel").addClass("hide");
     $(".section-end .total-score").text(totalScore);
+
+    // 改标题
+    document.title = '我在核电采购员大挑战中得了' + totalScore + '分，来看看你的？'
 }

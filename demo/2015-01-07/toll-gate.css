@@ -45,6 +45,7 @@ body {
     font-size: 20px;
     padding: 8px 0;
     outline: 0;
+    text-decoration: none;
 }
 
 .btn-primary.green {
@@ -143,22 +144,23 @@ body {
 
 .section-end {
     top: -100%;
-    background: #E8B95B;
+    background: white;
 }
 
 .section-end p {
     text-align: center;
     font-size: 22px;
-    margin-left: 10px;
-    margin-right: 10px;
+    -webkit-margin-before: 10px;
+    -webkit-margin-after: 10px;
+    margin: 10px;
 }
 
 .section-end .total-score {
-    color: blue;
+    color: #FED966;
     font-size: 36px;
     margin: 0 5px;
     position: relative;
-    top: 5px;
+    top: 7px;
     padding: 0 3px;
     border-radius: 30px;
 
@@ -184,32 +186,31 @@ body {
 
 .section-end .buttons .btn-primary {
     font-size: 14px;
-    width: 120px;
+    width: 200px;
     padding: 6px;
     height: 22px;
-}
-
-.section-end .buttons a:nth-child(1) {
-    float: left;
-    margin-left: 5%;
-}
-
-.section-end .buttons a:nth-child(2) {
-    float: right;
-    margin-right: 5%;
+    margin-top: 15px;
 }
 
 .section-end .score-banner {
-    color: white;
-    background: #6460E8;
+    color: #333;
+    /*background: #6460E8;*/
     width: 80%;
     display: block;
     margin: 20px auto;
-    /*text-shadow: 3px 3px 3px #A8E8E7;*/
+    /*
     box-shadow: 3px 3px 0px #4440a1;
     padding: 5px;
     border-radius: 4px;
     border: 1px solid #344098;
+    */
+}
+
+.section-end .score-graph {
+    background: #5A9BD5;
+    border-radius: 4px;
+    color: white;
+    padding: 1px 0 12px 0;
 }
 
 .section-0 img {
