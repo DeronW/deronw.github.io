@@ -139,7 +139,7 @@ function showIconograph(picture, next) {
     graph.find("img").remove();
     graph.append('<img src="' + picture + '">');
     if (next == "retry") {
-        $(".section-iconograph .btn-primary").removeClass("hide")
+        // $(".section-iconograph .btn-primary").removeClass("hide")
     } else {
         $(".section-iconograph .btn-primary").addClass("hide")
     }
