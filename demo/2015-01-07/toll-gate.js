@@ -21,7 +21,7 @@ $(function () {
     });
 
     // 插图界面
-    $(".section-iconograph").on("click", function () {
+    $(".section-iconograph").on("touchend", function () {
         var e = $(this);
         e.css("top", "-100%");
         var callback = e.data("callback");
@@ -156,6 +156,8 @@ function showIconograph(picture, next) {
                     // window.location.reload()
                     window.location.href = "http://mp.weixin.qq.com/s?__biz=MzA4NDQ2OTUyOA==&mid=204619279&idx=1&sn=b7008c5ebfa79c1c719cf343e85f0da1#rd"
                 }, 500)
+            } else {
+                // nothing to do
             }
         });
     }, 500);
