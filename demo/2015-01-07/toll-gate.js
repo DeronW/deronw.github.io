@@ -21,8 +21,8 @@ $(function () {
     });
 
     // 插图界面
-    $(".section-iconograph").on("touchend", function () {
-        var e = $(this);
+    $(".section-iconograph .btn-primary.continue").click(function () {
+        var e = $(this).parent();
         e.css("top", "-100%");
         var callback = e.data("callback");
         if (typeof callback === "function") {
@@ -138,10 +138,11 @@ function showIconograph(picture, next) {
     var graph = $(".section-iconograph");
     graph.find("img").remove();
     graph.append('<img src="' + picture + '">');
+    $(".section-iconograph .btn-primary").addClass("hide");
     if (next == "retry") {
-        // $(".section-iconograph .btn-primary").removeClass("hide")
+        $(".section-iconograph .btn-primary.retry").removeClass("hide")
     } else {
-        $(".section-iconograph .btn-primary").addClass("hide")
+        $(".section-iconograph .btn-primary.continue").removeClass("hide")
     }
     setTimeout(function () {
         $(".section-iconograph").css({
