@@ -1,0 +1,142 @@
+<head>
+    <style>
+        .clock {
+            width: 420px;
+            height: 420px;
+            position: relative;
+            border-radius: 50%;
+            background: #FFD24D;
+
+            margin: 50px;
+        }
+
+        .clock .center {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            left: 50%;
+            top: 50%;
+            margin-left: -40px;
+            margin-top: -40px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #FFD24D;
+            z-index: 1;
+        }
+
+        .clock .hour-pointer, .clock .minute-pointer {
+            width: 36px;
+            background: white;
+            border-radius: 36px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -18px;
+        }
+
+        .clock .hour-pointer {
+            height: 120px;
+            margin-top: -60px;
+        }
+
+        .clock .minute-pointer {
+            height: 180px;
+            margin-top: -90px;
+        }
+
+        .clock .hour-pointer.active, .clock .minute-pointer.active {
+            box-shadow: 0 0 18px #8384F8;
+        }
+
+        .clock .hour-pointer {
+            transform: rotate(60deg) translate(0px, -80px);
+        }
+
+        .clock .minute-pointer {
+            transform: rotate(300deg) translate(0px, -80px);
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div id="clock" class="clock">
+    <div class="center"></div>
+    <div class="hour-pointer"></div>
+    <div class="minute-pointer"></div>
+</div>
+
+<div style="font-size: 80px">
+    <span id="hour">00</span>:
+    <span id="minute">00</span>
+</div>
+
+<script>
+    var clock = document.getElementById('clock');
+    var hourPointer = document.querySelector('.hour-pointer');
+    var minutePointer = document.querySelector('.minute-pointer');
+    var selectedPointer;
+    //    var startPoint = {x: 0, y: 0};
+    var centerPoint = {x: clock.offsetWidth / 2 + clock.offsetLeft, y: clock.offsetHeight / 2 + clock.offsetTop};
+
+    clock.addEventListener('touchstart', function (event) {
+        if (event.target.className.indexOf('-pointer') > -1) {
+            hourPointer.className = 'hour-pointer';
+            minutePointer.className = 'minute-pointer';
+            event.target.className = event.target.className + ' active';
+            selectedPointer = event.target;
+        }
+    });
+
+    clock.addEventListener('touchmove', function (event) {
+        if (!selectedPointer) return;
+        var c = centerPoint, t = event.changedTouches[0], x = t.pageX, y = t.pageY;
+        if (x == c.x || y == c.y) return;
+        var baseDeg;
+        if (x > c.x && y < c.y) {
+            baseDeg = 0
+        } else if (x > c.x && y > c.y) {
+            baseDeg = -180
+        } else if (x < c.x && y > c.y) {
+            baseDeg = 180
+        } else {
+            baseDeg = -360
+        }
+        var deg = Math.atan(Math.abs(x - c.x) / Math.abs(y - c.y)) / (2 * Math.PI) * 360;
+        console.log(deg)
+        selectedPointer.style.transform = 'rotate(' + Math.abs(baseDeg + deg) + 'deg)' + ' translate(0px, -80px)';
+    });
+
+    clock.addEventListener('touchend', function (event) {
+        if (!selectedPointer) return;
+        var deg = selectedPointer.style.transform.match(/\d+/)[0];
+        console.log(deg);
+        if (selectedPointer.className.indexOf('hour-pointer') > -1)
+            setHour(deg);
+        if (selectedPointer.className.indexOf('minute-pointer') > -1)
+            setMinute(deg);
+
+        selectedPointer = null;
+        console.log('end')
+    });
+
+    function setMinute(deg) {
+        var t = Math.round(deg / 6);
+        if (t >= 60) t = 0;
+        document.getElementById('minute').innerText = lstrip(t);
+    }
+
+    function setHour(deg) {
+        var t = Math.round(deg * 12 / 360);
+        document.getElementById('hour').innerText = lstrip(t);
+    }
+
+    function lstrip(t) {
+        t = parseInt(t);
+        if (t >= 10) return t;
+        return '0' + t;
+    }
+
+</script>
+</body>
