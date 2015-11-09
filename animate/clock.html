@@ -1,169 +1,176 @@
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <style>
-        .clock {
-            width: 420px;
-            height: 420px;
-            position: relative;
-            border-radius: 50%;
-            background: #FFD24D;
-
-            margin: 50px;
-        }
-
-        .clock .center {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            left: 50%;
-            top: 50%;
-            margin-left: -40px;
-            margin-top: -40px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #FFD24D;
-            z-index: 1;
-        }
-
-        .clock .hour-pointer, .clock .minute-pointer {
-            width: 36px;
-            background: white;
-            border-radius: 36px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            margin-left: -18px;
-        }
-
-        .clock .hour-pointer {
-            height: 120px;
-            margin-top: -60px;
-        }
-
-        .clock .minute-pointer {
-            height: 180px;
-            margin-top: -90px;
-        }
-
-        .clock .hour-pointer.active, .clock .minute-pointer.active {
-            box-shadow: 0 0 18px #8384F8;
-        }
-
-        .clock .hour-pointer {
-            transform: rotate(300deg) translate(0px, -80px);
-        }
-
-        .clock .minute-pointer {
-            transform: rotate(60deg) translate(0px, -80px);
-        }
     </style>
 
 </head>
 
 <body>
 
-<div id="clock" class="clock">
-    <div class="center"></div>
-    <div class="hour-pointer"></div>
-    <div class="minute-pointer"></div>
-</div>
+<div id="clock"></div>
 
-<div style="font-size: 80px">
+<div style="font-size: 60px">
     <span id="hour">10</span>:
     <span id="minute">10</span>
 </div>
 
 <script>
-    alert('use mobile device check this');
+    function TouchClock(options) {
+        this.options = options;
+        this.hourText = 10;
+        this.minuteText = 10;
+        this.timeRange = 'AM';
+        this.clock = TouchClock.setupClock.call(this);
+        TouchClock.appendCenter.call(this);
 
-    var clock = document.getElementById('clock');
-    var hourPointer = document.querySelector('.hour-pointer');
-    var minutePointer = document.querySelector('.minute-pointer');
-    var selectedPointer;
-    //    var startPoint = {x: 0, y: 0};
-    var centerPoint = {x: clock.offsetWidth / 2 + clock.offsetLeft, y: clock.offsetHeight / 2 + clock.offsetTop};
+        var pointerCss = ' width: 36px; background: white; border-radius: 36px; position: absolute; left: 50%; top: 50%; margin-left: -18px; ';
 
-    clock.addEventListener('touchstart', function (event) {
-        if (event.target.className.indexOf('-pointer') > -1) {
-            hourPointer.className = 'hour-pointer';
-            minutePointer.className = 'minute-pointer';
-            event.target.className = event.target.className + ' active';
-            selectedPointer = event.target;
+        this.hourPointer = TouchClock.appendHourPointer.call(this, pointerCss);
+        this.minutePointer = TouchClock.appendMinutePointer.call(this, pointerCss);
+
+        this.selectedPointer = null;
+        this.centerPoint = {x: clock.offsetWidth / 2 + clock.offsetLeft, y: clock.offsetHeight / 2 + clock.offsetTop};
+        TouchClock.listenTouchStart.call(this);
+        TouchClock.listenTouchMove.call(this);
+        TouchClock.listenTouchEnd.call(this);
+    }
+
+    TouchClock.setupClock = function () {
+        var clock = document.getElementById(this.options.clock);
+        clock.innerHTML = '';
+        clock.style.cssText = 'position: relative; border-radius: 50%; background: #FFD24D;';
+        clock.style.width = this.options.width + 'px';
+        clock.style.height = this.options.height + 'px';
+        clock.style.margin = '50px';
+        return clock;
+    };
+
+    TouchClock.appendCenter = function () {
+        var center = document.createElement('div');
+        center.style.cssText = ' position: absolute; left: 50%; top: 50%; margin-left: -35px; margin-top: -35px; background: white; border-radius: 50%; box-shadow: 0 0 10px #FFD24D; z-index: 1;';
+        center.style.width = this.options.width / 6 + 'px';
+        center.style.height = this.options.height / 6 + 'px';
+        this.clock.appendChild(center);
+    };
+
+    TouchClock.appendHourPointer = function (css) {
+        var pointer = document.createElement('div');
+        pointer.style.cssText = css;
+        pointer.style.height = this.options.height / 7 * 2 + 'px';
+        pointer.style.marginTop = -this.options.height / 7 + 'px';
+        pointer.style.transform = 'rotate(300deg) translate(0px, -80px)';
+        this.clock.appendChild(pointer);
+        return pointer;
+    };
+
+    TouchClock.appendMinutePointer = function (css) {
+        pointer = document.createElement('div');
+        pointer.style.cssText = css;
+        pointer.style.height = this.options.height / 7 * 3 + 'px';
+        pointer.style.marginTop = -this.options.height / 7 * 3 / 2 + 'px';
+        pointer.style.transform = 'rotate(60deg) translate(0px, -80px)';
+        this.clock.appendChild(pointer);
+        return pointer;
+    };
+
+    TouchClock.listenTouchStart = function () {
+        this.clock.addEventListener('touchstart', function (event) {
+            if (event.target == this.hourPointer || event.target == this.minutePointer) {
+                this.selectedPointer = event.target;
+                this.selectedPointer.style.boxShadow = '0 0 22px white';
+            }
+        }.bind(this));
+    };
+
+    TouchClock.listenTouchMove = function () {
+        this.clock.addEventListener('touchmove', function (event) {
+            event.preventDefault();
+            if (!this.selectedPointer) return;
+            var c = this.centerPoint, t = event.changedTouches[0], x = t.pageX, y = t.pageY;
+
+            if (x == c.x || y == c.y) return;
+
+            var baseDeg;
+            if (x > c.x && y < c.y) {
+                baseDeg = 0
+            } else if (x > c.x && y > c.y) {
+                baseDeg = -180
+            } else if (x < c.x && y > c.y) {
+                baseDeg = 180
+            } else {
+                baseDeg = -360
+            }
+
+            var deg = Math.atan(Math.abs(x - c.x) / Math.abs(y - c.y)) / (2 * Math.PI) * 360;
+            this.setTime(Math.abs(baseDeg + deg));
+            this.selectedPointer.style.transform = 'rotate(' + Math.abs(baseDeg + deg) + 'deg)' + ' translate(0px, -80px)';
+            this.options.callback && this.options.callback(this.hourText, this.minuteText);
+        }.bind(this));
+    };
+
+    TouchClock.listenTouchEnd = function () {
+        this.clock.addEventListener('touchend', function () {
+            if (!this.selectedPointer) return;
+            this.selectedPointer.style.boxShadow = null;
+            this.selectedPointer = null;
+        }.bind(this));
+    };
+
+    TouchClock.prototype = {
+
+        setTime: function (deg) {
+            if (this.selectedPointer == this.hourPointer) this.setHour(deg);
+            if (this.selectedPointer == this.minutePointer) this.setMinute(deg);
+        },
+
+        setMinute: function (deg) {
+            var t = Math.round(deg / 6);
+            if (t >= 60) t = 0;
+            this.minuteText = this.lstrip(t);
+        },
+
+        setHour: function (deg) {
+            var t = Math.floor(deg * 12 / 360);
+            this.setTimeRange(this.hourText, t);
+            this.hourText = this.lstrip(this.getTimeOffset() + t);
+        },
+
+        setTimeRange: function (currentHour, nextHour) {
+            var tr;
+            currentHour = parseInt(currentHour);
+            if (currentHour == 11 && nextHour == 0) {
+                tr = 'PM'
+            } else if (currentHour == 23 && nextHour == 0) {
+                tr = 'AM'
+            } else if (currentHour == 0 && nextHour == 11) {
+                tr = 'PM'
+            } else if (currentHour == 12 && nextHour == 11) {
+                tr = 'AM'
+            }
+            if (tr) this.timeRange = tr;
+        },
+
+        getTimeOffset: function () {
+            return this.timeRange == 'AM' ? 0 : 12;
+        },
+
+        lstrip: function (t) {
+            t = parseInt(t);
+            if (t >= 10) return t;
+            return '0' + t;
         }
-    });
+    };
 
-    clock.addEventListener('touchmove', function (event) {
-        event.preventDefault();
-        if (!selectedPointer) return;
-        var c = centerPoint, t = event.changedTouches[0], x = t.pageX, y = t.pageY;
-        if (x == c.x || y == c.y) return;
-        var baseDeg;
-        if (x > c.x && y < c.y) {
-            baseDeg = 0
-        } else if (x > c.x && y > c.y) {
-            baseDeg = -180
-        } else if (x < c.x && y > c.y) {
-            baseDeg = 180
-        } else {
-            baseDeg = -360
+    new TouchClock({
+        clock: 'clock',
+        width: 420,
+        height: 420,
+        callback: function (hour, minute) {
+            console.log(hour, minute);
+            document.getElementById('hour').innerText = hour;
+            document.getElementById('minute').innerText = minute;
         }
-        var deg = Math.atan(Math.abs(x - c.x) / Math.abs(y - c.y)) / (2 * Math.PI) * 360;
-        setTime(Math.abs(baseDeg + deg));
-        selectedPointer.style.transform = 'rotate(' + Math.abs(baseDeg + deg) + 'deg)' + ' translate(0px, -80px)';
-    });
-
-    clock.addEventListener('touchend', function () {
-        if (!selectedPointer) return;
-        selectedPointer = null;
-    });
-
-    function setTime(deg) {
-        if (selectedPointer.className.indexOf('hour-pointer') > -1)
-            setHour(deg);
-        if (selectedPointer.className.indexOf('minute-pointer') > -1)
-            setMinute(deg);
-    }
-
-    function setMinute(deg) {
-        var t = Math.round(deg / 6);
-        if (t >= 60) t = 0;
-        document.getElementById('minute').innerText = lstrip(t);
-    }
-
-    function setHour(deg) {
-        var t = Math.floor(deg * 12 / 360);
-        var e = document.getElementById('hour');
-        setTimeRange(e.innerText, t);
-        e.innerText = lstrip(getTimeOffset() + t);
-    }
-
-    function setTimeRange(currentHour, nextHour) {
-        if (!clock.getAttribute('data-time-range')) clock.setAttribute('data-time-range', 'AM');
-        var tr;
-        currentHour = parseInt(currentHour);
-        if (currentHour == 11 && nextHour == 0) {
-            tr = 'PM'
-        } else if (currentHour == 23 && nextHour == 0) {
-            tr = 'AM'
-        } else if (currentHour == 0 && nextHour == 11) {
-            tr = 'PM'
-        } else if (currentHour == 12 && nextHour == 11) {
-            tr = 'AM'
-        }
-        if (tr) clock.setAttribute('data-time-range', tr);
-    }
-
-    function getTimeOffset() {
-        return clock.getAttribute('data-time-range') == 'AM' ? 0 : 12;
-    }
-
-    function lstrip(t) {
-        t = parseInt(t);
-        if (t >= 10) return t;
-        return '0' + t;
-    }
-
+    })
 </script>
+
 </body>
