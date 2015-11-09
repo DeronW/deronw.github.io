@@ -1,4 +1,7 @@
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         .clock {
             width: 420px;
@@ -49,11 +52,11 @@
         }
 
         .clock .hour-pointer {
-            transform: rotate(60deg) translate(0px, -80px);
+            transform: rotate(300deg) translate(0px, -80px);
         }
 
         .clock .minute-pointer {
-            transform: rotate(300deg) translate(0px, -80px);
+            transform: rotate(60deg) translate(0px, -80px);
         }
     </style>
 
@@ -68,11 +71,13 @@
 </div>
 
 <div style="font-size: 80px">
-    <span id="hour">00</span>:
-    <span id="minute">00</span>
+    <span id="hour">10</span>:
+    <span id="minute">10</span>
 </div>
 
 <script>
+    alert('use mobile device check this');
+
     var clock = document.getElementById('clock');
     var hourPointer = document.querySelector('.hour-pointer');
     var minutePointer = document.querySelector('.minute-pointer');
@@ -90,6 +95,7 @@
     });
 
     clock.addEventListener('touchmove', function (event) {
+        event.preventDefault();
         if (!selectedPointer) return;
         var c = centerPoint, t = event.changedTouches[0], x = t.pageX, y = t.pageY;
         if (x == c.x || y == c.y) return;
@@ -104,22 +110,21 @@
             baseDeg = -360
         }
         var deg = Math.atan(Math.abs(x - c.x) / Math.abs(y - c.y)) / (2 * Math.PI) * 360;
-        console.log(deg)
+        setTime(Math.abs(baseDeg + deg));
         selectedPointer.style.transform = 'rotate(' + Math.abs(baseDeg + deg) + 'deg)' + ' translate(0px, -80px)';
     });
 
-    clock.addEventListener('touchend', function (event) {
+    clock.addEventListener('touchend', function () {
         if (!selectedPointer) return;
-        var deg = selectedPointer.style.transform.match(/\d+/)[0];
-        console.log(deg);
+        selectedPointer = null;
+    });
+
+    function setTime(deg) {
         if (selectedPointer.className.indexOf('hour-pointer') > -1)
             setHour(deg);
         if (selectedPointer.className.indexOf('minute-pointer') > -1)
             setMinute(deg);
-
-        selectedPointer = null;
-        console.log('end')
-    });
+    }
 
     function setMinute(deg) {
         var t = Math.round(deg / 6);
@@ -128,8 +133,30 @@
     }
 
     function setHour(deg) {
-        var t = Math.round(deg * 12 / 360);
-        document.getElementById('hour').innerText = lstrip(t);
+        var t = Math.floor(deg * 12 / 360);
+        var e = document.getElementById('hour');
+        setTimeRange(e.innerText, t);
+        e.innerText = lstrip(getTimeOffset() + t);
+    }
+
+    function setTimeRange(currentHour, nextHour) {
+        if (!clock.getAttribute('data-time-range')) clock.setAttribute('data-time-range', 'AM');
+        var tr;
+        currentHour = parseInt(currentHour);
+        if (currentHour == 11 && nextHour == 0) {
+            tr = 'PM'
+        } else if (currentHour == 23 && nextHour == 0) {
+            tr = 'AM'
+        } else if (currentHour == 0 && nextHour == 11) {
+            tr = 'PM'
+        } else if (currentHour == 12 && nextHour == 11) {
+            tr = 'AM'
+        }
+        if (tr) clock.setAttribute('data-time-range', tr);
+    }
+
+    function getTimeOffset() {
+        return clock.getAttribute('data-time-range') == 'AM' ? 0 : 12;
     }
 
     function lstrip(t) {
