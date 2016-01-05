@@ -39,18 +39,56 @@ function getDateCN(){
 
         getInitialState: function(){
             return {
+                frame: 1
             }
+        },
+
+        nextFrameHandler: function(){
+            this.setState({frame: this.state.frame + 1})
         },
 
         render: function(){
             return React.DOM.div({},
-                React.createElement(Content.DateTime, null),
-                React.createElement(Content.PushedMessage, null)
-                );
+                (this.state.frame == 1 ? React.createElement(Content.Frame1, {callback: this.nextFrameHandler}) : null),
+                (this.state.frame == 2 ? React.createElement(Content.Frame2, {callback: this.nextFrameHandler}) : null)
+                )
         }
     });
 
-    Content.DateTime = React.createClass({
+    Content.Frame2 = React.createClass({
+        render: function(){
+            return React.DOM.div({
+                    className: "frame2"
+                }, 
+                React.DOM.div({className: "keyboard"}, 
+                    React.DOM.div({className: ""}, 
+                        React.DOM.img({className: "", src: "images/icon-camera2.png"}, null),
+                        React.DOM.div({className: "type-in"}, 
+                            React.DOM.input({className: ""}, null)
+                            ),
+                        React.DOM.div({className: "btn-send"}, "SEND")
+                        )
+                    )
+            )
+        }
+    });
+
+    Content.Frame1 = React.createClass({
+
+        render: function(){
+            return React.DOM.div({
+                    className: "frame1"
+                },
+                React.createElement(Content.Frame1.DateTime, null),
+                React.createElement(Content.Frame1.PushedMessage, {
+                    callback: this.props.callback
+                })
+                );
+        }
+
+    });
+
+    Content.Frame1.DateTime = React.createClass({
 
         getInitialState: function(){
             return {
@@ -67,7 +105,7 @@ function getDateCN(){
         }
     });
 
-    Content.PushedMessage = React.createClass({
+    Content.Frame1.PushedMessage = React.createClass({
         getInitialState: function(){
             this.messages = [ {
                     title: "老大",
@@ -80,34 +118,40 @@ function getDateCN(){
                     text: "还是老妈的菜好吃"
                 }
             ].reverse();
-            this.touchedMsg = null;
+            this.touchedIndex = null;
             this.offsetLeft = null;
 
             return {
-                messages: [],
-                touchedOffset: null
+                messages: []
             }
         },
 
-        rightTouchStartHandler: function(event){
-            this.touchedMsg = event.target;
+        rightTouchStartHandler: function(event, index){
+            this.touchedIndex = index;
             this.offsetLeft = event.touches[0].clientX;
         },
 
-        rightTouchEndHandler: function(event){
-            this.nextFrameHandler()
-        },
-
         rightTouchMoveHandler: function(event){
-            if(!this.touchedMsg) return;
+            if(this.touchedIndex === null) return;
             var offset = event.touches[0].clientX - this.offsetLeft;
-            console.log(offset);
-                console.log(this.touchedMsg);
-            this.setState({touchedOffset: offset});
+            if(offset < 1) return;
+            var m = this.state.messages;
+            m[this.touchedIndex].offset = offset;
+            this.setState({messages: m});
         },
 
-        nextFrameHandler: function(){
+        lockTouchStartHandler: function(event){
+            this.lockOffsetLeft = event.touches[0].clientX;
+        },
 
+        lockTouchMoveHandler: function(event){
+            var offset = event.touches[0].clientX - this.lockOffsetLeft;
+            if(offset < 1) return;
+            this.setState({lockBtnOffset: offset})
+        },
+
+        touchEndHandler: function(){
+            this.props.callback()
         },
 
         tick: function(){
@@ -122,10 +166,13 @@ function getDateCN(){
         },
 
         render: function(){
+            var _this = this;
             var messageTip = function(item, index){
                 return React.DOM.div({
                         className: "msg",
-                        style: { left: item.offset+'px' }
+                        style: { left: item.offset+'px' },
+                        onTouchStart: function(event){_this.rightTouchStartHandler(event, index)},
+                        onTouchEnd: _this.touchEndHandler
                     },
                    React.DOM.div({className: "from"}, item.title, '现在'),
                    React.DOM.div({className: "text"}, item.text),
@@ -135,12 +182,18 @@ function getDateCN(){
 
             return React.DOM.div({
                     className: "pushed-msg-list",
-                    onTouchStart: this.rightTouchStartHandler,
                     onTouchMove: this.rightTouchMoveHandler
                 },
                 this.state.messages.map(messageTip),
-                React.DOM.div({className: "unlock"},
-                    React.DOM.div({className: "unlock-btn"}, '滑动来解锁')
+                    React.DOM.div({
+                        className: "unlock",
+                        style: { left: this.state.lockBtnOffset+'px' },
+                        onTouchStart: this.lockTouchStartHandler,
+                        onTouchMove: this.lockTouchMoveHandler,
+                        onTouchEnd: this.touchEndHandler
+                    },
+                    React.DOM.div({className: "unlock-btn"}, '滑动来解锁'),
+                    React.DOM.img({className: "camera-btn", src: "images/icon-camera.png"}, null)
                     )
                 )
         }

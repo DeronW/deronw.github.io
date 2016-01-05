@@ -9,10 +9,19 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #161618;
     overflow-x: hidden;
 }
+.container > div {
+    width: 100%;
+    height: 100%;
+}
 
+
+.frame1 {
+    background-color: #161618;
+    height: 100%;
+    padding-top: 10px;
+}
 
 .date-time {
     margin-top: 35px;
@@ -65,7 +74,7 @@ body {
 
 .unlock {
     position: fixed;
-    bottom: 50px;
+    bottom: 100px;
     width: 100%;
     height: 50px;
 }
@@ -83,4 +92,57 @@ body {
     width: 266px;
     margin-left: -133px;
 }
+.camera-btn {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+}
 
+
+
+.frame2 .keyboard {
+    width: 100%;
+    position: fixed;
+    height: 524px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f4f4f6 url(images/keyboard.png) 0 100% no-repeat;
+    border-top: 1px solid #c3c3c5;
+}
+
+.frame2 .keyboard img {
+    display: block;
+    float: left;
+    margin-top: 17px;
+    margin-left: 8px;
+}
+
+.frame2 .type-in {
+    display: block;
+    margin-left: 10px;
+width: 540px;
+height: 55px;
+border: 1px solid #abadb2;
+border-radius: 10px;
+float: left;
+margin: 14px 0 0 19px;
+background-color: #fff;
+padding: 4px 12px;
+line-height: 40px;
+font-size: 34px;
+position: relative;
+}
+
+.frame2 .btn-send {
+    display: block;
+    height: 56px;
+    margin-top: 17px;
+    margin-right: 8px;
+float: right;
+width: 90px;
+font-size: 30px;
+color: #acacac;
+text-align: center;
+line-height: 56px;
+}
