@@ -133,16 +133,61 @@ line-height: 40px;
 font-size: 34px;
 position: relative;
 }
+.frame2 .type-in input{
+    height: 42px;
+    border: 0;
+    outline: none;
+}
 
 .frame2 .btn-send {
     display: block;
     height: 56px;
     margin-top: 17px;
     margin-right: 8px;
-float: right;
-width: 90px;
-font-size: 30px;
-color: #acacac;
-text-align: center;
-line-height: 56px;
+    float: right;
+    width: 90px;
+    font-size: 30px;
+    color: #acacac;
+    text-align: center;
+    line-height: 56px;
+}
+
+.frame2 .chatroom .receive,
+.frame2 .chatroom .send {
+    width: 60%;
+    position: relative;
+    float: left;
+    background: #efefef;
+    border-radius: 8px;
+    color: #666;
+
+    font-size: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.frame2 .chatroom .receive .tail,
+.frame2 .chatroom .send .tail{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    margin-top: -12px;
+    left: -10px;
+    background: #efefef;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+
+.frame2 .chatroom .send {
+    float: right;
+    margin-right: 20px;
+    background: #10ef10;
+}
+
+.frame2 .chatroom .send .tail{
+    left: auto;
+    right: -10px;
+    background: #10ef10;
 }

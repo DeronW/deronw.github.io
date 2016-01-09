@@ -56,19 +56,55 @@ function getDateCN(){
     });
 
     Content.Frame2 = React.createClass({
+
+        getInitialState: function(){
+            this.backup = [
+            "a", "b", "c", "d"
+            ];
+
+            return {
+                messages: [],
+                mine_messages: []
+            }
+        },
+
+        appendMessage: function(){
+            if(this.backup.length < 1) {
+                clearInterval(this.tick);
+                this.setState({mine_messages: ["from me"]})
+                return
+            }
+            this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
+        },
+
+        componentDidMount: function(){
+            this.tick = setInterval(this.appendMessage, 1000)
+        },
+
         render: function(){
             return React.DOM.div({
                     className: "frame2"
-                }, 
-                React.DOM.div({className: "keyboard"}, 
-                    React.DOM.div({className: ""}, 
+                },
+                React.DOM.div({className: "keyboard"},
+                    React.DOM.div({className: ""},
                         React.DOM.img({className: "", src: "images/icon-camera2.png"}, null),
-                        React.DOM.div({className: "type-in"}, 
+                        React.DOM.div({className: "type-in"},
                             React.DOM.input({className: ""}, null)
                             ),
                         React.DOM.div({className: "btn-send"}, "SEND")
                         )
-                    )
+                    ),
+
+                React.DOM.div({className: "chatroom"},
+                    this.state.mine_messages.map(function(item, index){
+                        return React.DOM.div({key: index, className: "send"}, 
+                            React.DOM.div({className: 'tail'}, null), item);
+                    }),
+                    this.state.messages.map(function(item, index){
+                        return React.DOM.div({key: index, className: "receive"}, 
+                            React.DOM.div({className: 'tail'}, null), item);
+                    })
+                )
             )
         }
     });
