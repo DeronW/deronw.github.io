@@ -191,3 +191,43 @@ position: relative;
     right: -10px;
     background: #10ef10;
 }
+
+@keyframes p-chat-input{
+    0%{opacity:0}
+    50%{opacity:1}
+    100%{opacity:0}
+}
+.frame2 .focus {
+    width: 138px;
+    height: 138px;
+    position: absolute;
+    left: 50%;
+    background: url('images/focus.png');
+    animation: p-chat-input 2s infinite;
+}
+
+.frame3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(http://shushuo.baidu.com/act/zqrabzdd/images/p-video-1-bg.d3d741ff.jpg)
+}
+.frame3 .caller-name {
+    margin-top: 300px;
+    font-size: 60px;
+    text-align: center;
+}
+.frame3 .caller-way {
+    margin-top: 50px;
+    font-size: 40px;
+    text-align: center;
+}
+.frame3 .accept {
+    position: absolute;
+    width: 183px;
+    height: 171px;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -91px;
+    background: url(images/btn-on.png)
+}

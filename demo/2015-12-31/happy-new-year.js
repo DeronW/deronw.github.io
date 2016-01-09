@@ -38,9 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return {
-                frame: 1
-            }
+            return { frame: 1 }
         },
 
         nextFrameHandler: function(){
@@ -50,8 +48,26 @@ function getDateCN(){
         render: function(){
             return React.DOM.div({},
                 (this.state.frame == 1 ? React.createElement(Content.Frame1, {callback: this.nextFrameHandler}) : null),
-                (this.state.frame == 2 ? React.createElement(Content.Frame2, {callback: this.nextFrameHandler}) : null)
+                (this.state.frame == 2 ? React.createElement(Content.Frame2, {callback: this.nextFrameHandler}) : null),
+                (this.state.frame == 3 ? React.createElement(Content.Frame3, {callback: this.nextFrameHandler}) : null),
+                (this.state.frame == 4 ? React.createElement(Content.Frame4, {callback: this.nextFrameHandler}) : null)
                 )
+        }
+    });
+
+    Content.Frame4 = React.createClass({
+        render: function(){
+            return React.DOM.div({className: "frame4"}, "frame4")
+        }
+    });
+
+    Content.Frame3 = React.createClass({
+        render: function(){
+            return React.DOM.div({className: "frame3"},
+                    React.DOM.div({className: "caller-name"}, "Robin"),
+                    React.DOM.div({className: "caller-way"}, "face time"),
+                    React.DOM.div({className: "accept", onClick: this.props.callback}, null)
+                );
         }
     });
 
@@ -63,6 +79,7 @@ function getDateCN(){
             ];
 
             return {
+                focus: false,
                 messages: [],
                 mine_messages: []
             }
@@ -71,7 +88,10 @@ function getDateCN(){
         appendMessage: function(){
             if(this.backup.length < 1) {
                 clearInterval(this.tick);
-                this.setState({mine_messages: ["from me"]})
+                this.setState({
+                    mine_messages: ["from me"],
+                    focus: true
+                })
                 return
             }
             this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
@@ -92,16 +112,17 @@ function getDateCN(){
                             React.DOM.input({className: ""}, null)
                             ),
                         React.DOM.div({className: "btn-send"}, "SEND")
-                        )
+                        ),
+                        this.state.focus ? React.DOM.div({className: "focus", onClick:this.props.callback}, null) : null
                     ),
 
                 React.DOM.div({className: "chatroom"},
                     this.state.mine_messages.map(function(item, index){
-                        return React.DOM.div({key: index, className: "send"}, 
+                        return React.DOM.div({key: index, className: "send"},
                             React.DOM.div({className: 'tail'}, null), item);
                     }),
                     this.state.messages.map(function(item, index){
-                        return React.DOM.div({key: index, className: "receive"}, 
+                        return React.DOM.div({key: index, className: "receive"},
                             React.DOM.div({className: 'tail'}, null), item);
                     })
                 )
