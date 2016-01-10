@@ -178,9 +178,7 @@ function getDateCN(){
             this.touchedIndex = null;
             this.offsetLeft = null;
 
-            return {
-                messages: []
-            }
+            return { messages: [] }
         },
 
         rightTouchStartHandler: function(event, index){
@@ -214,7 +212,8 @@ function getDateCN(){
         tick: function(){
             if(this.messages.length <= 1) clearInterval(this.interval);
             var m = this.state.messages;
-            m.push(this.messages.pop())
+            m.push(this.messages.pop());
+document.getElementById("audioRing").play();
             this.setState({messages: m.reverse()})
         },
 
