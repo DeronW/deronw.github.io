@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 3 }
+            return { frame: 1 }
         },
 
         nextFrameHandler: function(){
@@ -50,14 +50,26 @@ function getDateCN(){
                 (this.state.frame == 1 ? React.createElement(Content.Frame1, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 2 ? React.createElement(Content.Frame2, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 3 ? React.createElement(Content.Frame3, {callback: this.nextFrameHandler}) : null),
-                (this.state.frame == 4 ? React.createElement(Content.Frame4, {callback: this.nextFrameHandler}) : null)
+                (this.state.frame == 4 ? React.createElement(Content.Frame4, {callback: this.nextFrameHandler}) : null),
+                (this.state.frame == 5 ? React.createElement(Content.Frame5, {callback: this.nextFrameHandler}) : null),
+                (this.state.frame == 6 ? React.createElement(Content.Frame6, {callback: this.nextFrameHandler}) : null)
                 )
         }
     });
 
+    Content.Frame6 = React.createClass({
+        render: function(){
+            return React.DOM.div({className: "frame6"},
+                    React.DOM.img({src: ""})
+                )
+        }
+    })
+
     Content.Frame5 = React.createClass({
         render: function(){
-            return React.DOM.div({className: "frame5"}, "中国核电祝各位新年快乐，阖家团圆。向春节期间坚守岗位的员工致敬。")
+            return React.DOM.div({className: "frame5"},
+                React.DOM.img({src: "images/greeting.jpg"})
+                )
         }
     });
 
@@ -75,7 +87,7 @@ function getDateCN(){
         render: function(){
             return React.DOM.div({className: "frame4"},
                     React.DOM.div({className: "caller-name"}, "陈桦"),
-                    React.DOM.div({className: "caller-way"}, "中国核 总经理"),
+                    React.DOM.div({className: "caller-way"}, "中国核电 总经理"),
                     (this.state.talking ? null : React.DOM.div({className: "accept", onClick: this.acceptHandler}, null)),
                     (this.state.talking ?
                      React.DOM.div({className: "talking"},
@@ -95,30 +107,48 @@ function getDateCN(){
                  offset: 0
             }
         },
+
         nextFrame: function(){
             document.getElementById("audioWexinRing").play();
             this.props.callback();
         },
+
         tick: function(){
-            if(this.state.offset < -3000){
+            console.log(this.state.offset)
+            if(this.state.offset <= -3000){
                 clearInterval(this.interval);
             } else {
                 this.setState({offset: this.state.offset - 2});
             }
         },
+
         componentDidMount: function(){
-            this.interval = setInterval(this.tick, 20)
+            setTimeout(function(){
+                this.interval = setInterval(this.tick, 20)
+            }.bind(this), 1000)
         },
+
         render: function(){
             return React.DOM.div({className: "frame3"},
                 React.DOM.div({className: "event-panel", style: {left: this.state.offset + "px"}},
-                    React.DOM.div({}, 1),
-                    React.DOM.div({}, 2),
-                    React.DOM.div({}, 3),
-                    React.DOM.div({}, 4),
-                    React.DOM.div({},
+                    React.DOM.div({className: "bg-lv"},
+                        React.DOM.img({src: "images/hui_gu_1.jpg"})
+                        ),
+                    React.DOM.div({className: "bg-lan"},
+                        React.DOM.img({src: "images/hui_gu_2.jpg"})
+                        ),
+                    React.DOM.div({className: "bg-qing"},
+                        React.DOM.img({src: "images/hui_gu_3.jpg"})
+                        ),
+                    React.DOM.div({className: "bg-huang"},
+                        React.DOM.img({src: "images/hui_gu_4.jpg"})
+                        ),
+                    React.DOM.div({className: "summary"},
                         '这一年，中国核电好消息确实多啊',
-                        React.DOM.button({onClick: this.nextFrame}, "Next")
+                        React.DOM.br(),
+                        React.DOM.div({className: "more", onClick: this.nextFrame},
+                            React.DOM.div({className: "focus"}, null),
+                            "更多消息")
                         )
                 )
             )
@@ -177,7 +207,8 @@ function getDateCN(){
         },
 
         componentDidMount: function(){
-            this.tick = setInterval(this.appendMessage, 1000)
+            this.appendMessage();
+            this.tick = setInterval(this.appendMessage, 3000)
         },
 
         render: function(){
