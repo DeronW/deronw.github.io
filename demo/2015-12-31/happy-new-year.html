@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=750,user-scalable=0">
 <title>核伙人</title>
 <link rel="stylesheet" href="happy-new-year.css" />
-<script src="react-0.14.5/react.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="react-0.14.5/react-with-addons.min.js"></script>
 <script src="react-0.14.5/react-dom.min.js"></script>
 </head>
 
 <body>
 <div id="container" class="container"></div>
-<audio id="audioDing" src="audio/ding.mp3" preload></audio>
-<audio id="audioWexinRing" src="audio/wexin-ring.mp3" preload></audio>
 
-<audio id="audioDing" src="audio/ding.mp3" autoplay="autoplay"></audio>
+<audio id="audioDing" src="audio/ding.mp3" preload></audio>
+<audio id="audioWexinRing" src="audio/wexin-ring.mp3" preload loop></audio>
+<audio id="greeting" src="audio/greeting.mp3" preload></audio>
 
 <script src="happy-new-year.js"></script>
 </body>

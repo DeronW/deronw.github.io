@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 1 }
+            return { frame: 3 }
         },
 
         nextFrameHandler: function(){
@@ -55,27 +55,109 @@ function getDateCN(){
         }
     });
 
-    Content.Frame4 = React.createClass({
+    Content.Frame5 = React.createClass({
         render: function(){
-            return React.DOM.div({className: "frame4"}, "frame4")
+            return React.DOM.div({className: "frame5"}, "中国核电祝各位新年快乐，阖家团圆。向春节期间坚守岗位的员工致敬。")
+        }
+    });
+
+    Content.Frame4 = React.createClass({
+        getInitialState: function(){
+            return {
+                talking: false
+            }
+        },
+        acceptHandler: function(){
+            document.getElementById("audioWexinRing").pause();
+            document.getElementById("greeting").play();
+            this.setState({talking: true})
+        },
+        render: function(){
+            return React.DOM.div({className: "frame4"},
+                    React.DOM.div({className: "caller-name"}, "陈桦"),
+                    React.DOM.div({className: "caller-way"}, "中国核 总经理"),
+                    (this.state.talking ? null : React.DOM.div({className: "accept", onClick: this.acceptHandler}, null)),
+                    (this.state.talking ?
+                     React.DOM.div({className: "talking"},
+                         React.DOM.img({className: "p1", src: "images/btn-camera3.png"}),
+                         React.DOM.img({className: "p2", src: "images/btn-off.png", onClick: this.props.callback}),
+                         React.DOM.img({className: "p3", src: "images/btn-quiet.png"})
+                        ) :
+                     null)
+                );
         }
     });
 
     Content.Frame3 = React.createClass({
+        getInitialState: function(){
+            this.images = [];
+            return {
+                 offset: 0
+            }
+        },
+        nextFrame: function(){
+            document.getElementById("audioWexinRing").play();
+            this.props.callback();
+        },
+        tick: function(){
+            if(this.state.offset < -3000){
+                clearInterval(this.interval);
+            } else {
+                this.setState({offset: this.state.offset - 2});
+            }
+        },
+        componentDidMount: function(){
+            this.interval = setInterval(this.tick, 20)
+        },
         render: function(){
             return React.DOM.div({className: "frame3"},
-                    React.DOM.div({className: "caller-name"}, "Robin"),
-                    React.DOM.div({className: "caller-way"}, "face time"),
-                    React.DOM.div({className: "accept", onClick: this.props.callback}, null)
-                );
+                React.DOM.div({className: "event-panel", style: {left: this.state.offset + "px"}},
+                    React.DOM.div({}, 1),
+                    React.DOM.div({}, 2),
+                    React.DOM.div({}, 3),
+                    React.DOM.div({}, 4),
+                    React.DOM.div({},
+                        '这一年，中国核电好消息确实多啊',
+                        React.DOM.button({onClick: this.nextFrame}, "Next")
+                        )
+                )
+            )
         }
-    });
+    })
 
     Content.Frame2 = React.createClass({
 
         getInitialState: function(){
             this.backup = [
-            "a", "b", "c", "d"
+    {
+        type: "text",
+        text: "老大：大家都回家了没？",
+        align: "left"
+    }, {
+        type: "text",
+        text: "实习生 小赵：报告老大，我已经在火车上了，回去和小伙伴说，咱也是上市公司的打工仔了，嘿嘿，大伙新年快乐，过年回来见哈~"
+    }, {
+        text: "唯一女汉子 翠花：还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
+    }, {
+        type: "image",
+        src: "images/cai.jpg"
+    }, {
+        text: "师父老张：孩子们明天回来，和老伴在超市买东西呢，老大生了二胎，他奶奶等不及见孙女了"
+    }, {
+        text: "老大：@读者微信名 你回家了没？"
+    }, {
+        align: "right",
+        text: "读者：我还没回呢，除夕的飞机，当天有个活要交接完才好离开 "
+    }, {
+        text: "实习生 小赵：报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！（摆手表情）"
+    }, {
+        text: "唯一女汉子 翠花：嗯，@读者微信名 平时工作教了我好多，是我心中的男神啊，以后找男盆友就找你这样的，过年回来给你带我妈的拿手菜"
+    }, {
+        text: "师父老张：@读者微信名 干活别太拼了，注意休息，早点回家"
+    }, {
+        text: "读者：恩恩。",
+        align: "right"
+    }
             ];
 
             return {
@@ -88,13 +170,10 @@ function getDateCN(){
         appendMessage: function(){
             if(this.backup.length < 1) {
                 clearInterval(this.tick);
-                this.setState({
-                    mine_messages: ["from me"],
-                    focus: true
-                })
-                return
+                this.setState({focus: true});
+            } else {
+                this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
             }
-            this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
         },
 
         componentDidMount: function(){
@@ -117,13 +196,11 @@ function getDateCN(){
                     ),
 
                 React.DOM.div({className: "chatroom"},
-                    this.state.mine_messages.map(function(item, index){
-                        return React.DOM.div({key: index, className: "send"},
-                            React.DOM.div({className: 'tail'}, null), item);
-                    }),
                     this.state.messages.map(function(item, index){
-                        return React.DOM.div({key: index, className: "receive"},
-                            React.DOM.div({className: 'tail'}, null), item);
+                        return React.DOM.div({key: index, className: (item.align == "right" ? "send" : "receive")},
+                            React.DOM.div({className: 'tail'}, null),
+                            (item.type == "image" ? React.DOM.img({src: item.src}): item.text)
+                            );
                     })
                 )
             )
@@ -257,7 +334,39 @@ function getDateCN(){
 })();
 
 function playDing(){
+        document.getElementById("audioDing").play();
     setTimeout(function(){
-        document.getElementById("audioRing").play();
     })
 }
+
+var GLOBAL = {
+    appId: "",
+    timestamp: "",
+    nonceStr: "",
+    signature: ""
+}
+var shareData = {
+    title: "greeting from China nuclear",
+    desc: "You got a greeting message, please check it",
+    link: "http://123.57.17.145:8008/demo/2015-12-31/happy-new-year.html",
+    imgUrl: "",
+    link: "http://123.57.17.145:8008/demo/2015-12-31/happy-new-year.html",
+    success: function(){
+        console.log("success to share")
+    }
+
+}
+wx.config({
+    debug: !1,
+    appId: GLOBAL.appId,
+    timestamp: GLOBAL.timestamp,
+    nonceStr: GLOBAL.nonceStr,
+    signature: GLOBAL.signature,
+    jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo"]
+}),
+wx.ready(function() {
+    wx.onMenuShareAppMessage(shareData),
+    wx.onMenuShareTimeline(shareData),
+    wx.onMenuShareQQ(shareData),
+    wx.onMenuShareWeibo(shareData)
+});
