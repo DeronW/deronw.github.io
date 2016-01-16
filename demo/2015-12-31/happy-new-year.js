@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 5 }
+            return { frame: 1 }
         },
 
         nextFrameHandler: function(){
@@ -56,18 +56,9 @@ function getDateCN(){
                 (this.state.frame == 3 ? React.createElement(Content.Frame3, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 4 ? React.createElement(Content.Frame4, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 5 ? React.createElement(Content.Frame5, {reload: this.reloadHandler}) : null)
-                //(this.state.frame == 6 ? React.createElement(Content.Frame6, {callback: this.nextFrameHandler}) : null)
                 )
         }
     });
-
-    Content.Frame6 = React.createClass({
-        render: function(){
-            return React.DOM.div({className: "frame6"},
-                    React.DOM.img({src: ""})
-                )
-        }
-    })
 
     Content.Frame5 = React.createClass({
         getInitialState: function(){
@@ -76,7 +67,7 @@ function getDateCN(){
             }
         },
         shareHandler: function(){
-            this.setState({show_share_cover: true})
+            this.setState({show_share_cover: !this.state.show_share_cover})
         },
         render: function(){
             return React.DOM.div({className: "frame5"},
@@ -86,8 +77,8 @@ function getDateCN(){
                     React.DOM.div({className: "reload", onClick: this.props.reload}, "再看一次")
                     ),
                 React.DOM.img({src: "images/frame_5_b.jpg"}),
-                (this.state.show_share_cover ? 
-                    React.DOM.div({className: "cover"}, React.DOM.div({className: "bg"}), "点击右上角按钮，分享给好友") : 
+                (this.state.show_share_cover ?
+                    React.DOM.div({className: "cover", onClick: this.shareHandler}, React.DOM.div({className: "bg"}), "点击右上角按钮，分享给好友") :
                     null)
                 )
         }
@@ -102,7 +93,11 @@ function getDateCN(){
         acceptHandler: function(){
             document.getElementById("audioWexinRing").pause();
             document.getElementById("greeting").play();
-            this.setState({talking: true})
+            this.setState({talking: true});
+            setTimeout(function(){
+                document.getElementById("greeting").pause();
+                this.props.callback();
+            }.bind(this), 5000)
         },
         render: function(){
             return React.DOM.div({className: "frame4"},
@@ -130,6 +125,7 @@ function getDateCN(){
 
         nextFrame: function(){
             document.getElementById("audioWexinRing").play();
+            clearInterval(this.interval);
             this.props.callback();
         },
 
@@ -138,14 +134,14 @@ function getDateCN(){
             if(this.state.offset <= -3000){
                 clearInterval(this.interval);
             } else {
-                this.setState({offset: this.state.offset - 2});
+                this.setState({offset: this.state.offset - 1});
             }
         },
 
         componentDidMount: function(){
             setTimeout(function(){
                 this.interval = setInterval(this.tick, 20)
-            }.bind(this), 1000)
+            }.bind(this), 2500)
         },
 
         render: function(){
