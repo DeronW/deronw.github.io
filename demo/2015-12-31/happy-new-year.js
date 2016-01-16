@@ -38,11 +38,15 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 1 }
+            return { frame: 5 }
         },
 
         nextFrameHandler: function(){
             this.setState({frame: this.state.frame + 1})
+        },
+
+        reloadHandler: function(){
+            this.setState({frame: 1})
         },
 
         render: function(){
@@ -51,8 +55,8 @@ function getDateCN(){
                 (this.state.frame == 2 ? React.createElement(Content.Frame2, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 3 ? React.createElement(Content.Frame3, {callback: this.nextFrameHandler}) : null),
                 (this.state.frame == 4 ? React.createElement(Content.Frame4, {callback: this.nextFrameHandler}) : null),
-                (this.state.frame == 5 ? React.createElement(Content.Frame5, {callback: this.nextFrameHandler}) : null),
-                (this.state.frame == 6 ? React.createElement(Content.Frame6, {callback: this.nextFrameHandler}) : null)
+                (this.state.frame == 5 ? React.createElement(Content.Frame5, {reload: this.reloadHandler}) : null)
+                //(this.state.frame == 6 ? React.createElement(Content.Frame6, {callback: this.nextFrameHandler}) : null)
                 )
         }
     });
@@ -66,9 +70,25 @@ function getDateCN(){
     })
 
     Content.Frame5 = React.createClass({
+        getInitialState: function(){
+            return {
+                show_share_cover: false
+            }
+        },
+        shareHandler: function(){
+            this.setState({show_share_cover: true})
+        },
         render: function(){
             return React.DOM.div({className: "frame5"},
-                React.DOM.img({src: "images/greeting.jpg"})
+                React.DOM.img({src: "images/frame_5_a.jpg"}),
+                React.DOM.div({className: "share-panel"},
+                    React.DOM.div({className: "share", onClick: this.shareHandler}, "分享"),
+                    React.DOM.div({className: "reload", onClick: this.props.reload}, "再看一次")
+                    ),
+                React.DOM.img({src: "images/frame_5_b.jpg"}),
+                (this.state.show_share_cover ? 
+                    React.DOM.div({className: "cover"}, React.DOM.div({className: "bg"}), "点击右上角按钮，分享给好友") : 
+                    null)
                 )
         }
     });
