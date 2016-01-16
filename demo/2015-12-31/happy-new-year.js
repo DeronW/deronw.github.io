@@ -170,9 +170,6 @@ function getDateCN(){
                 }, {
                     title: "实习生 小赵",
                     text: "报告老大，我已经在火车上了"
-                }, {
-                    title: "唯一女汉子 翠花",
-                    text: "还是老妈的菜好吃"
                 }
             ].reverse();
             this.touchedIndex = null;
@@ -213,8 +210,8 @@ function getDateCN(){
             if(this.messages.length <= 1) clearInterval(this.interval);
             var m = this.state.messages;
             m.push(this.messages.pop());
-document.getElementById("audioRing").play();
-            this.setState({messages: m.reverse()})
+            this.setState({messages: m.reverse()});
+            playDing();
         },
 
         componentDidMount: function(){
@@ -258,3 +255,9 @@ document.getElementById("audioRing").play();
     ReactDOM.render(React.createElement(Content, {}),
         document.getElementById("container"));
 })();
+
+function playDing(){
+    setTimeout(function(){
+        document.getElementById("audioRing").play();
+    })
+}
