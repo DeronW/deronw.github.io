@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 1 }
+            return { frame: 3 }
         },
 
         nextFrameHandler: function(){
@@ -117,9 +117,37 @@ function getDateCN(){
 
     Content.Frame3 = React.createClass({
         getInitialState: function(){
-            this.images = [];
+            this.cards = [ {
+                class_name: "summary",
+                text: "又要过年了"
+            }, {
+                class_name: "summary",
+                text: "这一年时间过得真快啊"
+            }, {
+                class_name: "summary",
+                text: "都没时间停下来回头看看"
+            }, {
+                class_name: "bg-lv",
+                img: "images/hui_gu_1.jpg"
+            }, {
+                class_name: "bg-lan",
+                img: "images/hui_gu_2.jpg"
+            }, {
+                class_name: "bg-qing",
+                img: "images/hui_gu_3.jpg"
+            }, {
+                class_name: "bg-huang",
+                img: "images/hui_gu_4.jpg"
+            }, {
+                class_name: "summary",
+                text: "确实啊"
+            }, {
+                class_name: "summary",
+                text: "2015年，中国核电好消息还真多"
+            } ];
             return {
-                 offset: 0
+                show_card_index: 0,
+                hide_card_index: -1
             }
         },
 
@@ -129,45 +157,57 @@ function getDateCN(){
             this.props.callback();
         },
 
-        tick: function(){
-            console.log(this.state.offset)
-            if(this.state.offset <= -3000){
-                clearInterval(this.interval);
+        show_tick: function(){
+            console.log("show", this.state.show_card_index + 1)
+
+            if(this.state.show_card_index >= this.cards.length - 1){
+                clearInterval(this.show_interval);
             } else {
-                this.setState({offset: this.state.offset - 1});
+                this.setState({show_card_index: this.state.show_card_index + 1})
             }
         },
 
+        hide_tick: function(){
+            console.log("hide", this.state.hide_card_index + 1)
+
+            if(this.state.hide_card_index >= this.cards.length -2) {
+                clearInterval(this.hide_interval);
+                return;
+            }
+            this.setState({hide_card_index: this.state.hide_card_index + 1})
+        },
+
         componentDidMount: function(){
+            this.hide_interval = setInterval(this.hide_tick, 4000)
             setTimeout(function(){
-                this.interval = setInterval(this.tick, 20)
-            }.bind(this), 2500)
+                this.show_interval = setInterval(this.show_tick, 4000);
+            }.bind(this), 1000)
         },
 
         render: function(){
+
             return React.DOM.div({className: "frame3"},
-                React.DOM.div({className: "event-panel", style: {left: this.state.offset + "px"}},
-                    React.DOM.div({className: "bg-lv"},
-                        React.DOM.img({src: "images/hui_gu_1.jpg"})
-                        ),
-                    React.DOM.div({className: "bg-lan"},
-                        React.DOM.img({src: "images/hui_gu_2.jpg"})
-                        ),
-                    React.DOM.div({className: "bg-qing"},
-                        React.DOM.img({src: "images/hui_gu_3.jpg"})
-                        ),
-                    React.DOM.div({className: "bg-huang"},
-                        React.DOM.img({src: "images/hui_gu_4.jpg"})
-                        ),
-                    React.DOM.div({className: "summary"},
-                        '这一年，中国核电好消息确实多啊',
-                        React.DOM.br(),
-                        React.DOM.div({className: "more", onClick: this.nextFrame},
-                            React.DOM.div({className: "focus"}, null),
-                            "更多消息")
-                        )
+                    this.cards.map(function(card, index){
+
+                        console.log(index, this.state.show_card_index, this.state.hide_card_index)
+
+                        var show = this.state.show_card_index == index && this.state.hide_card_index != index;
+
+                        return React.DOM.div({
+                                className: card.class_name + (show ? " show" : ""),
+                                key: index
+                            },
+                            (card.img ? React.DOM.img({src: card.img}) : null),
+                            (card.text ? React.DOM.div({className: ""}, card.text) : null),
+                            (this.state.show_card_index == this.cards.length - 1 ?
+                                React.DOM.div({className: "more", onClick: this.nextFrame},
+                                    React.DOM.div({className: "focus"}, null),
+                                    "更多消息") :
+                                null
+                                )
+                            )
+                    }.bind(this))
                 )
-            )
         }
     })
 
@@ -177,30 +217,41 @@ function getDateCN(){
             this.backup = [
     {
         type: "text",
+        avatar: "images/avatar_boss.png",
         text: "老大：大家都回家了没？",
         align: "left"
     }, {
         type: "text",
+        avatar: "images/avatar_worker.png",
         text: "实习生 小赵：报告老大，我已经在火车上了，回去和小伙伴说，咱也是上市公司的打工仔了，嘿嘿，大伙新年快乐，过年回来见哈~"
     }, {
+        avatar: "images/avatar_girl.png",
         text: "唯一女汉子 翠花：还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
     }, {
         type: "image",
+        avatar: "images/avatar_girl.png",
         src: "images/cai.jpg"
     }, {
+        avatar: "images/avatar_master.jpg",
         text: "师父老张：孩子们明天回来，和老伴在超市买东西呢，老大生了二胎，他奶奶等不及见孙女了"
     }, {
+        avatar: "images/avatar_boss.png",
         text: "老大：@读者微信名 你回家了没？"
     }, {
         align: "right",
+        avatar: "",
         text: "读者：我还没回呢，除夕的飞机，当天有个活要交接完才好离开 "
     }, {
+        avatar: "images/avatar_worker.png",
         text: "实习生 小赵：报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！（摆手表情）"
     }, {
+        avatar: "images/avatar_girl.png",
         text: "唯一女汉子 翠花：嗯，@读者微信名 平时工作教了我好多，是我心中的男神啊，以后找男盆友就找你这样的，过年回来给你带我妈的拿手菜"
     }, {
+        avatar: "images/avatar_master.jpg",
         text: "师父老张：@读者微信名 干活别太拼了，注意休息，早点回家"
     }, {
+        avatar: "",
         text: "读者：恩恩。",
         align: "right"
     }
@@ -218,7 +269,10 @@ function getDateCN(){
                 clearInterval(this.tick);
                 this.setState({focus: true});
             } else {
-                this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
+                var m = this.state.messages;
+                m.push(this.backup.shift())
+                //this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
+                this.setState({messages: m});
             }
         },
 
@@ -245,7 +299,8 @@ function getDateCN(){
                 React.DOM.div({className: "chatroom"},
                     this.state.messages.map(function(item, index){
                         return React.DOM.div({key: index, className: (item.align == "right" ? "send" : "receive")},
-                            React.DOM.div({className: 'tail'}, null),
+                            React.DOM.img({className: 'avatar', src: item.avatar}),
+                            React.DOM.div({className: 'tail'}),
                             (item.type == "image" ? React.DOM.img({src: item.src}): item.text)
                             );
                     })
@@ -291,9 +346,6 @@ function getDateCN(){
             this.messages = [ {
                     title: "老大",
                     text: "大家都回家了没？"
-                }, {
-                    title: "实习生 小赵",
-                    text: "报告老大，我已经在火车上了"
                 }
             ].reverse();
             this.touchedIndex = null;
@@ -334,8 +386,10 @@ function getDateCN(){
             if(this.messages.length <= 1) clearInterval(this.interval);
             var m = this.state.messages;
             m.push(this.messages.pop());
-            this.setState({messages: m.reverse()});
             playDing();
+            setTimeout(function(){
+                this.setState({messages: m.reverse()});
+            }.bind(this), 800)
         },
 
         componentDidMount: function(){
@@ -381,9 +435,7 @@ function getDateCN(){
 })();
 
 function playDing(){
-        document.getElementById("audioDing").play();
-    setTimeout(function(){
-    })
+    document.getElementById("audioDing").play();
 }
 
 var GLOBAL = {
