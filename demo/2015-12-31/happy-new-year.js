@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 3 }
+            return { frame: 1 }
         },
 
         nextFrameHandler: function(){
@@ -158,8 +158,6 @@ function getDateCN(){
         },
 
         show_tick: function(){
-            console.log("show", this.state.show_card_index + 1)
-
             if(this.state.show_card_index >= this.cards.length - 1){
                 clearInterval(this.show_interval);
             } else {
@@ -168,8 +166,6 @@ function getDateCN(){
         },
 
         hide_tick: function(){
-            console.log("hide", this.state.hide_card_index + 1)
-
             if(this.state.hide_card_index >= this.cards.length -2) {
                 clearInterval(this.hide_interval);
                 return;
@@ -188,9 +184,6 @@ function getDateCN(){
 
             return React.DOM.div({className: "frame3"},
                     this.cards.map(function(card, index){
-
-                        console.log(index, this.state.show_card_index, this.state.hide_card_index)
-
                         var show = this.state.show_card_index == index && this.state.hide_card_index != index;
 
                         return React.DOM.div({

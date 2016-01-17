@@ -304,6 +304,7 @@ position: relative;
 }
 .frame3 .summary .more{
     position: relative;
+    z-index: 5;
     margin: 40px auto;
     font-size: 30px;
     width: 138px;
