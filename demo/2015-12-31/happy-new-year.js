@@ -87,7 +87,8 @@ function getDateCN(){
     Content.Frame4 = React.createClass({
         getInitialState: function(){
             return {
-                talking: false
+                talking: false,
+                finish_flag: false
             }
         },
         acceptHandler: function(){
@@ -97,7 +98,14 @@ function getDateCN(){
             setTimeout(function(){
                 document.getElementById("greeting").pause();
                 this.props.callback();
-            }.bind(this), 5000)
+            }.bind(this), 47000)
+
+            setTimeout(function(){
+                this.setState({finish_flag: true})
+            }.bind(this), 46000)
+        },
+        stopHandler: function(){
+            if(this.state.finish_flag) this.props.callback();
         },
         render: function(){
             return React.DOM.div({className: "frame4"},
@@ -107,7 +115,7 @@ function getDateCN(){
                     (this.state.talking ?
                      React.DOM.div({className: "talking"},
                          React.DOM.img({className: "p1", src: "images/btn-camera3.png"}),
-                         React.DOM.img({className: "p2", src: "images/btn-off.png", onClick: this.props.callback}),
+                         React.DOM.img({className: "p2", src: "images/btn-off.png", onClick: this.stopHandler}),
                          React.DOM.img({className: "p3", src: "images/btn-quiet.png"})
                         ) :
                      null)
@@ -174,9 +182,9 @@ function getDateCN(){
         },
 
         componentDidMount: function(){
-            this.hide_interval = setInterval(this.hide_tick, 4000)
+            this.hide_interval = setInterval(this.hide_tick, 5000)
             setTimeout(function(){
-                this.show_interval = setInterval(this.show_tick, 4000);
+                this.show_interval = setInterval(this.show_tick, 5000);
             }.bind(this), 1000)
         },
 
@@ -408,6 +416,7 @@ function getDateCN(){
                     className: "pushed-msg-list",
                     onTouchMove: this.rightTouchMoveHandler
                 },
+                React.DOM.div({className: "focus"}, null),
                 this.state.messages.map(messageTip),
                     React.DOM.div({
                         className: "unlock",
@@ -431,11 +440,13 @@ function playDing(){
     document.getElementById("audioDing").play();
 }
 
+/*
 var GLOBAL = {
-    appId: "",
-    timestamp: "",
-    nonceStr: "",
-    signature: ""
+    debug: true,
+    appId: "wxf21de8da1ac2ec15",
+    timestamp: "1453380849",
+    nonceStr: "Wm3WZYTPz0wzccnW",
+    signature: "3ca910061c095ccf36dac9833e3b892216772f7c"
 }
 var shareData = {
     title: "greeting from China nuclear",
@@ -449,7 +460,7 @@ var shareData = {
 
 }
 wx.config({
-    debug: !1,
+    debug: GLOBAL.debug,
     appId: GLOBAL.appId,
     timestamp: GLOBAL.timestamp,
     nonceStr: GLOBAL.nonceStr,
@@ -462,3 +473,4 @@ wx.ready(function() {
     wx.onMenuShareQQ(shareData),
     wx.onMenuShareWeibo(shareData)
 });
+*/
