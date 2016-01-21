@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 1 }
+            return { frame: 3 }
         },
 
         nextFrameHandler: function(){
@@ -194,12 +194,16 @@ function getDateCN(){
                     this.cards.map(function(card, index){
                         var show = this.state.show_card_index == index && this.state.hide_card_index != index;
 
+                        if(index < 3 && this.state.show_card_index > index && this.state.show_card_index < 3) show = true;
+
+                        if(index < 3 && this.state.show_card_index > index && this.state.show_card_index < 3) show = true;
+
                         return React.DOM.div({
                                 className: card.class_name + (show ? " show" : ""),
                                 key: index
                             },
                             (card.img ? React.DOM.img({src: card.img}) : null),
-                            (card.text ? React.DOM.div({className: ""}, card.text) : null),
+                            (card.text ? React.DOM.div({className: "p" + index}, card.text) : null),
                             (this.state.show_card_index == this.cards.length - 1 ?
                                 React.DOM.div({className: "more", onClick: this.nextFrame},
                                     React.DOM.div({className: "focus"}, null),
