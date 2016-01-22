@@ -95,10 +95,10 @@ function getDateCN(){
         },
         acceptHandler: function(){
             document.getElementById("audioWexinRing").pause();
-            document.getElementById("greeting").play();
+            document.getElementById("audioGreeting").play();
             this.setState({talking: true});
             setTimeout(function(){
-                document.getElementById("greeting").pause();
+                document.getElementById("audioGreeting").pause();
                 this.props.callback();
             }.bind(this), 47000)
 
@@ -110,7 +110,7 @@ function getDateCN(){
         stopHandler: function(){
             if(this.state.finish_flag) {
                 this.props.callback();
-                document.getElementById('ending').play();
+                document.getElementById('audioEnding').play();
             }
         },
 
@@ -295,6 +295,7 @@ function getDateCN(){
                 clearInterval(this.tick);
                 this.setState({focus: true});
             } else {
+                document.getElementById('audioXiu').play();
                 var m = this.state.messages;
                 m.push(this.backup.shift())
                 //this.setState({messages: [this.backup.shift()].concat(this.state.messages)})

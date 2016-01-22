@@ -40,7 +40,8 @@ body {
     position: absolute;
     left: 45%;
     background: url('images/focus.png');
-    -webkit-animation: p-chat-input 2s infinite;
+    -webkit-animation: p-chat-input 2s ease-in-out infinite;
+    animation: p-chat-input 2s ease-in-out infinite;
 }
 
 
@@ -203,18 +204,13 @@ body {
     display: table;
     clear: both;
 }
-.frame2 .chatroom .receive .username,
-.frame2 .chatroom .send .username{
+.frame2 .chatroom .receive .username {
     color: black;
     position: absolute;
     top: -30px;
     left: 1px;
     font-size: 20px;
     color: #666;
-}
-.frame2 .chatroom .send .username{
-    left: auto;
-    right: 0px;
 }
 
 .frame2 .chatroom .receive .avatar,
@@ -245,6 +241,7 @@ body {
     right: 80px;
     margin-right: 20px;
     background: #b9f43e;
+    margin-top: 24px;
 }
 
 .frame2 .chatroom .send .tail{
@@ -255,6 +252,7 @@ body {
 
 .frame2 .chatroom .send .avatar {
     left: auto;
+    top: 36px;
     right: -88px;
 }
 
@@ -275,8 +273,8 @@ body {
     top: -26px;
     left: 50%;
     background: url('images/focus.png');
-    animation: p-chat-input 2s infinite;
-    -webkit-animation: p-chat-input 2s infinite;
+    -webkit-animation: p-chat-input 2s ease-in-out infinite;
+    animation: p-chat-input 2s ease-in-out infinite;
 }
 
 
@@ -385,8 +383,8 @@ body {
     top: -50px;
     left: 20px;
     background: url('images/focus.png');
-    animation: p-chat-input 2s infinite;
-    -webkit-animation: p-chat-input 2s infinite;
+    -webkit-animation: p-chat-input 2s ease-in-out infinite;
+    animation: p-chat-input 2s ease-in-out infinite;
 }
 
 
