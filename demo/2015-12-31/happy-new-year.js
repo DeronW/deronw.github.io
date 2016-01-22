@@ -69,6 +69,8 @@ function getDateCN(){
         shareHandler: function(){
             this.setState({show_share_cover: !this.state.show_share_cover})
         },
+        componentDidMount: function(){
+        },
         render: function(){
             return React.DOM.div({className: "frame5"},
                 React.DOM.img({src: "images/frame_5_a.jpg"}),
@@ -104,9 +106,14 @@ function getDateCN(){
                 this.setState({finish_flag: true})
             }.bind(this), 46000)
         },
+
         stopHandler: function(){
-            if(this.state.finish_flag) this.props.callback();
+            if(this.state.finish_flag) {
+                this.props.callback();
+                document.getElementById('ending').play();
+            }
         },
+
         render: function(){
             return React.DOM.div({className: "frame4"},
                     React.DOM.div({className: "caller-name"}, "陈桦"),
@@ -134,6 +141,9 @@ function getDateCN(){
             }, {
                 class_name: "summary",
                 text: "都没时间停下来回头看看"
+            }, {
+                class_name: "summary",
+                text: "我们的公司，这一年都经历了哪些"
             }, {
                 class_name: "bg-lv",
                 img: "images/hui_gu_1.jpg"
@@ -194,9 +204,9 @@ function getDateCN(){
                     this.cards.map(function(card, index){
                         var show = this.state.show_card_index == index && this.state.hide_card_index != index;
 
-                        if(index < 3 && this.state.show_card_index > index && this.state.show_card_index < 3) show = true;
+                        if(index < 4 && this.state.show_card_index > index && this.state.show_card_index < 4) show = true;
 
-                        if(index < 3 && this.state.show_card_index > index && this.state.show_card_index < 3) show = true;
+                        if(index > 7 && this.state.show_card_index > index && this.state.show_card_index > 7) show = true;
 
                         return React.DOM.div({
                                 className: card.class_name + (show ? " show" : ""),
@@ -204,10 +214,10 @@ function getDateCN(){
                             },
                             (card.img ? React.DOM.img({src: card.img}) : null),
                             (card.text ? React.DOM.div({className: "p" + index}, card.text) : null),
-                            (this.state.show_card_index == this.cards.length - 1 ?
+                            (index == 9?
                                 React.DOM.div({className: "more", onClick: this.nextFrame},
                                     React.DOM.div({className: "focus"}, null),
-                                    "更多消息") :
+                                    "惊喜在这里！") :
                                 null
                                 )
                             )
@@ -223,40 +233,51 @@ function getDateCN(){
     {
         type: "text",
         avatar: "images/avatar_boss.png",
+        user: "老大",
         text: "老大：大家都回家了没？",
         align: "left"
     }, {
         type: "text",
+        user: "老大",
         avatar: "images/avatar_worker.png",
         text: "实习生 小赵：报告老大，我已经在火车上了，回去和小伙伴说，咱也是上市公司的打工仔了，嘿嘿，大伙新年快乐，过年回来见哈~"
     }, {
         avatar: "images/avatar_girl.png",
+        user: "老大",
         text: "唯一女汉子 翠花：还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
     }, {
         type: "image",
+        user: "老大",
         avatar: "images/avatar_girl.png",
         src: "images/cai.jpg"
     }, {
         avatar: "images/avatar_master.jpg",
+        user: "老大",
         text: "师父老张：孩子们明天回来，和老伴在超市买东西呢，老大生了二胎，他奶奶等不及见孙女了"
     }, {
         avatar: "images/avatar_boss.png",
+        user: "老大",
         text: "老大：@读者微信名 你回家了没？"
     }, {
         align: "right",
+        user: "老大",
         avatar: "",
         text: "读者：我还没回呢，除夕的飞机，当天有个活要交接完才好离开 "
     }, {
         avatar: "images/avatar_worker.png",
-        text: "实习生 小赵：报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！（摆手表情）"
+        user: "老大",
+        text: "实习生 小赵：报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！"
     }, {
         avatar: "images/avatar_girl.png",
+        user: "老大",
         text: "唯一女汉子 翠花：嗯，@读者微信名 平时工作教了我好多，是我心中的男神啊，以后找男盆友就找你这样的，过年回来给你带我妈的拿手菜"
     }, {
         avatar: "images/avatar_master.jpg",
+        user: "老大",
         text: "师父老张：@读者微信名 干活别太拼了，注意休息，早点回家"
     }, {
         avatar: "",
+        user: "老大",
         text: "读者：恩恩。",
         align: "right"
     }
@@ -306,7 +327,8 @@ function getDateCN(){
                         return React.DOM.div({key: index, className: (item.align == "right" ? "send" : "receive")},
                             React.DOM.img({className: 'avatar', src: item.avatar}),
                             React.DOM.div({className: 'tail'}),
-                            (item.type == "image" ? React.DOM.img({src: item.src}): item.text)
+                            (item.type == "image" ? React.DOM.img({src: item.src}): item.text),
+                            (index == 7 ? React.DOM.img({src: "images/6.gif"}) : null)
                             );
                     })
                 )
