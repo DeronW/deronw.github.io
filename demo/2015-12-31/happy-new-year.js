@@ -38,7 +38,7 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 3 }
+            return { frame: 1 }
         },
 
         nextFrameHandler: function(){
