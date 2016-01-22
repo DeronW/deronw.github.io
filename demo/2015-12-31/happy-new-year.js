@@ -234,17 +234,17 @@ function getDateCN(){
         type: "text",
         avatar: "images/avatar_boss.png",
         user: "老大",
-        text: "老大：大家都回家了没？",
+        text: "大家都回家了没？",
         align: "left"
     }, {
         type: "text",
-        user: "老大",
+        user: "实习生 小赵",
         avatar: "images/avatar_worker.png",
-        text: "实习生 小赵：报告老大，我已经在火车上了，回去和小伙伴说，咱也是上市公司的打工仔了，嘿嘿，大伙新年快乐，过年回来见哈~"
+        text: "报告老大，我已经在火车上了，回去和小伙伴说，咱也是上市公司的打工仔了，嘿嘿，大伙新年快乐，过年回来见哈~"
     }, {
         avatar: "images/avatar_girl.png",
-        user: "老大",
-        text: "唯一女汉子 翠花：还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
+        user: "唯一女汉子 翠花",
+        text: "还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
     }, {
         type: "image",
         user: "老大",
@@ -252,33 +252,33 @@ function getDateCN(){
         src: "images/cai.jpg"
     }, {
         avatar: "images/avatar_master.jpg",
-        user: "老大",
-        text: "师父老张：孩子们明天回来，和老伴在超市买东西呢，老大生了二胎，他奶奶等不及见孙女了"
+        user: "师父老张",
+        text: "孩子们明天回来，和老伴在超市买东西呢，老大生了二胎，他奶奶等不及见孙女了"
     }, {
         avatar: "images/avatar_boss.png",
         user: "老大",
-        text: "老大：@读者微信名 你回家了没？"
+        text: "@读者微信名 你回家了没？"
     }, {
         align: "right",
-        user: "老大",
+        user: "读者",
         avatar: "",
-        text: "读者：我还没回呢，除夕的飞机，当天有个活要交接完才好离开 "
+        text: "我还没回呢，除夕的飞机，当天有个活要交接完才好离开 "
     }, {
         avatar: "images/avatar_worker.png",
-        user: "老大",
-        text: "实习生 小赵：报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！"
+        user: "实习生 小赵",
+        text: "报告老大，那个活是@读者微信名 替我干的，去年大修就已经替我一次了，说啥好啊！"
     }, {
         avatar: "images/avatar_girl.png",
-        user: "老大",
-        text: "唯一女汉子 翠花：嗯，@读者微信名 平时工作教了我好多，是我心中的男神啊，以后找男盆友就找你这样的，过年回来给你带我妈的拿手菜"
+        user: "唯一女汉子 翠花",
+        text: "嗯，@读者微信名 平时工作教了我好多，是我心中的男神啊，以后找男盆友就找你这样的，过年回来给你带我妈的拿手菜"
     }, {
         avatar: "images/avatar_master.jpg",
-        user: "老大",
-        text: "师父老张：@读者微信名 干活别太拼了，注意休息，早点回家"
+        user: "师父老张",
+        text: "@读者微信名 干活别太拼了，注意休息，早点回家"
     }, {
         avatar: "",
-        user: "老大",
-        text: "读者：恩恩。",
+        user: "读者",
+        text: "恩恩。",
         align: "right"
     }
             ];
@@ -326,6 +326,7 @@ function getDateCN(){
                     this.state.messages.map(function(item, index){
                         return React.DOM.div({key: index, className: (item.align == "right" ? "send" : "receive")},
                             React.DOM.img({className: 'avatar', src: item.avatar}),
+                            React.DOM.div({className: 'username'}, item.user),
                             React.DOM.div({className: 'tail'}),
                             (item.type == "image" ? React.DOM.img({src: item.src}): item.text),
                             (index == 7 ? React.DOM.img({src: "images/6.gif"}) : null)
@@ -377,6 +378,7 @@ function getDateCN(){
             ].reverse();
             this.touchedIndex = null;
             this.offsetLeft = null;
+            this.show_focus = false;
 
             return { messages: [] }
         },
@@ -420,7 +422,10 @@ function getDateCN(){
         },
 
         componentDidMount: function(){
-            this.interval = setInterval(this.tick, 1000)
+            this.interval = setInterval(this.tick, 1000);
+            setTimeout(function(){
+                this.setState({show_focus: true});
+            }.bind(this), 2000)
         },
 
         render: function(){
@@ -442,7 +447,7 @@ function getDateCN(){
                     className: "pushed-msg-list",
                     onTouchMove: this.rightTouchMoveHandler
                 },
-                React.DOM.div({className: "focus"}, null),
+                (this.state.show_focus ? React.DOM.div({className: "focus"}, null) : null),
                 this.state.messages.map(messageTip),
                     React.DOM.div({
                         className: "unlock",
