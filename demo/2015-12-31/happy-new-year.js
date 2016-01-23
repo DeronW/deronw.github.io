@@ -70,11 +70,21 @@ function getDateCN(){
             this.setState({show_share_cover: !this.state.show_share_cover})
         },
         componentDidMount: function(){
+            document.getElementById('audioEnding').pause();
+            document.getElementById('audioEnding').play();
+            setTimeout(this.shareHandler, 2000)
         },
         render: function(){
             return React.DOM.div({className: "frame5"},
-                React.DOM.img({src: "images/frame_5_a.jpg"}),
+                React.DOM.div({ className: "share-big-img" },
+                    React.DOM.img({
+                        src: this.state.show_share_cover ? "images/cover.png" : "images/frame_5_a.jpg",
+                        className: this.state.show_share_cover ? null : "mt-51"
+                    })
+                ),
                 React.DOM.div({className: "share-panel"},
+                    // React.DOM.div({className: "text", onClick: this.shareHandler}, "中国核电祝您和您的家人新春快乐"),
+                    // React.DOM.div({className: "text", onClick: this.shareHandler}, "向节日期间坚守岗位的员工们致敬"),
                     React.DOM.div({className: "share", onClick: this.shareHandler}, "分享"),
                     React.DOM.div({className: "reload", onClick: this.props.reload}, "再看一次")
                     ),
@@ -248,7 +258,7 @@ function getDateCN(){
         text: "还是老妈的菜好吃，完了，这样吃我嫁不出去了，泪… "
     }, {
         type: "image",
-        user: "老大",
+        user: "唯一女汉子 翠花",
         avatar: "images/avatar_girl.png",
         src: "images/cai.jpg"
     }, {
@@ -296,7 +306,8 @@ function getDateCN(){
                 clearInterval(this.tick);
                 this.setState({focus: true});
             } else {
-                document.getElementById('audioXiu').play();
+                //document.getElementById('audioXiu').play();
+                document.getElementById('audioDing').play();
                 var m = this.state.messages;
                 m.push(this.backup.shift())
                 //this.setState({messages: [this.backup.shift()].concat(this.state.messages)})
@@ -326,10 +337,16 @@ function getDateCN(){
 
                 React.DOM.div({className: "chatroom"},
                     this.state.messages.map(function(item, index){
-                        return React.DOM.div({key: index, className: (item.align == "right" ? "send" : "receive")},
+                        return React.DOM.div({
+                                key: index,
+                                className: (item.align == "right" ? "send" : "receive"),
+                                style: {
+                                    padding: (item.type == 'image' ? '0' : null)
+                                }
+                            },
                             React.DOM.img({className: 'avatar', src: item.avatar}),
-                            React.DOM.div({className: 'username'}, item.user),
-                            React.DOM.div({className: 'tail'}),
+                            (item.align == "right" ? null : React.DOM.div({className: 'username'}, item.user)),
+                            (item.type == 'image' ? null : React.DOM.div({className: 'tail'})),
                             (item.type == "image" ? React.DOM.img({src: item.src}): item.text),
                             (index == 7 ? React.DOM.img({src: "images/6.gif"}) : null)
                             );

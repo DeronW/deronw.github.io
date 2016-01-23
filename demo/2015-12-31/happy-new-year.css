@@ -186,11 +186,11 @@ body {
     float: left;
     position: absolute;
     bottom: 112px;
-    width: 100%;
+    width: 750px;
 }
 .frame2 .chatroom .receive,
 .frame2 .chatroom .send {
-    max-width: 60%;
+    max-width: 400px;
     position: relative;
     left: 80px;
     float: left;
@@ -204,11 +204,18 @@ body {
     padding: 20px;
     display: table;
     clear: both;
+    border: 1px solid #d8d8d8;
+    line-height: 1.3em;
+}
+.frame2 .chatroom .receive span,
+.frame2 .chatroom .send span{
+    display: inline-block;
+    max-width: 400px;
 }
 .frame2 .chatroom .receive .username {
     color: black;
     position: absolute;
-    top: -30px;
+    top: -37px;
     left: 1px;
     font-size: 20px;
     color: #666;
@@ -220,7 +227,7 @@ body {
     height: 72px;
     position: absolute;
     top: 6px;
-    left: -90px;
+    left: -92px;
     margin-top: -34px;
 }
 .frame2 .chatroom .receive .tail,
@@ -417,7 +424,7 @@ body {
     height: 171px;
     bottom: 100px;
     left: 50%;
-    margin-left: -91px;
+    margin-left: -78px;
     background: url(images/btn-on.png)
 }
 .frame4 .talking {
@@ -434,12 +441,12 @@ body {
 .frame4 .talking .p2 {
     position: absolute;
     left: 50%;
-    margin-left: -91px;
+    margin-left: -78px;
 }
 .frame4 .talking .p3 {
     position: absolute;
     left: 50%;
-    margin-left: 90px;
+    margin-left: 116px;
 }
 
 .frame5 {
@@ -452,13 +459,17 @@ body {
     width: 100%;
     display: block;
 }
+.frame5 .share-big-img {
+    height: 750px;
+    background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wAARCABTAFYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9qKKKK/l8+8CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//Z");
+}
 .frame5 .share-panel {
     box-sizing: border-box;
     padding: 20px 0;
     background-image: url("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wAARCABTAFYDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9qKKKK/l8+8CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//Z");
 }
 .frame5 .share, .frame5 .reload {
-    margin: 20px auto 10px;
+    margin: 50px auto 0;
     height: 60px;
     line-height: 60px;
     width: 300px;
@@ -466,6 +477,11 @@ body {
     background: red;
     color: white;
     border-radius: 50px;
+}
+.frame5 .text {
+    font-size: 40px;
+    color: black;
+    text-align: center;
 }
 .frame5 .cover {
     position: absolute;
