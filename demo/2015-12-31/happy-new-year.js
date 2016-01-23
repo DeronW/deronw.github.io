@@ -217,7 +217,8 @@ function getDateCN(){
                             (index == 9?
                                 React.DOM.div({className: "more", onClick: this.nextFrame},
                                     React.DOM.div({className: "focus"}, null),
-                                    "惊喜在这里！") :
+                                    React.DOM.img({src: "images/suprise.png"}, null)
+                                    ) :
                                 null
                                 )
                             )
