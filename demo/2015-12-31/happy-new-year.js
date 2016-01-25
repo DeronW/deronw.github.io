@@ -63,22 +63,26 @@ function getDateCN(){
     Content.Frame5 = React.createClass({
         getInitialState: function(){
             return {
-                show_share_cover: false
+                show_share_cover: false,
+				show_share_img: false
             }
         },
         shareHandler: function(){
-            this.setState({show_share_cover: !this.state.show_share_cover})
+            this.setState({
+				show_share_cover: !this.state.show_share_cover,
+				show_share_img: true
+			})
         },
         componentDidMount: function(){
             document.getElementById('audioEnding').pause();
             document.getElementById('audioEnding').play();
-            setTimeout(this.shareHandler, 2000)
+            setTimeout(this.shareHandler, 2800)
         },
         render: function(){
             return React.DOM.div({className: "frame5"},
                 React.DOM.div({ className: "share-big-img" },
                     React.DOM.img({
-                        src: this.state.show_share_cover ? "images/cover.png" : "images/frame_5_a.jpg",
+                        src: this.state.show_share_img ? "images/cover.png" : "images/frame_5_a.jpg",
                         className: this.state.show_share_cover ? null : "mt-51"
                     })
                 ),
@@ -347,7 +351,7 @@ function getDateCN(){
                             React.DOM.img({className: 'avatar', src: item.avatar}),
                             (item.align == "right" ? null : React.DOM.div({className: 'username'}, item.user)),
                             (item.type == 'image' ? null : React.DOM.div({className: 'tail'})),
-                            (item.type == "image" ? React.DOM.img({src: item.src}): item.text),
+                            (item.type == "image" ? React.DOM.img({src: item.src, style: {width: '321px', height: '220px', }}): item.text),
                             (index == 7 ? React.DOM.img({src: "images/6.gif"}) : null)
                             );
                     })
@@ -492,11 +496,11 @@ function playDing(){
 
 /*
 var GLOBAL = {
-    debug: true,
-    appId: "wxf21de8da1ac2ec15",
-    timestamp: "1453380849",
-    nonceStr: "Wm3WZYTPz0wzccnW",
-    signature: "3ca910061c095ccf36dac9833e3b892216772f7c"
+    debug: false,
+    appId: "。。。",
+    timestamp: "。。。",
+    nonceStr: "。。。",
+    signature: "。。。"
 }
 var shareData = {
     title: "greeting from China nuclear",
