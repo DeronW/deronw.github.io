@@ -69,14 +69,12 @@ function getDateCN(){
         },
         shareHandler: function(){
             this.setState({
-				show_share_cover: !this.state.show_share_cover,
-				show_share_img: true
+				//show_share_img: true,
+				show_share_cover: !this.state.show_share_cover
 			})
         },
         componentDidMount: function(){
-            document.getElementById('audioEnding').pause();
             document.getElementById('audioEnding').play();
-            setTimeout(this.shareHandler, 2800)
         },
         render: function(){
             return React.DOM.div({className: "frame5"},
@@ -113,8 +111,10 @@ function getDateCN(){
             this.setState({talking: true});
             setTimeout(function(){
                 document.getElementById("audioGreeting").pause();
-                this.props.callback();
             }.bind(this), 47000)
+            setTimeout(function(){
+                this.props.callback();
+            }.bind(this), 55000)
 
             setTimeout(function(){
                 this.setState({finish_flag: true})
@@ -159,17 +159,23 @@ function getDateCN(){
                 class_name: "summary",
                 text: "我们的公司，这一年都经历了哪些"
             }, {
-                class_name: "bg-lv",
+                class_name: "bg-qing",
                 img: "images/hui_gu_1.jpg"
             }, {
-                class_name: "bg-lan",
+                class_name: "bg-lv",
                 img: "images/hui_gu_2.jpg"
             }, {
-                class_name: "bg-qing",
+                class_name: "bg-lan",
                 img: "images/hui_gu_3.jpg"
             }, {
-                class_name: "bg-huang",
+                class_name: "bg-qing",
                 img: "images/hui_gu_4.jpg"
+            }, {
+                class_name: "bg-qing",
+                img: "images/hui_gu_5.jpg"
+            }, {
+                class_name: "bg-huang",
+                img: "images/hui_gu_6.jpg"
             }, {
                 class_name: "summary",
                 text: "确实啊"
@@ -184,6 +190,7 @@ function getDateCN(){
         },
 
         nextFrame: function(){
+            document.getElementById("audioHuiGu").pause();
             document.getElementById("audioWexinRing").play();
             clearInterval(this.interval);
             this.props.callback();
@@ -206,6 +213,7 @@ function getDateCN(){
         },
 
         componentDidMount: function(){
+            document.getElementById("audioHuiGu").play();
             this.hide_interval = setInterval(this.hide_tick, 5000)
             setTimeout(function(){
                 this.show_interval = setInterval(this.show_tick, 5000);
@@ -220,7 +228,7 @@ function getDateCN(){
 
                         if(index < 4 && this.state.show_card_index > index && this.state.show_card_index < 4) show = true;
 
-                        if(index > 7 && this.state.show_card_index > index && this.state.show_card_index > 7) show = true;
+                        if(index > 9 && this.state.show_card_index > index && this.state.show_card_index > 9) show = true;
 
                         return React.DOM.div({
                                 className: card.class_name + (show ? " show" : ""),
@@ -228,7 +236,7 @@ function getDateCN(){
                             },
                             (card.img ? React.DOM.img({src: card.img}) : null),
                             (card.text ? React.DOM.div({className: "p" + index}, card.text) : null),
-                            (index == 9?
+                            (index == 11?
                                 React.DOM.div({className: "more", onClick: this.nextFrame},
                                     React.DOM.div({className: "focus"}, null),
                                     React.DOM.img({src: "images/suprise.png"}, null)
