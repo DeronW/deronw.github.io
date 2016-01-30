@@ -218,6 +218,9 @@ function getDateCN(){
             setTimeout(function(){
                 this.show_interval = setInterval(this.show_tick, 5000);
             }.bind(this), 1000)
+
+            setTimeout(this.hide_tick, 2000);
+            setTimeout(this.show_tick, 3000);
         },
 
         render: function(){
