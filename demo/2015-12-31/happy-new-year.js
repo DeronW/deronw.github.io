@@ -38,14 +38,15 @@ function getDateCN(){
     var Content = React.createClass({
 
         getInitialState: function(){
-            return { frame: 1 }
+            return { frame: 3 }
         },
 
         nextFrameHandler: function(){
-            this.setState({frame: this.state.frame + 1})
+            if(this.state.frame < 5) this.setState({frame: this.state.frame + 1});
         },
 
         reloadHandler: function(){
+            document.getElementById('audioEnding').pause();
             this.setState({frame: 1})
         },
 
@@ -102,7 +103,8 @@ function getDateCN(){
         getInitialState: function(){
             return {
                 talking: false,
-                finish_flag: false
+                finish_flag: false,
+                called_callback: false
             }
         },
         acceptHandler: function(){
@@ -112,8 +114,11 @@ function getDateCN(){
             setTimeout(function(){
                 document.getElementById("audioGreeting").pause();
             }.bind(this), 47000)
+
             setTimeout(function(){
-                this.props.callback();
+                if(!this.state.called_callback) {
+                    this.props.callback();
+                }
             }.bind(this), 55000)
 
             setTimeout(function(){
@@ -124,6 +129,7 @@ function getDateCN(){
         stopHandler: function(){
             if(this.state.finish_flag) {
                 this.props.callback();
+                this.setState({called_callback: true})
                 document.getElementById('audioEnding').play();
             }
         },
@@ -214,13 +220,13 @@ function getDateCN(){
 
         componentDidMount: function(){
             document.getElementById("audioHuiGu").play();
-            this.hide_interval = setInterval(this.hide_tick, 5000)
+            this.hide_interval = setInterval(this.hide_tick, 6000)
             setTimeout(function(){
-                this.show_interval = setInterval(this.show_tick, 5000);
+                this.show_interval = setInterval(this.show_tick, 6000);
             }.bind(this), 1000)
 
-            setTimeout(this.hide_tick, 2000);
-            setTimeout(this.show_tick, 3000);
+            setTimeout(this.hide_tick, 3000);
+            setTimeout(this.show_tick, 4000);
         },
 
         render: function(){
