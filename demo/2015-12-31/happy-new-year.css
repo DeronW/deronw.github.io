@@ -448,6 +448,19 @@ body {
     left: 50%;
     margin-left: 134px;
 }
+.frame4 .focus {
+    width: 138px;
+    height: 138px;
+    position: absolute;
+    top: 9px;
+    margin-left: -61px !important;
+    z-index: 5;
+    background: url('images/focus.png');
+    -webkit-animation: p-chat-input 2s ease-in-out infinite;
+    animation: p-chat-input 2s ease-in-out infinite;
+}
+
+
 
 .frame5 {
     height: 100%;
