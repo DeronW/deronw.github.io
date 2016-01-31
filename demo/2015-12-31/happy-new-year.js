@@ -141,7 +141,7 @@ function getDateCN(){
                     (this.state.talking ? null : React.DOM.div({className: "accept", onClick: this.acceptHandler}, null)),
                     (this.state.talking ?
                      React.DOM.div({className: "talking"},
-                         (this.state.finish_flag ? React.DOM.div({className: "p2 focus"}) : null),
+                         (this.state.finish_flag ? React.DOM.div({className: "p2 focus", onClick: this.stopHandler}) : null),
                          React.DOM.img({className: "p1", src: "images/btn-camera3.png"}),
                          React.DOM.img({className: "p2", src: "images/btn-off.png", onClick: this.stopHandler}),
                          React.DOM.img({className: "p3", src: "images/btn-quiet.png"})
