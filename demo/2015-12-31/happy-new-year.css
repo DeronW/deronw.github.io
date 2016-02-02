@@ -406,7 +406,9 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: black url(images/chen_bin.jpg) no-repeat;
+    background: black url(images/chen_bin.jpg) no-repeat; 
+    /*background: black url(http://www.nuclearmarket.net/web/happyNewYear/images/chen_bin.jpg) no-repeat;*/
+    background-size: 100%;
 }
 .frame4 .caller-name {
     margin-top: 600px;
@@ -424,7 +426,7 @@ body {
     height: 171px;
     bottom: 100px;
     left: 50%;
-    margin-left: -78px;
+    margin-left: -92px;
     background: url(images/btn-on.png)
 }
 .frame4 .talking {
@@ -436,17 +438,17 @@ body {
 .frame4 .talking .p1 {
     position: absolute;
     left: 50%;
-    margin-left: -270px;
+    margin-left: -280px;
 }
 .frame4 .talking .p2 {
     position: absolute;
     left: 50%;
-    margin-left: -70px;
+    margin-left: -78px;
 }
 .frame4 .talking .p3 {
     position: absolute;
     left: 50%;
-    margin-left: 134px;
+    margin-left: 128px;
 }
 .frame4 .focus {
     width: 138px;
