@@ -10,7 +10,7 @@ rails新版的 官方推荐静态资源目录更改为: ``/app/assets`` , ``/lib
 
 基于[bootstrap](http://getbootstrap.com/) 的前端风格, 提供了良好的风格设定和多种变量方法预设,在RoR项目中使用bootstrap通过 [bootstrap-sass](https://github.com/twbs/bootstrap-sass) 库实现
 
-## 风格指南
+### 风格指南
 
 旨在提出一套基于网站的后台框架和站点规模的前端风格
 
@@ -35,7 +35,7 @@ rails新版的 官方推荐静态资源目录更改为: ``/app/assets`` , ``/lib
     别人写好的代码拿来就用,省下好多时间,却也带来很多问题(版本,自身包含的bug,冗余功能...). 基于现在的网站前端设计,不需要引用许多第三方的前端代码,如果需要,请谨慎选择
 
 
-## 模板的结构
+### 模板的结构
 
 使用rails默认的模板系统, 这次升级的关键是模板的继承和组合.
 
@@ -43,8 +43,7 @@ rails新版的 官方推荐静态资源目录更改为: ``/app/assets`` , ``/lib
 2. 所有页面的模块划分依照继承的上一级页面.
 3. 组合页面和分区渲染页面方式优于单页面包含全部内容.
 
-目录结构说明
---------------
+### 目录结构说明
 
 * app/assets/ 目录: 存放自定义的静态文件.
 
@@ -68,11 +67,15 @@ rails新版的 官方推荐静态资源目录更改为: ``/app/assets`` , ``/lib
 
 #### HTML部分
 
-* <meta name="keywords" content="<%= yield :keywords %>"> , SEO的关键字
-* <%= yield :meta %> , 附加meta属性, 可以用来增加 `user-scalable=no` 等属性
-* <%= yield :css %> , 在 <%= yield :head %>后, 定义页面样式
-* <%= yield :js_head %> , 在head标签中的js代码,除特殊情况外不建议使用
-* <%= yield :js %> , 在页面底部的js代码,建议在这里引入相关js库
+<meta name="keywords" content="<%= yield :keywords %>"> , SEO的关键字
+
+<%= yield :meta %> , 附加meta属性, 可以用来增加 `user-scalable=no` 等属性
+
+<%= yield :css %> , 在 <%= yield :head %>后, 定义页面样式
+
+<%= yield :js_head %> , 在head标签中的js代码,除特殊情况外不建议使用
+
+<%= yield :js %> , 在页面底部的js代码,建议在这里引入相关js库
 
 #### JS部分
 
@@ -97,5 +100,3 @@ app/assets/stylesheets/bootstrap/ 该目录被 ``bootstrap-sass`` 占用, 不要
 ##### HTML页面部分
 
 全局的 `.no-js` `lt-ie9` `lt-ie8` `lt-ie7` 样式, 定义在html标签上, 因为没有对应的 CSS 实现, 并且支持IE7及以下浏览器. 去掉
-
-end.
