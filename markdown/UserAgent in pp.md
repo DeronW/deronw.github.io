@@ -4,7 +4,9 @@
 目标: 规范化HTTP请求的Header中 User-Agent 字段
 
 ## 最终格式:
-![](images/user-agent-standard.jpg)
+Hhttech Version/2.3.4 (Android 19; Nexus 6; zh-cn)
+------- ------------- -----------  -------  -----
+    1         2             3         4       5
 
 格式说明
 
