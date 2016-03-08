@@ -84,14 +84,14 @@ app/assets/stylesheets/bootstrap/ 该目录被 ``bootstrap-sass`` 占用, 不要
 
 #### HTML页面部分
 
-<meta name="keywords" content="<%= yield :keywords %>"> , SEO的关键字
+    <meta name="keywords" content="<%= yield :keywords %>"> , SEO的关键字
 
-<%= yield :meta %> , 附加meta属性, 可以用来增加 `user-scalable=no` 等属性
+    <%= yield :meta %> , 附加meta属性, 可以用来增加 `user-scalable=no` 等属性
 
-<%= yield :css %> , 在 <%= yield :head %>后, 定义页面样式
+    <%= yield :css %> , 在 <%= yield :head %>后, 定义页面样式
 
-<%= yield :js_head %> , 在head标签中的js代码,除特殊情况外不建议使用
+    <%= yield :js_head %> , 在head标签中的js代码,除特殊情况外不建议使用
 
-<%= yield :js %> , 在页面底部的js代码,建议在这里引入相关js库
+    <%= yield :js %> , 在页面底部的js代码,建议在这里引入相关js库
 
 全局的 `.no-js` `lt-ie9` `lt-ie8` `lt-ie7` 样式, 定义在html标签上, 因为没有对应的 CSS 实现, 并且支持IE7及以下浏览器. 去掉
