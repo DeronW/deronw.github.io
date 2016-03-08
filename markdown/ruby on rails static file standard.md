@@ -63,8 +63,6 @@ rails新版的 官方推荐静态资源目录更改为: ``/app/assets`` , ``/lib
             * ./ 其它风格样式路径, 为各种专题或不同风格或不同设备设置不同样式 themes/holiday/..
 
 
-### 新增的内容
-
 #### HTML部分
 
 <meta name="keywords" content="<%= yield :keywords %>"> , SEO的关键字
