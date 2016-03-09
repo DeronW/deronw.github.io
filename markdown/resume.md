@@ -14,8 +14,8 @@
 * Go ``熟练``
 * Node.js ``精通``
 * 前端(HTML+JS+CSS) ``精通``
-* Java ``入门``
-* PHP ``入门``
+* Java ``了解``
+* PHP ``了解``
 * LotusScript(Basic) ``熟练``
 
 数据库
@@ -79,7 +79,7 @@
 
 * 2010-05 ~ 2011-03
     
-    这段时间在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
+    在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
     
     - 2010-07 劲霸男装OA系统(维护升级)
     - 2010-10 新奥集团OA系统六期(驻现场[廊坊]提供技术支持和新功能开发)
@@ -87,7 +87,7 @@
     
 * 2011-04 ~ 2013-07
 
-    这段时间在联盈(绿野前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
+    在联盈(绿野公司前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
     
     - 六只脚网站项目[Python(Django) + Web前端]
     - 天津智慧旅游项目, Web前端[Web前端]
@@ -101,17 +101,23 @@
 
 * 2013-08 ~ 2014-08
 
+    面包旅行服务
+
     - Django项目维护,提供全栈技术支持[Python + Django + Postgres + Web前端]
     - Web前端: 主营网站的前端开发[HTML + CSS + JavaScript]
     - 软件框架升级: Django1.3 -> Django1.5 (因其它原因最后未采用)
 
 * 2014-09 ~ 2015-01
 
+    初期以Web前端工程师身份加入幻腾智能,除了Web前端之外也开始接触Ruby
+
     - Web前端重构,统一,规范Web前端的资源文件及使用方式[Rails + Web前端 + CDN管理]
     - 新版管理后台, 针对性的解决日常管理中遇到的问题[Bootstrap + Rails Grape]
     - 学习Ruby及Rails框架
 
 * 2015-02 ~ 2015-10
+
+    在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
 
     - Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务[Node.js + Redis(Pub/Sub)]
     - WebSocket Server: 允许浏览器链接到TCP Watcher,监控指令收发, 依赖TCP Watcher[Node.js + Redis(Pub/Sub)]
@@ -145,6 +151,7 @@
     全栈工程师,维护网站,增加新的功能模块:CMS管理后台,数据检索,前端结构升级,跨站互通(论坛和主站的互通). 优化服务性能(memcached + Xapian), 统一接口文档(RestructedText编写文档), 采用自动化部署方式(Python Fabric编写自动化不是脚本)
     
     后端: Python[Django] + PHP[Discuz] + MySQL
+    
     前端: HTML + CSS3 + JavaScript + Canvas
     
 *   面包旅行 [http://web.breadtrip.com/](http://web.breadtrip.com/)
@@ -153,6 +160,7 @@
     全栈工程师,维护网站,实现高并发下的业务功能.
     
     后端: Python[Django] + Postgres
+    
     前端: HTML5 + CSS3 + JavaScript
     
 *   幻腾智能 [http://huantengsmart.com/](http://huantengsmart.com/)
@@ -161,6 +169,7 @@
     全栈工程师,服务架构设计,以业务为驱动设计良好架构风格并实现代码.
     
     后端: Ruby(Rails) + Ruby(EventMachine) + Node.js + Redis + MySQL + Postgres
+    
     前端: HTML5 + CSS3 + JavaScript + React + Node.js + ES6(ES2015)
 
 #### 自我评价
@@ -169,7 +178,17 @@
 
 ### 个人项目
 
-* 内存数据结构[Node.js]
+[内存数据结构](https://github.com/delongw/node-cache) Node.js
+> 在内存中标记一个JSON结构,具有简单的读/写API,可以设置数据过期时间
+
+[整数加密](https://github.com/delongw/ruby-id-cipher) Ruby
+> 使用RC4算法,把一个整数混淆成另一个整数,目前只支持32位运算
+
+[BeautifulSoup文档](https://github.com/delongw/beautifulsoup) Python
+> Python中用于解析HTML/XML的最常用的库中文版文档, 也是官方的中文版文档
+
+[Phantom TCP] Go
+> 使用Go语言编写的TCP Server库
     
 #### 参考资料
 
