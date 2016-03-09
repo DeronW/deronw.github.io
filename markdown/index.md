@@ -9,3 +9,5 @@
 * [Rails项目HTML模板继承](https://github.com/delongw/delongw.github.io/blob/master/markdown/rails%20template%20inheritance.md) 2016-03-08
 
 * [再见Ruby](https://github.com/delongw/delongw.github.io/blob/master/markdown/goodbye%20ruby.md) 2016-03-07
+
+* [简历](https://github.com/delongw/delongw.github.io/blob/master/markdown/resume.md) 2016-03-09
