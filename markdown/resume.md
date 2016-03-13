@@ -1,6 +1,5 @@
 # 简历 王德龙
 
->
     29岁 辽宁人 锡伯族 已婚 6年工作经验 现居北京
     邮箱: w.del@qq.com
     河北建筑工程学院 计算机科学与技术专业(本科)
@@ -77,64 +76,64 @@
 
 ### 参与项目
 
-* 2010-05 ~ 2011-03
+2010-05 ~ 2011-03
     
-    在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
+在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
     
-    - 2010-07 劲霸男装OA系统(维护升级)
-    - 2010-10 新奥集团OA系统六期(驻现场[廊坊]提供技术支持和新功能开发)
-    - 2011-01 东尚服装OA系统一期(初期设计, 功能原型)
+- 2010-07 劲霸男装OA系统(维护升级)
+- 2010-10 新奥集团OA系统六期(驻现场[廊坊]提供技术支持和新功能开发)
+- 2011-01 东尚服装OA系统一期(初期设计, 功能原型)
+
+2011-04 ~ 2013-07
+
+在联盈(绿野公司前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
+
+- 六只脚网站项目[Python(Django) + Web前端]
+- 天津智慧旅游项目, Web前端[Web前端]
+- 中国国债分布式系统管理后台[Java + Web前端]
+- 六只脚网站与8264网站单点登录[Python + PHP + Web前端]
+- 六只脚网站框架升级, Django1.2 升级到 Django1.3
+- 绿野网站开发[PHP + Web前端]
+- 绿野网站自动化部署[Ubuntu + Shell + Python Fabric]
+- 绿野网服务整合[PHP Discuz + PHP UCenter + Python Django + Xapian + MySQL]
+- 绿野滑雪网站[Python Django]
+
+2013-08 ~ 2014-08
+
+面包旅行服务
+
+- Django项目维护,提供全栈技术支持[Python + Django + Postgres + Web前端]
+- Web前端: 主营网站的前端开发[HTML + CSS + JavaScript]
+- 软件框架升级: Django1.3 -> Django1.5 (因其它原因最后未采用)
+
+2014-09 ~ 2015-01
+
+初期以Web前端工程师身份加入幻腾智能,除了Web前端之外也开始接触Ruby
+
+- Web前端重构,统一,规范Web前端的资源文件及使用方式[Rails + Web前端 + CDN管理]
+- 新版管理后台, 针对性的解决日常管理中遇到的问题[Bootstrap + Rails Grape]
+- 学习Ruby及Rails框架
+
+2015-02 ~ 2015-10
+
+在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
+
+- Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务[Node.js + Redis(Pub/Sub)]
+- WebSocket Server: 允许浏览器链接到TCP Watcher,监控指令收发, 依赖TCP Watcher[Node.js + Redis(Pub/Sub)]
+- Scenario Watcher: 检测一组指令的执行结果, 依赖TCP Watcher[Ruby(EventMachine) + Redis(Pub/Sub)]
+- 异步服务:部署Sidekiq服务,取代DelayedJob
+- 框架升级: Rails4.1 -> Rails4.2
+- Web前端架构升级: 形成基于Node.js的编译型前端[Sass + React + Rails assets pipeline]
     
-* 2011-04 ~ 2013-07
+2015-10 ~ 2016-01
 
-    在联盈(绿野公司前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
-    
-    - 六只脚网站项目[Python(Django) + Web前端]
-    - 天津智慧旅游项目, Web前端[Web前端]
-    - 中国国债分布式系统管理后台[Java + Web前端]
-    - 六只脚网站与8264网站单点登录[Python + PHP + Web前端]
-    - 六只脚网站框架升级, Django1.2 升级到 Django1.3
-    - 绿野网站开发[PHP + Web前端]
-    - 绿野网站自动化部署[Ubuntu + Shell + Python Fabric]
-    - 绿野网服务整合[PHP Discuz + PHP UCenter + Python Django + Xapian + MySQL]
-    - 绿野滑雪网站[Python Django]
+- 微服务: 无线开关被压住(硬件设备异常状态之一的捕捉)检测,作为独立服务运行, Long Press Checker, 依赖于TCP Watcher.
+ Node.js + Redis(Pub/Sub)
+- 统一Web前端开发规范,前端页面开发方式,与后端的数据交互模式
 
-* 2013-08 ~ 2014-08
+2016-02 ~ 2016-02
 
-    面包旅行服务
-
-    - Django项目维护,提供全栈技术支持[Python + Django + Postgres + Web前端]
-    - Web前端: 主营网站的前端开发[HTML + CSS + JavaScript]
-    - 软件框架升级: Django1.3 -> Django1.5 (因其它原因最后未采用)
-
-* 2014-09 ~ 2015-01
-
-    初期以Web前端工程师身份加入幻腾智能,除了Web前端之外也开始接触Ruby
-
-    - Web前端重构,统一,规范Web前端的资源文件及使用方式[Rails + Web前端 + CDN管理]
-    - 新版管理后台, 针对性的解决日常管理中遇到的问题[Bootstrap + Rails Grape]
-    - 学习Ruby及Rails框架
-
-* 2015-02 ~ 2015-10
-
-    在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
-
-    - Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务[Node.js + Redis(Pub/Sub)]
-    - WebSocket Server: 允许浏览器链接到TCP Watcher,监控指令收发, 依赖TCP Watcher[Node.js + Redis(Pub/Sub)]
-    - Scenario Watcher: 检测一组指令的执行结果, 依赖TCP Watcher[Ruby(EventMachine) + Redis(Pub/Sub)]
-    - 异步服务:部署Sidekiq服务,取代DelayedJob
-    - 框架升级: Rails4.1 -> Rails4.2
-    - Web前端架构升级: 形成基于Node.js的编译型前端[Sass + React + Rails assets pipeline]
-    
-* 2015-10 ~ 2016-01
-
-    - 微服务: 无线开关被压住(硬件设备异常状态之一的捕捉)检测,作为独立服务运行, Long Press Checker, 依赖于TCP Watcher.
-     Node.js + Redis(Pub/Sub)
-    - 统一Web前端开发规范,前端页面开发方式,与后端的数据交互模式
-    
-* 2016-02 ~ 2016-02
-
-    - 整理文档:服务器运维,数据库管理,多种服务的分别部署的方式,不是异常处理,线上服务异常处理,开发环境搭建,前端模板规范,JavaScript及CSS等静态文件目录结构,React使用规范
+- 整理文档:服务器运维,数据库管理,多种服务的分别部署的方式,不是异常处理,线上服务异常处理,开发环境搭建,前端模板规范,JavaScript及CSS等静态文件目录结构,React使用规范
     
 #### 作品展示
 
