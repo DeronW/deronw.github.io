@@ -1,105 +1,60 @@
 <!DOCTYPE html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="keywords" content="delong, story" />
-    <meta name="description" content="well, this is my personal page, tell everyone a little story about me and my life" />
+    <meta charset="UTF-8"/>
+    <title>DELONG</title>
+    <script src="lib/particles-2.0.0.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+        }
 
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+        #stars {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: #333;
+        }
 
-    <title>delongw</title>
+        #guidepost {
 
-    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
+        }
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">DELONG</a>
-    </div>
+<div id="stars"></div>
+<div id="guidepost">
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/story/story.html">Story</a></li>
-        <li><a href="/blog/blog.html">Blog</a></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">snippet<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/snippet/choices.html">选择题答案加密</a></li>
-            <li><a href="/snippet/">Math.random扩展</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">游戏<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/game/switch-game/index.html">开关灯游戏</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">动画<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="/animate/vector_bg.html">多边形背景</a></li>
-            <li><a href="/animate/curve.html">canvas平滑曲线</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li><a href="http://delongw.github.io/animate/%E6%89%AD%E8%B5%B7%E6%9D%A5.html">扭起来</a></li>
-            <li><a href="http://delongw.github.io/animate/clock.html">Clock</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One</a></li>
-          </ul>
-        </li>
-
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/about.html">About</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-<a href="/demo/2015-12-31/happy-new-year.html">核电给您拜年了</a>
-
-<div id="disqus_thread"></div>
+</div>
 <script>
-/**
-* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-*/
 
-var disqus_config = function () {
-this.page.url = 'https://delongw.github.io''; // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 'delongw.github.io'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-
-s.src = '//delongw.disqus.com/embed.js';
-
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
+    particlesJS("stars", {
+        particles: {
+            number: {
+                value: 80,
+                density: {enable: !0, value_area: 800}
+            },
+            color: {value: ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"]},
+            shape: {type: "circle", stroke: {width: 0, color: "#000000"}, polygon: {nb_sides: 5}},
+            opacity: {value: .5, random: !1, anim: {enable: !1, speed: 1, opacity_min: .1, sync: !1}},
+            size: {value: 5, random: !0, anim: {enable: !1, speed: 4, size_min: .1, sync: !1}},
+            line_linked: {enable: !0, distance: 150, color: "#ffffff", opacity: .4, width: 1},
+            move: {
+                enable: !0,
+                speed: 1,
+                direction: "none",
+                random: !1,
+                straight: !1,
+                out_mode: "out",
+                attract: {enable: !1, rotateX: 600, rotateY: 1200}
+            }
+        }, retina_detect: !0
+    });
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-
-<---->
-<script id="dsq-count-scr" src="//delongw.disqus.com/count.js" async></script>
-
 </body>

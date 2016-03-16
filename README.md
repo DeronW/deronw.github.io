@@ -1,6 +1,3 @@
-Personal Website
-=======
+# Personal Website
 
-Self Site
-
-<a>Nuclear happy new year</a>
+I'm a coder, for few years.
