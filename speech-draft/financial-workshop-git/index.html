@@ -1,0 +1,218 @@
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <title>SCM 源码系统</title>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>Git</h2>
+        </section>
+        <section>
+            工具进化 CSV(1986) => SVN(2000) => GIT(2015)
+            <img src="images/1.png">
+        </section>
+        <section>
+            <section>
+                <h3>为什么用 git</h3>
+
+                <ol>
+                    <li>
+                        跨平台
+                        <br/>Windows/Mac/Linux 均可使用
+                    </li>
+                    <li>
+                        流行
+                        <br/>很多优秀的开源项目都使用git
+                    </li>
+                    <li>
+                        分布式
+                        <br/>本地即可提交, 多重备份
+                    </li>
+                    <li>
+                        配套工具
+                        <br/> Github/Gitlab/git UI类工具
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h3>还有其它原因</h3>
+                <p> 大家都在用 </p>
+                <p> 操作简单, 速度快 </p>
+                <p> 对项目没有侵入性 </p>
+                <p> 功能灵活, Git更像一个文件系统 </p>
+                <p> Github已经成为优秀开源项目的集散地 </p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h3> Git vs. SVN </h3>
+
+                <p> 讨论已经很多, 不再赘述, 只做总结 </p>
+                <ul>
+                    <li>Git比SVN更有优势</li>
+                    <li>Git更易于观察项目进度</li>
+                    <li>细粒度的权限上Git并不比SVN差</li>
+                    <li>大文件处理中Git的性能并不逊色</li>
+                    <li>Git不能完全取代SVN</li>
+                    <li>Git确实不能完全取代SVN</li>
+                </ul>
+            </section>
+
+            <section>
+                <p> Git的版本发布 </p>
+                <img src="images/2.png">
+            </section>
+
+            <section style="text-align: left">
+                <h4>Git背后的小故事</h4>
+                <p>Git的作者是 Linus Torvalds (Linux之父)</p>
+                <p>
+                    2002年,Linux发布10年, 源码过于庞大, Linus已经不能手工管理了.
+                    这时BitMover公司为Linux免费提供了BitKeeper工具.
+                </p>
+                <p>
+                    2005年,越来越多的
+                    Linux贡献者抱怨BitKeeper并尝试破解它的协议. Linus本人也跟BitMover公司闹掰(Linus是脾气出了名的差).
+                    于是, Linus决定自己开发一个全新的代码管理工具
+                </p>
+                <p>
+                    2005.04.08 ~ 2005.04.12, Linus仅仅用了4天, 就开发完了Git的初始版本(现已移交给社区管理). Linus自己评价,他为世界作了2个贡献,
+                    一个是Linux, 另一个是 Git
+                </p>
+                <p>
+                    2008年, <a href="https://github.com">Github</a>上线了, 至此, 开启了一个引领开源项目潮流的新时代.
+                </p>
+            </section>
+        </section>
+
+        <section style="text-align: left">
+            <h3> Git在金融工场中的使用 </h3>
+
+            目标:
+            <p>搭建Git服务器, 集中/统一的进行管理</p>
+            <p>提供Web服务, 通过浏览器即可完成大部分操作</p>
+            <p>划分开发小组, 严格的权限管理</p>
+            <p>小组成员开放权限, 灵活的代码分享</p>
+        </section>
+
+        <section>
+
+            <section>
+                <h4>于是, 金融工场有了 GitLab 服务</h4>
+            </section>
+
+            <section data-transition="slide" data-background="#006633" data-background-transition="zoom">
+                <h3> Gitlab服务 </h3>
+
+                <p>
+                    地址: <a href="http://git.9888.cn/">http://git.9888.cn/</a>
+                    <br/>(当然是假地址了, 我们用的局域网)
+                </p>
+
+                <h4>Gitlab介绍</h4>
+                <p>
+                    <a href="https://about.gitlab.com/">Gitlab</a>是开源的Git托管服务,提供本地安装版本
+                </p>
+                <p>通过网页方便的浏览所有项目</p>
+                <p>甚至可以新建文件, 创建分支, 合并代码等等</p>
+            </section>
+
+            <section data-transition="slide" data-background="#663300" data-background-transition="zoom">
+                感受一下Gitlab的UI
+                <img src="images/3.png">
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h3> 金融工场的Gitlab能做什么 </h3>
+                <ul>
+                    <li>只能公司内网访问(安全)</li>
+                    <li>不限项目数量(管理员手动设置过除外)</li>
+                    <li>开源免费</li>
+                    <li>优秀的UI, 易于管理</li>
+                    <li>能够方便的集成 CI 工具(jenkins, gitlab-ci等)</li>
+                    <li>提供了强大的代码间协调能力</li>
+                </ul>
+            </section>
+
+            <section>
+                <h4></h4>
+                <p>
+                    该服务属于测试运行中, Beta版服务,
+                    <br/>使用时请大家在本地做好备份.
+                </p>
+                <p>
+                    如果遇到问题请联系管理员 <em>王德龙</em> QQ:364761308</p>
+            </section>
+        </section>
+        <section>
+            <h3>参考资料</h3>
+
+            <a href="https://about.gitlab.com/"> Gitlab </a>
+            <br><a href="https://help.github.com/">Github</a>
+            <br><a href="https://git-scm.com/">Git官网</a>
+            <br><a href="http://git.oschina.net/progit/">Git中文文档</a>
+        </section>
+        <section>END</section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+        }
+        },
+        {
+            src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/notes/notes.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        }
+    ]
+});
+</script>
+</body>
