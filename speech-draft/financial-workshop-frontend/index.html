@@ -5,6 +5,7 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <title>Financial Workshop Frontend</title>
 </head>
 <body>
 <div class="reveal">
@@ -14,25 +15,145 @@
         </section>
         <section>
             <h3>Web前端的职责</h3>
+            <p class="fragment">最直接的用户体验</p>
+            <p class="fragment">快速迭代 + 准时发布</p>
+            <img src="images/1.png">
         </section>
         <section>
-            工场的现状
+            <section>
+                <h3>工场的现状</h3>
+
+                <ol>
+                    <li>
+                        后端项目多
+                        <br/>主站, 论坛, 用户中心, 微信, 商城...
+                    </li>
+                    <li>
+                        前端没源码
+                        <br/> SVN里才是最新代码
+                        <strong style="color: white">但是, 前端却没有源码</strong>
+                        <br/> 前端面临着空手改代码的难题
+                    </li>
+                    <li>
+                        传统的开发方式
+                        <br/> SVN + MVC + 后端渲染 + 静态资源随项目代码打包发布
+                        <br/> <span style="color:white">Web前端需要革新</span>
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h3> 目前的前端开发流程 </h3>
+                <img src="images/2.png">
+                <p> 单个项目从启动到结束大约需要一个月 </p>
+            </section>
         </section>
         <section>
-            现在开发流程
+            <h3> 现在的主要问题 </h3>
+
+            <ul>
+                <li>没有源码 或 只有部分源码</li>
+                <li>后端跨度大 同时存在多个后端 多种前端模板</li>
+                <li>电脑配置差?</li>
+                <li>不能预览最终效果</li>
+                <li>没有高效的开发方式</li>
+                <li>没有形成Web前端的开发规范</li>
+            </ul>
         </section>
+
         <section>
-            现在的主要问题
+            <section style="text-align: left">
+                <h3> 如何解决 </h3>
+
+                <p>思路一: 前端只维护所有纯静态页面</p>
+                <p>思路二: 前端跟着项目走</p>
+                <p>思路三: 前端独立项目</p>
+            </section>
+
+            <section data-transition="slide" data-background="#003366" data-background-transition="zoom">
+                <h3> 思路一: 前端只维护所有纯静态页面 </h3>
+                <table style="color: white;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Value</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Apples</td>
+                        <td>$1</td>
+                        <td>7</td>
+                    </tr>
+                    <tr>
+                        <td>Lemonade</td>
+                        <td>$2</td>
+                        <td>18</td>
+                    </tr>
+                    <tr>
+                        <td>Bread</td>
+                        <td>$3</td>
+                        <td>2</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section data-transition="slide" data-background="#006633" data-background-transition="zoom">
+                <h3> 思路二: 前端跟着项目走 </h3>
+            </section>
+
+            <section data-transition="slide" data-background="#663300" data-background-transition="zoom">
+                <h3> 思路三: 前端独立项目 </h3>
+            </section>
+
+            <section>
+                <table style="color: white;">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>思路一 <br>维护静态页</th>
+                        <th>思路二 <br>跟着项目走</th>
+                        <th>思路三 <br>独立成项目</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>项目更新速度</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>后端对接难度</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>开发效率</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>自动化程度</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>迁移成本</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+
         </section>
-        <section>
-            解决思路一
-        </section>
-        <section>
-            解决思路二
-        </section>
-        <section>
-            应该怎么提示前端的开发效率
-        </section>
+
         <section>
             短期计划
         </section>
