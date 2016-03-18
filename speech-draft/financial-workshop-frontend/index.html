@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <title>Financial Workshop Frontend</title>
+    <style>
+        b {
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
 <div class="reveal">
@@ -57,6 +62,7 @@
                 <li>不能预览最终效果</li>
                 <li>没有高效的开发方式</li>
                 <li>没有形成Web前端的开发规范</li>
+                <li>研发周期之外的项目难以找到负责人</li>
             </ul>
         </section>
 
@@ -71,40 +77,21 @@
 
             <section data-transition="slide" data-background="#003366" data-background-transition="zoom">
                 <h3> 思路一: 前端只维护所有纯静态页面 </h3>
-                <table style="color: white;">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Value</th>
-                        <th>Quantity</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Apples</td>
-                        <td>$1</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>Lemonade</td>
-                        <td>$2</td>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <td>Bread</td>
-                        <td>$3</td>
-                        <td>2</td>
-                    </tr>
-                    </tbody>
-                </table>
+
+                前端开发一个纯静态页面, 然后交给后端负责[前端任务结束]
+                <img src="images/3.png">
             </section>
 
             <section data-transition="slide" data-background="#006633" data-background-transition="zoom">
                 <h3> 思路二: 前端跟着项目走 </h3>
+                前端持有后端项目SVN权限, 本地运行服务后修改代码
+                <img src="images/4.jpg">
             </section>
 
             <section data-transition="slide" data-background="#663300" data-background-transition="zoom">
                 <h3> 思路三: 前端独立项目 </h3>
+                前端自己持有源码, 打包项目, 分发给不同的后端项目
+                <img src="images/5.png">
             </section>
 
             <section>
@@ -120,33 +107,33 @@
                     <tbody>
                     <tr>
                         <td>项目更新速度</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>慢</td>
+                        <td>中</td>
+                        <td>快</td>
                     </tr>
                     <tr>
                         <td>后端对接难度</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>困难</td>
+                        <td>普通</td>
+                        <td>简单</td>
                     </tr>
                     <tr>
                         <td>开发效率</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>高</td>
+                        <td>低</td>
+                        <td>高</td>
                     </tr>
                     <tr>
                         <td>自动化程度</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>低</td>
+                        <td>中</td>
+                        <td>高</td>
                     </tr>
                     <tr>
                         <td>迁移成本</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>低</td>
+                        <td>高</td>
+                        <td>高</td>
                     </tr>
                     </tbody>
                 </table>
@@ -156,33 +143,109 @@
 
         <section>
             <section>
-                短期计划
-            </section>
+                <h3> 短期计划 (月计划)</h3>
 
-            <section>
-                git
+                <p> 规范开发流程 </p>
+                <p> 整合项目代码 </p>
+                <p> 试水一个独立的前端项目 </p>
             </section>
         </section>
         <section>
-            中期计划
+            <h3> 中期计划 (季度计划)</h3>
+            <p> 使用 Git 管理前端项目代码 </p>
+            <p>完善前端组件库</p>
+            <p>升级前端开发方式及工具</p>
+            <p>改善前后端数据交互方式</p>
         </section>
         <section>
-            长期计划
+            <section>
+                <h3> 前端目标(长期计划) </h3>
+                <p> 做好用户交互功能, <strong style="color: white;">重在用户体验 </strong></p>
+                <a href="http://www.material-ui.com/#/components/app-bar">体验一下谷歌的设计规范</a>
+                <div><img src="images/6.gif"></div>
+
+                <h4>目标: 成为一个有效率有担当的前端团队 </h4>
+            </section>
+            <section>
+                <h3>Web前端项目开发流程(移动端)</h3>
+                <img src="images/7.png">
+            </section>
+            <section>
+                <h4>新开发流程需要什么</h4>
+
+                <p><b>RESTful接口</b> 数据流才是用户操作的主线</p>
+                <p><b>新的思路</b> MVC没有过时, 但已经不能响应变化了</p>
+                <p><b>可视化的流程</b> 项目的每一步都应该让所有人看到</p>
+                <p><b>模块化</b> 清晰的模块和功能是大型项目稳定的保障</p>
+                <p><b>独立项目</b> 前端不再依赖后端,专业的工具出专业的效果</p>
+            </section>
+            <section>
+                <h3>接口工具</h3>
+                <p>看得见的接口, 让开发人员在使用的时候面对真是的数据</p>
+                <p>不用担心接口返回与文档描述不同, 接口是否正确一试便知</p>
+                <p>推荐工具 <a href="http://petstore.swagger.io/">swagger</a></p>
+                <img src="images/8.png">
+            </section>
+            <section>
+                <h3>SAPs 单页面应用</h3>
+                <p>
+                    用户进入某个功能, 所有的操作都在同一个页面, 没有刷新和调整, 最大限度的减少了网络延时
+                </p>
+                <p>
+                    依靠js框架进行页面局部刷新, 即保证了交互, 又保证了速度,
+                    据说简单操作的效率可以媲美Native
+                </p>
+                <p>
+                    同一个页面内数据更容易控制, 避免跨页面传递数据的问题
+                </p>
+                <p>
+                    更容易嵌入到APP或微信中
+                </p>
+            </section>
+            <section>
+                <h3>React的使用</h3>
+                <div>
+    <pre>
+        <code>
+            import React from 'react';
+            import ReactDOM from 'react-dom';
+            import injectTapEventPlugin from 'react-tap-event-plugin';
+            import Main from './components/main.jsx'; // Our custom react component
+
+            //Needed for onTouchTap
+            //Can go away when react 1.0 release
+            //Check this repo:
+            //https://github.com/zilverline/react-tap-event-plugin
+            injectTapEventPlugin();
+
+            // Render the main app react component into the app div.
+            ReactDOM.render( &lt;Main/&gt; , document.getElementById('app'));
+        </code>
+    </pre>
+                </div>
+                <p> ES6 + 预编译 + React </p>
+                <p>
+                    它的优秀之处在于:　使复杂应用的开发变为可能
+                </p>
+            </section>
         </section>
         <section>
-                    <pre>
-                        <code data-trim data-noescape>
-                            (def lazy-fib
-                            (concat
-                            [0 1]
-                            <mark>((fn rfib [a b]</mark>
-                            (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
-                        </code>
-                    </pre>
+            <h3>Web前端的技能树</h3>
+
+            <div> HTML5 + CSS3 + JavaScript</div>
+            <div> Node.js + npm</div>
+            <div>ECMAScript6(2015)</div>
+            <div>React.js</div>
+            <div>Gulp工具库</div>
+            <div>Template(swig + jade ...)</div>
+            <div> Ajax + WebSocket (DataFlow)</div>
         </section>
         <section>
             <h3>参考资料</h3>
 
+            <a href="http://wiki.jikexueyuan.com/project/material-design/material-design-intro/introduction.html">
+                Material Design设计规范
+            </a>
             <a href="http://ued.taobao.org/blog/2014/04/full-stack-development-with-nodejs/">
                 淘宝前后端分离实践
             </a>
