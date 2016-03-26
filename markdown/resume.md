@@ -175,6 +175,19 @@
 
 认真地做好每件事, 负责地写好每段代码
 
+
+Good at learning, well this doesn't mean I'm new, that's means I have the passion in learning.
+6 years experience, when I realize that I have waste too much time on tiny detail. I should be more
+effictive. So I want to join a good company, that's the best in 
+my eyes.
+
+
+回想起来已经工作6年了,对于一个程序员来说现在正是发光发热的时候.6年的时间逐渐把一个人的心性
+磨练成熟. 反观以前的自己总是那么稚嫩. 人生需要成长需要新的挑战, 这样才能在回首往事的时候说
+"我曾经历过".经历过挫折经历过荣耀, 不过最重要的还是,够精彩.遇到更多的人,做更多的事,让自己被
+更多的人了解.我想xx就是这样的一个地方. 
+
+
 ### 个人项目
 
 [内存数据结构](https://github.com/delongw/node-cache) Node.js
