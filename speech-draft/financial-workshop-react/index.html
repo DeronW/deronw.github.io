@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>react 入门</title>
+    <link rel="stylesheet" href="./react 入门_files/reveal.css">
+    <link rel="stylesheet" href="./react 入门_files/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="./react 入门_files/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'https://a.alipayobjects.com/reveal/3.1.0/css/print/pdf.css' : 'https://a.alipayobjects.com/reveal/3.1.0/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+	<link rel="stylesheet" type="text/css" href="./react 入门_files/paper.css">
+</head>
+<body style="transition: -webkit-transform 0.8s ease;">
+
+<div class="reveal slide center" role="application" data-transition-speed="default" data-background-transition="fade">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides" style="width: 960px; height: 700px; zoom: 0.894857;">
+        <section hidden="" aria-hidden="true" class="past" style="top: 208px; display: block;">
+            <h1>React 入门</h1>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 204.5px; display: block;">
+            <h2>是什么</h2>
+
+            <p>React 是一个做 UI 的库，具体来说是做 UI 组件的库，专注于做 MVC 中的 View.</p>
+			<p>
+				React 不限制于MVC框架,或MVVM框架. 它只是View层
+			</p>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>最简单的 react 组件</h2>
+			
+			<pre>
+			var Hello = React.createClass({
+				render: function() {
+					return &lt;div>Hello {this.props.name}&lt;/div>;
+				}
+			});
+			 
+			React.render(&lt;Hello name="World" />, document.getElementById('container'));
+			</pre>
+		</section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>用状态控制组件变化</h2>
+
+            <p>可以把一个组件看做一个状态机</p>
+
+			<pre>
+			var Timer = React.createClass({
+			  getInitialState: function() {
+				return {secondsElapsed: 0};
+			  },
+			  tick: function() {
+				this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+			  },
+			  componentDidMount: function() {
+				this.interval = setInterval(this.tick, 1000);
+			  },
+			  componentWillUnmount: function() {
+				clearInterval(this.interval);
+			  },
+			  render: function() {
+				return (
+				  &lt;div>Seconds Elapsed: {this.state.secondsElapsed}&lt;div>
+				);
+			  }
+			});
+
+			React.render(&lt;Timer />, document.getElementById('container'));
+			</pre>
+		</section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>为什么选择React</h2>
+
+            <ul>
+                <li>API少，类库易学</li>
+                <li>组件内聚，易于组合</li>
+                <li>原生组件和自定义组件融合渲染</li>
+                <li>状态/属性驱动全局更新，不用关注细节更新</li>
+            </ul>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>基础知识</h2>
+
+            <p class="fragment" data-fragment-index="0">jsx</p>
+
+            <p class="fragment" data-fragment-index="1">event</p>
+
+            <p class="fragment" data-fragment-index="2">composition</p>
+
+            <p class="fragment" data-fragment-index="3">props/state</p>
+
+            <p class="fragment" data-fragment-index="4">form</p>
+
+            <p class="fragment" data-fragment-index="5">component api</p>
+
+            <p class="fragment" data-fragment-index="6">top api</p>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>jsx</h2>
+
+            <p>类似 xml 的语法，用来描述组件树</p>
+
+            <code class=" hljs xml">
+                <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">classname</span>=<span class="hljs-value">"x"</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"#"</span>&gt;</span>#<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-title">component</span> <span class="hljs-attribute">x</span>=<span class="hljs-value">"y"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">component</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+            </code>
+<p></p>
+            <code class=" hljs groovy">
+                React.createElement(<span class="hljs-string">'div'</span>,{
+<span class="hljs-label">                className:</span><span class="hljs-string">'x'</span>
+                },[
+                React.createElement(<span class="hljs-string">'a'</span>,{<span class="hljs-string">href:</span><span class="hljs-string">'#'</span>},<span class="hljs-string">'#'</span>),
+                React.createElement(Component,{<span class="hljs-string">x:</span><span class="hljs-string">'y'</span>},<span class="hljs-number">1</span>);
+                ]);
+            </code>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>jsx 嵌入变量</h2>
+
+            <p>可以通过 {变量名} 来将变量的值作为属性值</p>
+
+			<pre>
+			<code>
+var x = 'http://www.alipay.com';
+var y = &lt;a href= {x} target="_blank">alipay.com&lt;/a>;
+React.render(y, document.getElementById('container'));
+			</code>
+			</pre>
+		</section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>jsx spread</h2>
+
+            <p>可以用通过 {...obj} 来批量设置一个对象的键值对到组件的属性，注意顺序</p>
+
+			<pre>
+			<code>
+var x = 'http://www.alipay.com';
+var obj = {
+  href:"http://www.taobao.com",
+  target:"_blank"
+}
+var y = &lt;a {...obj} href= {x}>alipay.com&lt;/a>;
+React.render(y, document.getElementById('container'));
+			</code>
+			</pre>
+		</section>
+
+        <section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">
+            <section style="top: 330px; display: none;">
+                <h2>props</h2>
+
+                <p>通过 this.props 可以获取传递给该组件的属性值，还可以通过定义 getDefaultProps 来指定默认属性值</p>
+<pre>
+<code>
+var B = React.createClass({
+    getDefaultProps(){
+        return {
+            title:'default'
+        };
+    },
+    render(){
+        return &lt;b>{this.props.title}&lt;/b>
+    }
+});
+
+React.render(&lt;div>&lt;B title="指定  "/> &lt;B/>&lt;/div>,document.getElementById('container'));
+</code>
+</pre>
+                <p>注意：默认值为所有组件实例共享的</p>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>prop validation</h2>
+
+                <p>通过指定 propTypes 可以校验属性值的类型</p>
+<pre>
+<code>
+var B = React.createClass({
+    propTypes: {
+        title: React.PropTypes.string,
+    },
+
+    getDefaultProps(){
+        return {
+            title:'default'
+        };
+    },
+    render(){
+        return &lt;b>{this.props.title}&lt;/b>
+    }
+});
+
+React.render(&lt;div>&lt;B title="指定  "/> &lt;B title={2}/>&lt;/div>,document.getElementById('container'));
+</code>
+</pre>
+                <p>注意：校验仅为提升开发者体验</p>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>state</h2>
+
+                <p>组件内部的状态，可以使用 state</p>
+
+<pre>
+<code>
+var Timer = React.createClass({
+  getInitialState: function() {
+    return {secondsElapsed: 0};
+  },
+  tick: function() {
+    this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+  },
+  componentDidMount: function() {
+    this.interval = setInterval(this.tick, 1000);
+  },
+  componentWillUnmount: function() {
+    clearInterval(this.interval);
+  },
+  render: function() {
+    return (
+      &lt;div>Seconds Elapsed: {this.state.secondsElapsed}&lt;/div>
+    );
+  }
+});
+
+React.render(&lt;Timer />, document.getElementById('container'));
+</code>
+</pre>
+				
+			</section>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>event</h2>
+
+            <p>可以通过设置原生 dom 组件的 onEventType 属性来监听 dom 事件，例如 onClick, onMouseDown，在加强组件内聚性的同时，避免了传统 html 的全局变量污染</p>
+<pre>
+<code>
+var LikeButton = React.createClass({
+  getInitialState: function() {
+    return {liked: false};
+  },
+  handleClick: function(event) {
+    this.setState({liked: !this.state.liked});
+  },
+  render: function() {
+    var text = this.state.liked ? 'like' : 'haven\'t liked';
+    return (
+      &lt;p onClick={this.handleClick}>
+        You {text} this. Click to toggle.
+      &lt;/p>
+    );
+  }
+});
+
+React.render(
+  &lt;LikeButton />,
+  document.getElementById('container')
+);
+</code>
+</pre>
+            <p>注意：事件回调函数参数为标准化的事件对象，可以不用考虑 ie</p>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">
+                <h2>组合</h2>
+
+                <p>可以像使用原生 dom 组件一样使用自定义的组件</p>
+<pre>
+<code>
+var A = React.createClass({
+    render(){
+        return &lt;a href='#'>a&lt;/a>
+    }
+});
+
+var B = React.createClass({
+    render(){
+        return &lt;i>&lt;A /> !&lt;/i>;
+    }
+});
+
+React.render(&lt;B />,document.getElementById('container'));
+</code>
+</pre>
+        </section>
+
+
+        <section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">
+            <section style="top: 330px; display: none;">
+                <h2>form</h2>
+
+                <p>和 html 的不同点：</p>
+                <ul>
+                    <li>value/checked 属性设置后，用户输入无效</li>
+                    <li>textarea 的值要设置在 value 属性</li>
+                    <li>select 的 value 属性可以是数组，不建议使用 option 的 selected 属性</li>
+                    <li>input/textarea 的 onChange 用户每次输入都会触发（即使不失去焦点）</li>
+                    <li>radio/checkbox 点击后触发 onChange</li>
+                </ul>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>controlled components</h2>
+
+                <p>如果设置了 value 属性，那么改组件变为受控组件，用户无法输入，除非程序改变 value 属性</p>
+
+                <iframe width="100%" height="500" data-src="http://jsfiddle.net/yiminghe/3jwjLkrk/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>controlled components</h2>
+
+                <p>可以通过监听 onChange 事件结合 state 来改变 input 的值</p>
+
+                <iframe width="100%" height="500" data-src="http://jsfiddle.net/yiminghe/3jwjLkrk/2/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>uncontrolled components</h2>
+
+                <p>设置 defaultValue 为设置 input 的初始值，之后 input 的值由用户输入</p>
+
+                <iframe width="100%" height="500" data-src="http://jsfiddle.net/yiminghe/ex46s6n2/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+                <p>类似还有 defaultChecked</p>
+            </section>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>ref</h2>
+
+            <p>该功能是为了结合现有非 react 类库，通过 ref/refs 可以取得组件实例，进而取得原生节点</p>
+
+            <iframe width="100%" height="500" data-src="http://jsfiddle.net/yiminghe/ey56o3md/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+            <p>注意：尽量通过 state/props 更新组件，不要使用该功能</p>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="stack future" style="top: 330px; display: none;">
+            <section style="top: 330px; display: none;">
+                <h2>component api</h2>
+
+                <p>React.createClass 定义组件时允许传入的配置</p>
+
+                <ul>
+                    <li>getDefaultProps 得到默认属性对象</li>
+                    <li>propTypes 属性检验规则</li>
+                    <li>mixins 组件间公用方法</li>
+                </ul>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>component lifecycle</h2>
+
+                <p>React.createClass 定义时允许传入的函数，会在特定生命周期内调用</p>
+
+                <p>初次创建组件时调用</p>
+
+                <ul>
+                    <li>getInitialState 得到初始状态对象</li>
+                    <li>render 返回组件树. 必须设置</li>
+                    <li>componentDidMount 渲染到 dom 树中是调用，只在客户端调用，可用于获取原生节点</li>
+                </ul>
+            </section>
+
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>component lifecycle</h2>
+
+                <p>组件的属性值改变时调用</p>
+
+                <ul>
+                    <li>componentWillReceiveProps 属性改变调用</li>
+                    <li>shouldComponentUpdate 判断是否需要重新渲染</li>
+                    <li>render 返回组件树. 必须设置</li>
+                    <li>componentDidUpdate 渲染到 dom 树中是调用, 可用于获取原生节点</li>
+                </ul>
+
+                <p>最后是 componentWillUnmount 组件从 dom 销毁前调用</p>
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>component lifecycle demo</h2>
+
+                <img src="./react 入门_files/lifecycle.svg" height="600">
+            </section>
+
+            <section class="future" aria-hidden="true" style="top: 330px; display: none;">
+                <h2>component lifecycle demo</h2>
+
+                <iframe width="100%" height="500" src="./react 入门_files/saved_resource.html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+            </section>
+        </section>
+
+        <section hidden="" aria-hidden="true" class="future" style="top: 330px; display: none;">
+            <h2>top api</h2>
+
+            <ul>
+                <li>React.createClass 创建组件类</li>
+                <li>React.findDOMNode 从组件实例获取 dom 根节点</li>
+                <li>React.render 渲染组件到 dom</li>
+                <li>React.Children.* 操作 map/forEach children 工具类</li>
+            </ul>
+        </section>
+
+    </div>
+<div class="backgrounds"><div class="slide-background past" data-loaded="true" style="display: block;"></div><div class="slide-background present" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack future" style="display: none;"><div class="slide-background present" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background future" style="display: none;"></div></div><div class="progress" style="display: block;"><span style="width: 28.3333px;"></span></div><aside class="controls" style="display: block;"><div class="navigate-left enabled"></div><div class="navigate-right enabled fragmented"></div><div class="navigate-up"></div><div class="navigate-down"></div></aside><div class="slide-number"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+            入门
+
+            
+                包含
+                
+                    
+                        是什么
+                    
+                    
+                        为什么
+                    
+                    
+                        怎么用
+                    
+                    
+                        搭建示例应用
+                    
+                
+            
+
+            
+                不包含
+                
+                    
+                        生态圈/公用组件
+                    
+                    
+                        应用框架
+                    
+                    
+                        编译/合并代码
+                    
+                
+            
+        </div></div>
+
+<script src="./react 入门_files/head.min.js"></script>
+<script src="./react 入门_files/reveal.js"></script>
+<script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'https://a.alipayobjects.com/reveal/3.1.0/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'https://a.alipayobjects.com/reveal/3.1.0/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'https://a.alipayobjects.com/reveal/3.1.0/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'https://a.alipayobjects.com/reveal/3.1.0/plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector('pre code');
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'https://a.alipayobjects.com/reveal/3.1.0/plugin/zoom-js/zoom.js', async: true},
+            {src: 'https://a.alipayobjects.com/reveal/3.1.0/plugin/notes/notes.js', async: true}
+        ]
+    });
+</script><script type="text/javascript" src="./react 入门_files/highlight.js"></script><script type="text/javascript" src="./react 入门_files/zoom.js"></script><script type="text/javascript" src="./react 入门_files/notes.js"></script>
+
+
+
+</body></html>
