@@ -25,11 +25,11 @@ margin: 10px;
 		var name = location.search.split('?')[1];
 	
 		$.ajax({
-			url: 'markdown/' + name + ".md", 
+			url: name + (name.indexOf('.md') > -1 ? '' : ".md"),
 			success: show,
 			error: function(){
 				alert('未找到对应文章');
-				$.get('markdown/index.md', show);
+				$.get('index.md', show);
 			}
 		});
 		
