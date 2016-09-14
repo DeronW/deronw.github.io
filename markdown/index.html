@@ -1,41 +1,41 @@
 ﻿<!doctype html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	  <style>
-body {
-font-size: 14px;
-font-family: Microsoft YaHei;
-background: whitesmoke;
-color: #333;
-margin: 10px;
-}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        body {
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            background: whitesmoke;
+            color: #333;
+            margin: 10px;
+        }
 
-	  </style>
-<title>Note</title>
-<script src="javascripts/jquery-2.2.4.min.js"></script>
-<script src="javascripts/markdown.min.js"></script>
+    </style>
+    <title>Note</title>
+    <script src="javascripts/jquery-2.2.4.min.js"></script>
+    <script src="javascripts/markdown.min.js"></script>
 </head>
 
 <body>
 
-	<div id="preview" class="preview"></div>
-  
-	<script>
-		var name = location.search.split('?')[1];
-	
-		$.ajax({
-			url: name + (name.indexOf('.md') > -1 ? '' : ".md"),
-			success: show,
-			error: function(){
-				alert('未找到对应文章');
-				$.get('index.md', show);
-			}
-		});
-		
-		function show(data){
-				document.getElementById('preview').innerHTML = markdown.toHTML(data);
-		}
-		
-	</script>
+<div id="preview" class="preview"></div>
+
+<script>
+    var name = location.search.split('?')[1];
+
+    $.ajax({
+        url: name + (name.indexOf('.md') > -1 ? '' : ".md"),
+        success: show,
+        error: function () {
+            alert('未找到对应文章');
+            $.get('index.md', show);
+        }
+    });
+
+    function show(data) {
+        document.getElementById('preview').innerHTML = markdown.toHTML(data);
+    }
+
+</script>
 </body>
