@@ -1,0 +1,395 @@
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <title>基于Git的项目管理</title>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h2>基于Git的项目管理</h2>
+        </section>
+        <section>
+            <section>
+                <h2>项目部署篇</h2>
+            </section>
+            <section>
+                <h3>目标</h3>
+                <ol>
+                    <li>
+                        快速
+                        <br/>修改 -> 提交 -> 部署 的快速响应
+                    </li>
+                    <li>
+                        灵活
+                        <br/>方便的指定部署内容
+                    </li>
+                    <li>
+                        幂等
+                        <br/>允许重复部署
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h3>Web前端部署演示</h3>
+                <p>线上实践</p>
+            </section>
+            <section>
+                <h3>第一步 发布</h3>
+                <p>呼叫运维...发布 <b>专题活动</b> 项目</p>
+            </section>
+            <section>
+                <h3>第二步 检查</h3>
+                <p>发布错了!, 应该发布 front-activity</p>
+                <p>但刚发布的是 front-web 项目</p>
+            </section>
+            <section>
+                <h3>第三步 怎么办?</h3>
+                <p>项目发布是 幂等 的, 所以...不用管它</p>
+            </section>
+            <section>
+                <h3>第四步 正确发布</h3>
+                <p>发布 front-activity</p>
+            </section>
+            <section>
+                <h3>第五步 产品要改需求了</h3>
+                <p>改一下专题标题, 因为: </p>
+                <p>餬2鹚??L???蟨袧猈k\揝a駈L铓</p>
+                <p>??Z残焺悎?迚ズT捴叟惆轫q?译0坻? 螬/ㄎ孢(磅o?罾</p>
+            </section>
+            <section>
+                <h3>第六步 修改代码</h3>
+                <p>编辑 -> 提交 -> 推送到代码库 -> 呼叫运维 -> 发布</p>
+            </section>
+            <section>
+                <h3>不需要测试吗?</h3>
+                <p>这是发布流程, 它的前提是已经通过测试</p>
+            </section>
+            <section>
+                <h3>刚刚明明改了代码 真不需要测试吗</h3>
+                <p>线上修复, 只是修改文字, 自测就可以了, 又不是功能修改</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>分支管理篇</h2>
+            </section>
+            <section>
+                <h3>Web前端的代码库划分</h3>
+                <table style="color: greenyellow">
+                    <tr>
+                        <td>代码库</td>
+                        <td>说明</td>
+                        <td>项目</td>                        
+                    </tr>
+                    <tr>
+                        <td>webapp</td>
+                        <td>移动端项目</td>
+                        <td>豆哥商城, WAP网站</td> 
+                    </tr>
+                    <tr>
+                        <td>website</td>
+                        <td>PC端项目</td>
+                        <td>主站, 市场活动</td> 
+                    </tr>
+                    <tr>
+                        <td>activity, game, ...</td>
+                        <td colspan="2">游戏项目, 老专题项目, 等等</td>
+                    </tr>
+                </table>
+            </section>
+            <section>             
+                <h3>Web前端的项目划分</h3>
+                <table style="color: greenyellow">
+                    <tr>
+                        <td>代码库</td>
+                        <td>说明</td>
+                        <td>项目</td>
+                    </tr>
+                    <tr>
+                        <td>webapp</td>
+                        <td>移动端项目</td>
+                        <td>
+                            <table style="color: navajowhite; text-align: left;">
+                                <tr>
+                                    <td>豆哥商城</td>
+                                    <td>mmall.9888.cn</td>
+                                </tr>    
+                                <tr>
+                                    <td>WAP网站</td>
+                                    <td>m.9888.cn</td>
+                                </tr>    
+                            </table>    
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>website</td>
+                        <td>PC端项目</td>
+                        <td>
+                            <table style="color: navajowhite; text-align: left;">
+                                <tr>
+                                    <td>主站</td>
+                                    <td>www.9888.cn</td>
+                                </tr>    
+                                <tr>
+                                    <td>专题</td>
+                                    <td>/activity</td>
+                                </tr>    
+                            </table>
+                        </td> 
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+            <section>             
+                <h3>项目的分支划分</h3>
+                <table style="color: greenyellow">
+                    <tr>
+                        <td>代码库</td>
+                        <td>说明</td>
+                        <td>项目</td>
+                    </tr>
+                    <tr>
+                        <td>webapp</td>
+                        <td>移动端项目</td>
+                        <td>
+                            <table style="color: navajowhite; text-align: left;">
+                                <tr>
+                                    <td>豆哥商城</td>
+                                    <td style="color: hotpink">
+                                       release-mall
+                                    </td>
+                                </tr>    
+                                <tr>
+                                    <td>WAP网站</td>
+                                    <td style="color: hotpink">release-wap</td>
+                                </tr>    
+                            </table>    
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>website</td>
+                        <td>PC端项目</td>
+                        <td>
+                            <table style="color: navajowhite; text-align: left;">
+                                <tr>
+                                    <td>主站</td>
+                                    <td style="color: hotpink">release-web</td>
+                                </tr>    
+                                <tr>
+                                    <td>专题</td>
+                                    <td style="color: hotpink">release-activity</td>
+                                </tr>    
+                            </table>
+                        </td> 
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+            <section>             
+                <h3>开发中程中的分支变化</h3>
+                    分支变化顺序, 一定要严格遵循
+                <p style="color: hotpink; text-align: center;">
+                    develop -> master -> release-*
+                </p>
+                可以先在个人分支上开发, 完成后合并到 develop分支 <br>
+                release-* 表示当前项目的发布分支, 不同项目的发布分支不同
+            </section>
+            <section>
+                图形化的提交记录是这样的
+                <img src="images/5.png" />
+            </section>
+            <section>             
+                <h3>不同类型的任务 开发分支</h3>
+                某个月黑风高的需求夜, 开始制定开发计划
+                <table style="color: hotpink; text-align: center;">
+                    <tr>
+                        <td> 任务周期 </td>
+                        <td> 开发分支 </td>
+                        <td> 测试分支 </td>
+                        <td> 发布分支 </td>
+                    </tr>
+                    <tr>
+                        <td> 月任务 </td>
+                        <td> develop </td>
+                        <td> master </td>
+                        <td> release-* </td>
+                    </tr>
+                    <tr>
+                        <td> 周任务 </td>
+                        <td> master </td>
+                        <td> master </td>
+                        <td> release-* </td>
+                    </tr>
+                    <tr>
+                        <td> 紧急任务 </td>
+                        <td> release-* </td>
+                        <td> -- </td>
+                        <td> release-* </td>
+                    </tr>
+                    <tr>
+                        <td> 实验性项目 </td>
+                        <td> my-branch </td>
+                        <td> my-branch </td>
+                        <td> -- </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2> 代码审查篇 </h2>
+            </section>
+            <section>
+                <h3> 代码审查的必要性 </h3>
+                <p> 非常必要!</p>
+                <dl>
+                <dd> 不要重复代码 </dd>
+                <dd> 不要天女散花的逻辑 </dd>
+                <dd> 不要太亲密 </dd>
+                <dd> 不要继承过多 </dd>
+                <dd> 不要300行的大函数 </dd>
+                <dd> 不要只有代码没有注释 </dd>
+                <dd> 不要太多注释, 啰嗦, 我不看 </dd>
+                </ol>
+            </section>
+            <section>
+                <h3> 代码审查的方法 </h3>
+                
+                <table style="color: greenyellow">
+                    <tr>
+                        <td>审查方法</td>
+                        <td>优点</td>
+                        <td>缺点</td>
+                    </tr>    
+                    <tr>
+                        <td>自动审查 xxx Lint库</td>
+                        <td>速度快, 覆盖全, 标准化</td>
+                        <td>检查过于严格, 不能因时而异</td>
+                    </tr>    
+                    <tr>
+                        <td>开发者交叉review</td>
+                        <td>社会主义好, 共同致富</td>
+                        <td>看不懂, 不想看, 没时间</td>
+                    </tr>    
+                    <tr>
+                        <td>审查官 review</td>
+                        <td>充分发挥人的优势, 保证代码的高质量</td>
+                        <td>人性的弱点 体现到了代码上</td>
+                    </tr>    
+                </table>
+
+                <p>目前Web前端采用的是人工审查</p>
+            </section>
+            <section>
+                <h3> 代码审查记录 实践</h3>
+                <p>一个程序员式的孤独夜晚 在xxx项目中发现问题</p>
+                <img src="images/2.png"/>
+            </section>
+            <section>
+                <p>review中发现了问题, 那就?</p>
+                <h4>千万不要自己该, 要让作者改, 作者不改, 再自己改</h4>
+                <img src="images/3.png"/>
+                修改后要附带 git 提交的记录, 根据记录来审查这次的修改内容
+            </section>
+
+            <section>
+                <p>根据反馈的 提交版本号, 查到修改代码</p>
+                <img src="images/4.png"/>
+                再最终审核一下, OK, 通过
+            </section>
+            
+        </section>
+
+        <section>
+            <section><h3>FAQ</h3></section>
+            <section>
+                <h3> SVN可以吗? </h3>
+                <h3> 不可以 </h3>
+                <p>原因一: SVN的分支操作不够灵活</p>
+                <p>原因二: SVN是集中式项目管理</p>
+            </section>
+
+            <section>
+                <h3> GIT工作流 </h3>
+                <p>围绕 git 展开的工作方法, 流程</p>
+                <p>目标: 更高效, 介绍几种主要的工作流</p>
+                <dl>
+                    <dd>集中式工作流</dd>
+                    <dd>功能分支工作流</dd>
+                    <dd>Gitflow工作流</dd>
+                    <dd>Forking工作流</dd>
+                    <dd>Pull Requests工作流</dd>
+                </dl>
+                <h3>我们用的是什么呢?</h3>
+                简单版的Git Flow, 并混合其它模式
+            </section>
+            <section>
+            </section>
+            <section> 
+            </section>
+            <section>
+
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+        }
+        },
+        {
+            src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/notes/notes.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        }
+    ]
+});
+</script>
+</body>
