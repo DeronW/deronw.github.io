@@ -1,0 +1,390 @@
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <title>前端项目管理 ---- 静态资源管理篇</title>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h4>前端项目管理</h4>
+			<h2>静态资源管理篇</h2>
+        </section>
+        <section>
+            <section>
+                <h2>起</h2>
+            </section>
+            <section>
+                <h3>微信小程序开发源码不能超过1M</h3>
+                <ol>
+                    <li>
+                        不能添加图片?
+                    </li>
+                    <li>
+                        不能添加声音?
+                    </li>
+                    <li>
+						静态资源怎么处理?
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h3>什么事静态资源?</h3>
+                <dl>
+                    <dd>
+                        不可变数据
+                    </dd>
+                    <dd>
+                        无过期时间
+                    </dd>
+                    <dd>
+						可被发现的资源
+                    </dd>
+                </dl>
+				<p>
+					GUI项目都需要静态资源
+				</p>
+				<p>
+					图形用户界面 Graphical User Interface，简称 GUI
+				</p>
+            </section>
+            <section>
+                <h3>uri 和 url</h3>
+                <dl>
+                    <dd>
+                        uri : Uniform Resource Identifier 统一资源标识符
+                    </dd>
+                    <dd>
+                        url : Uniform Resource locator 统一资源定位符
+                    </dd>
+                </dl>
+				<p>
+				URI 和 URL 竟是静态资源的一种体现并说明了使用方法
+				</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>承</h2>
+            </section>
+            <section>
+                <h3>动静分离</h3>
+				<p>动态数据/页面渲染 路由到动态接口</p>
+				<p>静态资源 路由到静态地址</p>
+				<p>理由: 因为静态资源不必要属于任何项目, 公开的静态资源可以被任何客户端调用</p>
+            </section>
+            <section>             
+                <h3>动静分离的方式</h3>
+                <table style="color: greenyellow; font-size: 30px">
+                    <tr>
+                        <td></td>
+                        <td>域名</td>
+                        <td>路径</td>
+                        <td>后缀名</td>
+                        <td>MIME类型</td>
+                    </tr>
+                    <tr>
+                        <td>用法</td>
+                        <td>
+							www.9.cn	
+							<br />
+							static.9.cn
+						</td>
+                        <td>
+							/static/xxx
+							<br />
+							/api/xxx
+						</td>
+                        <td>
+							.png
+							.json
+						</td>
+                        <td>
+							<a href="http://www.w3school.com.cn/media/media_mimeref.asp">MIME</a>
+						</td> 
+                    </tr>
+                    <tr>
+                        <td>配置灵活</td>
+                        <td>简单</td>
+                        <td>简单</td>
+                        <td>复杂</td>
+                        <td>复杂</td> 
+                    </tr>
+                    <tr>
+                        <td>开发方便</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>否</td> 
+                    </tr>
+                    <tr>
+                        <td>标准化</td>
+                        <td>良好</td>
+                        <td>普通</td>
+                        <td>普通</td>
+                        <td>良好</td> 
+                    </tr>
+                    <tr>
+                        <td>实践结果</td>
+                        <td>优秀</td>
+                        <td>普通</td>
+                        <td>差</td>
+                        <td>普通</td> 
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+            <section>             
+                <h3>域名方式动静分离</h3>
+                <table style="color: greenyellow">
+                    <tr>
+                        <td></td>
+                        <td>静态域名</td>
+                        <td>动态域名</td>
+                    </tr>
+                    <tr>
+                        <td>举例</td>
+                        <td>https://static.9888.cn</td>
+                        <td>http://www.9888.cn
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>缓存</td>
+                        <td>开启, 永久缓存</td>
+                        <td>关闭, 不开缓存
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>速度</td>
+                        <td>快, 优先展示</td>
+                        <td>慢, 延迟展示</td> 
+                    </tr>
+                    <tr>
+                        <td>控制</td>
+                        <td>一经发布, 禁止更改</td>
+                        <td>版本控制, 实时变化</td> 
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+            <section>             
+                <h3>域名方式动静分离的实践</h3>
+				先来看一个优秀的例子: <a href="http://www.qiniu.com/products/fusion">七牛</a>
+                <table style="color: hotpink; text-align: center; font-size: 30px;">
+                    <tr>
+                        <td>  </td>
+                        <td> 微博</td>
+                        <td> 百度图片</td>
+                    </tr>
+                    <tr>
+                        <td> 访问域名 </td>
+                        <td> http://weibo.com/</td>
+                        <td> http://image.baidu.com/</td>
+                    </tr>
+                    <tr>
+                        <td> 图片域名</td>
+                        <td> 
+							http://img.t.sinajs.cn
+							http://tva4.sinaimg.cn
+						</td>
+                        <td> http://img0.bdstatic.com </td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2> 转 </h2>
+            </section>
+            <section>
+                <h3> 金融工场 静态服务域名 </h3>
+                <p> https://static.9888.cn </p>
+                刚申请的...
+            </section>
+            <section>
+                <h3> 组成 </h3>
+                
+                <table style="color: greenyellow">
+                    <tr>
+                        <td>域名</td>
+                        <td>static.9888.cn</td>
+                    </tr>    
+                    <tr>
+                        <td>版本工具</td>
+                        <td>git</td>
+                    </tr>    
+                    <tr>
+                        <td>发布工具</td>
+                        <td>jenkins</td>
+                    </tr>
+                </table>
+
+                <p>发布过程十分简单, 把文件添加到git项目中,  </p>
+                <p>然后发布到正式环境. </p>
+                <p>文件的线上地址 = 域名 + 项目中的相对路径</p>
+            </section>
+			<section> 
+				<h3>现场演示</h3>
+			</section>
+        </section>
+		
+        <section>
+			<section> 
+				<h3>和</h3>
+			</section>
+
+            <section>
+                <h3> 项目流程 </h3>
+                <p>开发面临的实际问题: 如何高效使用工具</p>
+                <p>如何扩展现有静态服务模型, </p>
+                <p>满足 <b>开发/测试/正式</b> 的不同环境和目的的需求</p>
+            </section>
+            <section>
+                <table style="color: greenyellow; font-size: 30px">
+                    <tr>
+                        <td></td>
+                        <td>开发</td>
+                        <td>测试</td>
+                        <td>线上</td>
+                    </tr>    
+                    <tr>
+                        <td>目标</td>
+                        <td>快速生效</td>
+                        <td>快速切换</td>
+                        <td>稳定可靠</td>
+                    </tr>    
+                    <tr>
+                        <td>最佳情况</td>
+                        <td>本地文件</td>
+                        <td>与线上一致, <br >且能切换项目</td>
+                        <td>不要更改</td>
+                    </tr>
+                    <tr>
+                        <td>实践方法</td>
+                        <td>转发到本地文件</td>
+                        <td>使用线上路径</td>
+                        <td>只有新增文件</td>
+                    </tr>
+                    <tr>
+                        <td>环境配置</td>
+                        <td>修改hosts</td>
+                        <td>--</td>
+                        <td>全同步静态文件</td>
+                    </tr>
+                    <tr>
+                    </tr>
+                </table>
+                <p>总结: 
+					<br > 对于开发, 配置hosts, static.9888.cn 指向本地路径
+					<br > 对于测试, 最好的配置就是不要配置, 用线上的环境
+					<br > 对于线上, 只要完整同步所有文件就可以了, 保证一致
+				</p>
+            </section>
+            <section>
+				<h3>重要的事情</h3>
+                <p>一个静态服务, 那么多项目, 那么多文件, 重名了怎么办?</p>
+				<h3>重要的事情</h3>
+                <p>静态资源完全靠路径区分文件, 所以路径一定不能通用</p>
+				<h3>重要的事情</h3>
+                <p>自己的项目, 自己的页面, 自己的图片名称, 把这些用在路径中</p>
+				
+			</section>
+            <section>
+				<h3>文件路径命名举例</h3>
+				<p style="color: yellowgreen; text-align: left">
+					GOOD:<br >
+					/资源类型/项目名称/页面名称/资源名称.[后缀名]
+					<br >
+					/images/jiemo/user-login/avatar.png
+					<br >
+					/audio/wap/game-2016/bgm.mp3
+					<br >
+					/pdf/web/invest-detail/尊享投资协议.pdf
+				</p>
+				<p style="color: red;text-align: left">
+					BAD: 
+					<br >
+					/images/common.png
+					<br >
+					/images/wap/a.jpg
+				</p>
+            </section>
+        </section>
+		<section>
+
+            <section><h3>FAQ</h3></section>
+            <section style="text-align: left">
+                <p>1. 除了git还有其它方式添加文件到正式环境吗?</p>
+                <p>有, 但只对运维开放权限</p>
+                <p>2. 文件添加错误了, 能删除吗?</p>
+                <p>不能! 路径一旦生成, 删除无效, 放着吧, 不占地方</p>
+                <p>3. 有个文件要经常更新, 怎么办?</p>
+                <p>不需要更新, 换个新路径, 用个新文件</p>
+                <p>4. 文件越来越多, 项目库越来越大, 怎么办?</p>
+                <p>是的, 静态资源就是很占空间, 这对于CDN来说不算什么</p>
+                <p>5. 能用中文名称吗?</p>
+                <p>可以</p>
+            </section>
+
+		</section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+        }
+        },
+        {
+            src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/notes/notes.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        }
+    ]
+});
+</script>
+</body>
