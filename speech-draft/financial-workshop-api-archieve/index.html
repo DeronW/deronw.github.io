@@ -1,0 +1,230 @@
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/moon.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <title>人性化的API ---- 实践篇</title>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h4>人性化的API</h4>
+			<h2>实践篇</h2>
+			<p>
+			不谈RESTful, 不谈RPC, 不谈性能, 不谈安全</p>
+			<p>就来聊聊开发眼中的API应该是什么样子</p>
+        </section>
+        <section>
+            <section>
+                <h3>API需要明确的定义</h3>
+            </section>
+            <section>
+                <h3>参数定义</h3>
+                <ol>
+                    <li>
+                        链接地址
+                    </li>
+                    <li>
+                        HTTP动词
+                    </li>
+                    <li>
+						参数名称
+                    </li>
+                </ol>
+            </section>
+            <section>
+                <h3>返回格式</h3>
+                <ol>
+                    <li>
+                        包装格式
+                    </li>
+                    <li>
+						返回字段
+                    </li>
+                    <li>
+						数据格式
+                    </li>
+                </ol>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3>API需要协调工作</h3>
+            </section>
+            <section>             
+                <h3>版本号</h3>
+                <table style="color: greenyellow; font-size: 30px">
+                    <tr>
+                        <td></td>
+                        <td>路径</td>
+                        <td>参数</td>
+                        <td>header定义</td>
+                    </tr>
+                    <tr>
+                        <td>举例</td>
+                        <td>
+							/api/v1/user.json
+						</td>
+                        <td>
+							/api/user.json?ver=1
+						</td>
+                        <td>
+							Accept-Version: 1
+						</td>
+                    </tr>
+                    <tr>
+                        <td>兼容性</td>
+                        <td>良好</td>
+                        <td>良好</td>
+                        <td>良好</td> 
+                    </tr>
+                    <tr>
+                        <td>直观性</td>
+                        <td>好</td>
+                        <td>好</td>
+                        <td>差</td> 
+                    </tr>
+                    <tr>
+                        <td>灵活性</td>
+                        <td>差</td>
+                        <td>好</td>
+                        <td>好</td> 
+                    </tr>
+                    <tr>
+                        <td>开发友好</td>
+                        <td>好</td>
+                        <td>差</td>
+                        <td>很差</td> 
+                    </tr>
+                    <tr>
+                        <td>使用方式</td>
+                        <td>直接使用</td>
+                        <td>拼接参数</td>
+                        <td>依赖扩展库</td> 
+                    </tr>
+                    <tr></tr>
+                </table>
+            </section>
+            <section>             
+                <h3>多版本接口的模型</h3>
+				此处应该有张图
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h3> API要可调式 </h3>
+            </section>
+            <section>
+                <h3> 真实的API </h3>
+                <p> 这个接口的定义全部都是正确的 </p>
+            </section>
+			<section> 
+				<h3>实时的API</h3>
+                <p> 我们希望接口定义和对应功能的更新是同时的 </p>
+			</section>
+			<section> 
+				<h3>可用的API</h3>
+                <p> 没有什么比用一下试试更好的学习方法了 </p>
+			</section>
+        </section>
+		
+        <section>
+			<section> 
+				<h3>API要对开发友好</h3>
+			</section>
+			<section> 
+				<h3>健壮的API</h3>
+                <p> 如果我的参数格式不正确, 请告诉我, 不要返回服务器异常 </p>
+			</section>
+			<section> 
+				<h3>统一的API</h3>
+                <p> 所有的API能够返回相同的错误格式, 这样才能统一处理 </p>
+			</section>
+        </section>
+		
+        <section>
+			<section> 
+				<h3>API要对测试友好</h3>
+			</section>
+			<section> 
+				<h3>提供一组合法的测试参数</h3>
+                <p> 不要让测试自己四处寻找测试的数据, 提供一套默认测试数据, 这样一看便知这个接口的用途和使用方法 </p>
+			</section>
+			<section> 
+				<h3>强制类型, 强制校验</h3>
+                <p> API要实现自己的中间件, 统一处理参数的类型校验和合法性校验, 不要在逻辑中添加参数合法性校验的代码, 这样才能在测试的时候一通百通 </p>
+			</section>
+        </section>
+		
+		<section>
+
+            <section><h3>FAQ</h3></section>
+            <section style="text-align: left">
+                <p style="color: white;">1. 人性化的API设计对编程语言有要求吗?</p>
+                <p>有, 不过相信优秀的程序员会克服这些问题</p>
+                <p style="color: white;">2. 会增加开发的复杂度吗?</p>
+                <p>不会, 接口框架是一次性的工作量, 完成后可以大大减少后台的接口开发工作量</p>
+                <p style="color: white;">3. 这种API适合哪些场景?</p>
+                <p>这是针对开发的人性化的API, 适合给人来读</p>
+            </section>
+
+		</section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+        {
+            src: 'lib/js/classList.js', condition: function () {
+            return !document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/markdown/marked.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/markdown/markdown.js', condition: function () {
+            return !!document.querySelector('[data-markdown]');
+        }
+        },
+        {
+            src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+            hljs.initHighlightingOnLoad();
+        }
+        },
+        {
+            src: 'plugin/zoom-js/zoom.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        },
+        {
+            src: 'plugin/notes/notes.js', async: true, condition: function () {
+            return !!document.body.classList;
+        }
+        }
+    ]
+});
+</script>
+</body>
