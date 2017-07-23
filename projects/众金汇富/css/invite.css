@@ -1,0 +1,99 @@
+body {
+    background: #eef1f6;
+}
+
+.btn-share {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    background: transparent url("../images/icons/icon-share.png") no-repeat center;
+}
+
+.info-panel {
+    margin-top: 20px;
+    background: white;
+    height: 248px;
+    border-top: 1px solid #e7efff;
+    border-bottom: 1px solid #e7efff;
+    position: relative;
+}
+
+.invite-panel {
+    margin-top: 20px;
+}
+
+.line-a {
+    position: absolute;
+    background: #e7efff;
+    height: 1px;
+    left: 35px;
+    top: 50%;
+    right: 0;
+}
+
+.line-b {
+    position: absolute;
+    top: 20px;
+    width: 1px;
+    height: 84px;
+    background: #eeeeee;
+    left: 50%;
+}
+
+.line-c {
+    position: absolute;
+    top: 142px;
+    width: 1px;
+    height: 84px;
+    background: #eeeeee;
+    left: 50%;
+}
+
+.info-item {
+    box-sizing: border-box;
+    padding-left: 40px;
+    float: left;
+    width: 360px;
+    height: 124px;
+    padding-top: 28px;
+    font-size: 28px;
+    color: #333333;
+}
+
+.info-item-count {
+    color: #4d5fa2;
+}
+
+.ip-title {
+    height: 84px;
+    line-height: 84px;
+    border-bottom: 1px solid #e7efff;
+    padding-left: 90px;
+    background: #f6f9ff url("../images/icons/icon-gift.png") no-repeat 40px center;
+    font-size: 30px;
+    color: #666666;
+}
+
+.ip-desc {
+    font-size: 24px;
+    background: white;
+    padding: 20px 40px;
+    line-height: 40px;
+}
+
+.btn-invite {
+    display: block;
+    background: #4879ff;
+    font-size: 36px;
+    color: white;
+    height: 84px;
+    line-height: 84px;
+    width: 650px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 35px auto;
+}

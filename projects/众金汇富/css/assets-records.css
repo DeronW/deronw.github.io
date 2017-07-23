@@ -1,0 +1,45 @@
+body {
+    background: #eef1f6;
+}
+.list-panel {
+    background: white;
+    margin-top: 20px;
+    border-top: 1px solid #e0e5f9;
+    border-bottom: 1px solid #e0e5f9;
+    font-size: 30px;
+    color: #666666;
+}
+
+.list-item {
+    height: 90px;
+    line-height: 90px;
+    margin-left: 30px;
+    padding-right: 30px;
+    padding-left: 10px;
+    border-bottom: 1px solid #e0e5f9;
+}
+
+.list-item:last-child {
+    border-bottom: 0;
+}
+
+.color-green {
+    color: #2bcc00;
+}
+
+.color-red {
+    color: #ff4e32;
+}
+
+.count {
+    float: left;
+    width: 35%;
+}
+
+.type {
+    float: left;
+}
+
+.date {
+    float: right;
+}

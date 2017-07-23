@@ -1,0 +1,145 @@
+body {
+
+}
+
+.banner {
+    height: 300px;
+    overflow: hidden;
+}
+
+.panel-title {
+    height: 83px;
+    line-height: 83px;
+    background: #f6f9ff;
+    border-bottom: 2px solid #e7efff;
+    color: #666666;
+    font-size: 30px;
+}
+
+.icon-money {
+    width: 31px;
+    height: 31px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin: 0 10px 0 30px;
+    background: transparent url('../images/icons/icon-money.png') no-repeat center center;
+}
+
+.hot-loan {
+    height: 400px;
+    text-align: center;
+}
+
+.hot-loan-logo {
+    border-radius: 50%;
+    border: 1px solid #e8e8f8;
+    width: 135px;
+    height: 135px;
+    margin: 20px auto;
+    display: block;
+}
+
+.hot-loan-t {
+    font-size: 30px;
+    color: #333;
+}
+
+.hot-loan-r {
+    color: #999;
+    font-size: 27px;
+    margin: 15px auto;
+}
+
+.icon-fire {
+    width: 31px;
+    height: 31px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin: 0 10px 0 30px;
+    background: transparent url('../images/icons/icon-fire.png') no-repeat center center;
+}
+
+.hot-loan .tag-stars {
+    margin-top: 20px;
+}
+
+.product-item {
+    height: 190px;
+    border-bottom: 1px solid #eeeeee;
+    margin-left: 26px;
+    position: relative;
+}
+
+.pi-logo {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1px solid #e8e8f8;
+}
+
+.pi-name {
+    color: #333;
+    font-size: 32px;
+    position: absolute;
+    left: 125px;
+    top: 30px;
+}
+
+.pi-interest {
+    font-size: 32px;
+    color: #ff4e32;
+    top: 30px;
+    left: 360px;
+    position: absolute;
+}
+.pi-interest span{
+    font-size: 26px;
+}
+
+.pi-period {
+    color: #555555;
+    font-size: 26px;
+    position: absolute;
+    top: 40px;
+    right: 36px;
+}
+
+.pi-stars {
+    position: absolute;
+    top: 85px;
+    left: 125px;
+}
+
+.pi-txt-a {
+    position: absolute;
+    top: 85px;
+    left: 360px;
+    font-size: 22px;
+    color: #999999;
+}
+.pi-txt-b {
+    position: absolute;
+    top: 85px;
+    right: 35px;
+    font-size: 22px;
+    color: #999999;
+}
+.pi-tags {
+    position: absolute;
+    top: 126px;
+    left: 125px;
+}
+.pi-tag-item {
+    font-size: 18px;
+    color: #666666;
+    padding: 3px;
+    border: 1px solid #666;
+    float: left;
+    margin-right: 10px;
+    border-radius: 4px;
+}

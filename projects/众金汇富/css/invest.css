@@ -1,0 +1,92 @@
+body {
+    background: #eef1f6;
+}
+
+.product-item {
+    height: 256px;
+    position: relative;
+    margin-top: 20px;
+    background: white;
+}
+
+.pi-logo {
+    position: absolute;
+    top: 35px;
+    left: 22px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #e8e8f8;
+}
+
+.pi-name {
+    color: #333;
+    font-size: 30px;
+    position: absolute;
+    left: 170px;
+    top: 44px;
+}
+.pi-stars {
+    position: absolute;
+    top: 55px;
+    left: 320px;
+}
+.pi-interest {
+    position: absolute;
+    top: 90px;
+    left: 165px;
+    color: #ff4e32;
+    font-size: 50px;
+}
+.pi-interest span {
+    font-size: 26px;
+}
+
+.pi-txt-a {
+    position: absolute;
+    color: #999999;
+    font-size: 22px;
+    top: 116px;
+    left: 356px;
+}
+
+.pi-txt-b {
+    position: absolute;
+    color: #666666;
+    font-size: 34px;
+    top: 108px;
+    right: 34px;
+}
+
+.pi-txt-b span {
+    font-size: 22px;
+}
+
+.pi-tags {
+    position: absolute;
+    top: 176px;
+    left: 25px;
+}
+.pi-tag-item {
+    font-size: 18px;
+    color: #666666;
+    padding: 3px;
+    border: 1px solid #666;
+    float: left;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.btn-invest {
+    height: 60px;
+    width: 190px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 32px;
+    position: absolute;
+    top: 156px;
+    right: 34px;
+    background: #4879ff;
+    border-radius: 6px;
+}

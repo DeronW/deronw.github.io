@@ -1,0 +1,62 @@
+body {
+    background: #eef1f6;
+}
+
+.product-item {
+    height: 215px;
+    position: relative;
+    margin-top: 20px;
+    background: white;
+}
+
+.pi-logo {
+    position: absolute;
+    top: 33px;
+    left: 27px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid #e8e8f8;
+}
+
+.pi-name {
+    color: #333;
+    font-size: 30px;
+    position: absolute;
+    left: 170px;
+    top: 44px;
+}
+
+.pi-stars {
+    position: absolute;
+    top: 55px;
+    left: 360px;
+}
+
+.pi-tags {
+    position: absolute;
+    left: 170px;
+    top: 133px;
+}
+
+.pi-range {
+    top: 90px;
+    left: 170px;
+    position: absolute;
+    font-size: 27px;
+    color: #999999;
+}
+
+.btn-apply {
+    height: 60px;
+    width: 190px;
+    text-align: center;
+    line-height: 60px;
+    color: white;
+    font-size: 32px;
+    position: absolute;
+    top: 110px;
+    right: 36px;
+    background: #4879ff;
+    border-radius: 6px;
+}
