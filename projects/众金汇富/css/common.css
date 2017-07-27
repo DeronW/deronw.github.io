@@ -181,3 +181,46 @@ a {
     background: rgba(0, 0, 0, 0.7);
     color: white;
 }
+
+/* global alarm */
+.global-alarm {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.global-alarm-panel {
+    display: table;
+    margin: 50% auto 0px;
+    position: relative;
+    width: 576px;
+    border-radius: 8px;
+    background: white;
+}
+
+.global-alarm-text {
+    text-align: center;
+    margin: 30px auto;
+    line-height: 40px;
+    color: rgb(85, 85, 85);
+    padding: 0px 36px;
+    max-width: 576px;
+    font-size: 28px;
+}
+
+.global-alarm-btn {
+    display: block;
+    width: 516px;
+    height: 74px;
+    line-height: 74px;
+    text-align: center;
+    color: white;
+    background: rgb(249, 101, 90);
+    border-radius: 4px;
+    margin: 0px auto 30px;
+    font-size: 34px;
+}

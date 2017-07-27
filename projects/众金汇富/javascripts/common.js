@@ -34,3 +34,26 @@ function showToast(text, delay) {
 		}, delay)
 	}
 }
+
+function showAlarm(text) {
+    var ID = '_$id_alert_'
+    
+	// clean before create
+	var dirty_node = document.getElementById(ID)
+	dirty_node && document.body.removeChild(dirty_node)
+
+	var alarm = document.createElement('div')
+	alarm.id = ID
+	alarm.className = "global-alarm"
+	alarm.innerHTML = '<div class="global-alarm-panel">'+
+        '<div class="global-alarm-text">'+text+'</div>'+
+        '<div class="global-alarm-btn" onClick="hideAlarm()">确定</div>'+
+        '</div>'
+    
+	document.body.appendChild(alarm)
+}
+
+function hideAlarm(){
+    var ID = '_$id_alert_'
+    document.body.removeChild(document.getElementById(ID))
+}
