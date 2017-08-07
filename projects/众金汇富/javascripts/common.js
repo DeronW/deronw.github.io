@@ -37,7 +37,7 @@ function showToast(text, delay) {
 	}
 }
 
-function showAlarm(text) {
+function showAlarm(text, cb) {
 	var ID = '_$id_alert_'
 
 	// clean before create
@@ -50,7 +50,10 @@ function showAlarm(text) {
 	alarm.innerHTML = '<div class="global-alarm-panel">' +
 		'<div class="global-alarm-text">' + text + '</div>' +
 		'<div class="global-alarm-btn" onClick="hideAlarm()">确定</div>' +
-		'</div>'
+		'</div>';
+		
+		
+	window._GLOBAL_DATA.alarm_callback = cb
 
 	document.body.appendChild(alarm)
 }
@@ -58,6 +61,9 @@ function showAlarm(text) {
 function hideAlarm() {
 	var ID = '_$id_alert_'
 	document.body.removeChild(document.getElementById(ID))
+	
+	var cb = window._GLOBAL_DATA.alarm_callback;
+	cb && cb()
 }
 
 function showConfirm(title, ok_cb, cancel_cb) {
