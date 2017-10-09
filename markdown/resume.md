@@ -1,6 +1,6 @@
 # 简历 王德龙
 
-    29岁 辽宁 已婚 7年工作经验 现居北京
+    30岁 已婚 8年工作经验 现居北京
     邮箱: w.del@qq.com
     河北建筑工程学院 计算机科学与技术专业(本科)
     
@@ -29,7 +29,7 @@
 
 * Linux/Ubuntu
 * Linux/CentOS
-* Nginx
+* Nginx/Caddy
 * Git (Gitlab, Gitlab CI, Gitlab Runner)
 * Bash/Shell
 
@@ -149,7 +149,7 @@
 - 建立新的研发流程, 划分新成立的Web前端职责范围, 明确开发任务, 优化原有研发中心的研发流程
 - 升级Web前端开发框架及技术栈
 - 结合公司特定业务, 优化Web前端的架构
-- 人事 / 行政 / 技术推广 / 跨部门合作 等等...
+- 技术推广 / 跨部门合作 等等...
     
 #### 作品展示
 
@@ -178,7 +178,7 @@
     
     前端: HTML5 + CSS3 + JavaScript
     
-*   幻腾智能 [http://huantengsmart.com/](http://huantengsmart.com/)
+*   幻腾智能 [https://huantengsmart.com/](https://huantengsmart.com/)
     2013年携幻腾智能品牌进入无线轻量级智能家居市场，梦想让中国人先于美国享受最酷炫的数字化生活体验
     
     全栈工程师,服务架构设计,以业务为驱动设计良好架构风格并实现代码.
@@ -187,10 +187,18 @@
     
     前端: HTML5 + CSS3 + JavaScript + React + Node.js + ES6(ES2015)
 
+*   金融工场 [https://www.9888keji.com](https://www.9888keji.com)
+    ...
+
+    技术经理, Web前端架构设计. 重构, 不仅是代码还有研发流程(部门间配合)
+
+    后端: Caddy代理服务
+
+    前端: ES2015 + ES.next React Mobx Webpack Gulp
+
 #### 自我评价
 
 认真地做好每件事, 负责地写好每段代码
-
 
 Good at learning, well this doesn't mean I'm new, that's means I have the passion in learning.
 6 years experience, when I realize that I have waste too much time on tiny detail. I should be more
@@ -198,7 +206,7 @@ effictive. So I want to join a good company, that's the best in
 my eyes.
 
 
-回想起来已经工作6年了,对于一个程序员来说现在正是发光发热的时候.6年的时间逐渐把一个人的心性
+回想起来已经工作7年了,对于一个程序员来说现在正是发光发热的时候.时间逐渐把一个人的心性
 磨练成熟. 反观以前的自己总是那么稚嫩. 人生需要成长需要新的挑战, 这样才能在回首往事的时候说
 "我曾经历过".经历过挫折经历过荣耀, 不过最重要的还是,够精彩.遇到更多的人,做更多的事,让自己被
 更多的人了解.我想xx就是这样的一个地方. 
@@ -220,8 +228,6 @@ my eyes.
     
 #### 参考资料
 
-个人主页[http://delongw.github.io/](http://delongw.github.io/)
+个人主页[http://delongw.github.io/](http://delongw.github.io/) (empty for now)
 
-文章列表[https://github.com/delongw/delongw.github.io/blob/master/markdown/index.md](https://github.com/delongw/delongw.github.io/blob/master/markdown/index.md)
-
-``2017-07-25 update``
+``2017-10-08 updated``
