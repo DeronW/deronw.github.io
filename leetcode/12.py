@@ -4,10 +4,10 @@ class Solution:
         :type num: int
         :rtype: str
         """
-        
+
         r = ''
-        
-        while num > 0:            
+
+        while num > 0:
             if num >= 1000:
                 r += 'M' * int(num / 1000)
                 num %= 1000
@@ -44,7 +44,7 @@ class Solution:
                 if num == 4:
                     r += 'IV'
                     num -= 4
-                else:   
+                else:
                     r += 'V'
                     num -= 5
             elif num >= 4000:
@@ -52,5 +52,5 @@ class Solution:
             else:
                 r += 'I' * num
                 num = 0
-                
+
         return r

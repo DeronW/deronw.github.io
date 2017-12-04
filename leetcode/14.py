@@ -5,10 +5,9 @@ class Solution:
         :rtype: str
         """
 
-
         if len(strs) == 0:
             return ''
-        
+
         prefix = strs[0]
         l = len(prefix)
 
@@ -19,4 +18,4 @@ class Solution:
                     break
                 m += 1
             l = m
-        return prefix[:m]  
+        return prefix[:m]

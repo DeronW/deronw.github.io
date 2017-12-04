@@ -5,7 +5,7 @@ class Solution:
         :type target: int
         :rtype: List[int]
         """
-        
+
         # quick try
         h = target / 2
         if h % 1 == 0 and h in nums:
@@ -15,7 +15,7 @@ class Solution:
                 return p, nums.index(h)
             else:
                 nums[p] = h
-                
+
         for i in range(len(nums)):
             d = target - nums[i]
             if d != nums[i] and d in nums:

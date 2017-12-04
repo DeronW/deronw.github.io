@@ -24,7 +24,7 @@ class Solution:
             if d < 2:
                 break
 
-            sum += 2*d - delta[-1]
+            sum += 2 * d - delta[-1]
             level += 1
 
             delta.append(d)
@@ -32,7 +32,7 @@ class Solution:
             if sum > biggest_sum:
                 biggest_sum = sum
                 biggest_level = level
-                
+
         r = []
         for i in range(l):
             if height[i] >= level - 1:
@@ -42,6 +42,7 @@ class Solution:
 
         return (r[0], r[-1])
 
+
 if __name__ == '__main__':
-    r = Solution().maxArea([1,2,3])
+    r = Solution().maxArea([1, 2, 3])
     print(r)

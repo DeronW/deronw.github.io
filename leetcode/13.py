@@ -4,7 +4,7 @@ class Solution:
         :type s: str
         :rtype: int
         """
-        
+
         data = {
             'M': 1000,
             'D': 500,
@@ -14,10 +14,10 @@ class Solution:
             'V': 5,
             'I': 1
         }
-        
+
         r = 0
         i = 0
-        
+
         while i < len(s):
             if i == len(s) - 1:
                 r += data[s[i]]
@@ -28,5 +28,5 @@ class Solution:
             else:
                 r += data[s[i + 1]] - data[s[i]]
                 i += 2
-                
+
         return r
