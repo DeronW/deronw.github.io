@@ -5,50 +5,48 @@ class Solution:
         :type nums2: List[int]
         :rtype: float
         """
+
+        l1, l2 = len(nums1), len(nums2)
+        l = l1 + l2
+        delta = int((l1 + l2) / 2) + 1
+
+        a, b = 0, 0
+
         if nums1[0] > nums2[0]:
             nums1, nums2 = nums2, nums1
-        
-        l1, l2 = len(nums1), len(nums2)
-        
-        odd = (l1 + l2) % 2
-        m = int((l1 + l2 + 2) / 2)
-        
-        print('--------')
-        print(odd)
-        print(m)
-        
-        if nums1[-1] <= nums2[0]:
-            if l1 >= m - 1:
-                p1 = nums1[m - 2]
-            else:
-                p1 = nums2[l2 + l1 - m - 2]
-                
-            if l1 >= m:
-                p2 = nums1[m - 1]
-            else:
-                p2 = nums2[m - l1 - 1]
-                
-            return  p2 if odd else (p1 + p2) / 2
-        
 
-        
-        d, p1, p2 = -m, 0, 0
-        
-        while True:
-            if num1[p1] < nums2[p2]:
-                tmp_d = int(d / 2)
-                if d > 0:
-                    p2 -= tmp_d
-                elif d < 0:
-                    p1 += tmp_d
+        if nums1[-1] <= nums2[0]:
+            nums1.extend(nums2)
+            a = nums1[delta - 1] if l % 2 else nums1[delta - 2]
+            b = nums2[delta - 1 - l1]
+        else:
+            p1, p2 = 0, 0
+            # pa_at, pb_at = '1', '1'
+
+            while p1 + p2 + 2 < delta:
+                if nums1[p1] > nums2[p2]:
+                    p1 += 1
+                elif nums1[p1] < nums2[p2]:
+                    p2 += 1
                 else:
-                    pass
-            
-            if d = 0 and nums[p2 -1] < nums1[p1] < nums2[p2]:
-                break
-        
-        
+                    if nums1[p1 + 1] < nums2[p2 + 1]:
+                        p1 += 1
+                    else:
+                        p2 += 1
+
+            a, b = nums1[p1], nums2[p2]
+
+        print("a={0}, b={1}, delta={2}".format(a, b, delta))
+
+        return (a + b) / 2
+
+
 if __name__ == '__main__':
-    a = [1,2]
-    b = [3,5, 6 ]
-    print(Solution().findMedianSortedArrays(a, b))
+    a, b = [1, 2, 3], [4, 5, 6]
+
+    a1, a2 = [1, 3], [2, 4]
+    b1, b2 = [1, 3], [2, 3]
+    c1, c2 = [1, 3], [2, 2]
+
+    r = Solution().findMedianSortedArrays(a1, b1)
+    print(r)
