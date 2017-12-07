@@ -44,9 +44,9 @@ class Solution:
 if __name__ == '__main__':
     a, b = [1, 2, 3], [4, 5, 6]
 
-    a1, a2 = [1, 3], [2, 4]
-    b1, b2 = [1, 3], [2, 3]
-    c1, c2 = [1, 3], [2, 2]
+    a1, b1 = [1, 3], [2, 4]
+    a2, b2 = [1, 3], [2, 3]
+    a3, b3 = [1, 3], [2, 2]
 
     r = Solution().findMedianSortedArrays(a1, b1)
     print(r)
