@@ -18,7 +18,7 @@ class Solution:
             d = 0
 
             for i in range(l):
-                if height[i] >= level:
+                if height[i] > level:
                     d += 1
 
             if d < 2:
@@ -44,5 +44,5 @@ class Solution:
 
 
 if __name__ == '__main__':
-    r = Solution().maxArea([1, 2, 3])
+    r = Solution().maxArea([1,2,3,4,5,6,7,8])
     print(r)
