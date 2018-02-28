@@ -229,9 +229,7 @@
     
     技术经理, 前端架构设计. 重构, 不仅是代码还有研发流程(部门间配合)
 
-    后端: Caddy代理服务
-
-    前端: ES2015 + ES.next React Mobx Webpack Gulp
+    [架构设计](https://github.com/DeronW/deronw.github.io/blob/master/markdown/Web%E5%89%8D%E7%AB%AF%E4%BB%8E0%E5%88%B0N.md)
 
 #### 自我评价
 
