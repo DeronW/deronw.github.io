@@ -1,8 +1,10 @@
 # 简历 王德龙
 
-    30岁 已婚 8年工作经验 现居北京
+    1988年生人
+    8年工作经验 
     邮箱: w.del@qq.com
     河北建筑工程学院 计算机科学与技术专业(本科)
+    现居北京
     
 ### 技能树
 
@@ -12,40 +14,28 @@
 * Ruby (Rails, EventMachine) ``精通``
 * Go ``熟练``
 * Node.js ``精通``
-* 前端(HTML+JS+CSS) ``精通``
-* Java ``了解``
-* PHP ``了解``
-* LotusScript(Basic) ``熟练`` [6年前]
+* Web前端(HTML+JS+CSS) ``精通``
+* Java / PHP / LotusScript(Basic)``熟练``
 
 数据库
 
-* MySQL
+* Redis (Pub/Sub)
 * Postgres (Geo)
+* MySQL
 * MongoDB
 * Neo4j
-* Redis (Pub/Sub) 
-
-系统运维及工具
-
-* Linux/Ubuntu
-* Linux/CentOS
-* Nginx/Caddy
-* Git (Gitlab, Gitlab CI, Gitlab Runner)
-* Bash/Shell
 
 开发工具
 
+* Linux / Ubuntu / CentOS
+* Nginx / Caddy
+* Git (Gitlab, Gitlab CI, Gitlab Runner)
+* Bash/Shell
 * VIM
-* Notepad++
-* Atom
-* RubyMine
-* Pycharm
-* WebStorm
-* IDEA
 
 ### 工作经历
 
-2010年5月进入工作岗位至今
+2010年毕业后, 成为互联网软件开发工程师, 工作至今
 
 #### 神州数码(OA事业部)
     
@@ -56,7 +46,7 @@
 
 #### 绿野视界
 
-    绿野是在线户外旅游系统，主营O2O服务，
+    在线户外旅游系统(OTA)，主营O2O服务，
     用户系统，搜索，支付对账，新闻管理，合作方对接等服务
     Python + 运维 + Web前端
 
@@ -64,25 +54,28 @@
 
 #### 面包旅行
 
-    面包旅行后台架构研发，支撑大量用户及海量数据 Python + 运维
+    面包旅行后台架构研发，支撑大量用户及海量数据
+    Python + 运维
     
     软件工程师   研发部
 
 #### 幻腾智能
 
-    架构设计 服务开发 Ruby + Go + 运维
+    架构设计 服务开发
+    Ruby + Go + 运维 + Web前端
 
-    软件工程师     研发部
+    软件工程师(主程 + 全栈)     研发部
 
 ### 金融工场
 
-    前端架构设计 前端运维 混合开发 Node.js + ES6 + 前端架构
+    前后端分离架构设计 大前端运维 混合开发
+    Node.js + ES6 + 前端架构
 
-    Web前端技经理    研发中心
+    技术经理    研发中心
 
 ### 参与项目
 
-2010-05 ~ 2011-03
+**2010-05 ~ 2011-03**
     
 在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
     
@@ -90,70 +83,112 @@
 - 2010-10 新奥集团OA系统六期(驻现场[廊坊]提供技术支持和新功能开发)
 - 2011-01 东尚服装OA系统一期(初期设计, 功能原型)
 
-2011-04 ~ 2013-07
+阶段重点/难点
+
+- 业务与技术的适度结合
+- 沟通能力, 需要与需求方的大量需求沟通/调整
+- 文档型数据库, 区别与关系型数据库的使用方法
+
+**2011-04 ~ 2013-07**
 
 在联盈(绿野公司前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
 
-- 六只脚网站项目[Python(Django) + Web前端]
-- 天津智慧旅游项目, Web前端[Web前端]
-- 中国国债分布式系统管理后台[Java + Web前端]
-- 六只脚网站与8264网站单点登录[Python + PHP + Web前端]
-- 六只脚网站框架升级, Django1.2 升级到 Django1.3
-- 绿野网站开发[PHP + Web前端]
-- 绿野网站自动化部署[Ubuntu + Shell + Python Fabric]
-- 绿野网服务整合[PHP Discuz + PHP UCenter + Python Django + Xapian + MySQL]
-- 绿野滑雪网站[Python Django]
+- 六只脚网站 [Python(Django) + Web前端]
+    - 与8264网站单点登录[Python + PHP + Web前端]
+    - 网站框架升级, Django1.2 升级到 Django1.3
+- 绿野网 [PHP + Web前端]
+    - 自动化部署 [Ubuntu + Shell + Python Fabric]
+    - 服务整合 [PHP Discuz + PHP UCenter + Python Django + Xapian + MySQL]
+    - 绿野滑雪网站 [Python Django]
+- 天津智慧旅游项目, Web前端 [Web前端]
+- 中国国债分布式系统管理后台 [Java + Web前端]
+
+阶段重点/难点
+
+- 单点登录, 跨服务, 跨域名, 跨公司的单点登录(SSO)的单点登录模型
+- 运维自动化, 把手动运维工作整理升级成为自动化运维的脚本
+- 整合不同的服务, 基于PHP的Discuz服务与基于Python的Django服务互相打通
+- 搜索服务整合, 将Xzpian搜索引擎与Django服务整合到一起
 
 2013-08 ~ 2014-08
 
 面包旅行服务
 
-- Django项目维护,提供全栈技术支持[Python + Django + Postgres + Web前端]
-- Web前端: 主营网站的前端开发[HTML + CSS + JavaScript]
-- 软件框架升级: Django1.3 -> Django1.5 (因其它原因最后未采用)
+- Django项目维护,提供全栈技术支持 [Python + Django + Postgres + Web前端]
+- Web前端: 主营网站的前端开发
+- 软件框架升级: Django1.3 -> Django1.5
 
-2014-09 ~ 2015-01
+阶段重点/难点
 
-初期以Web前端工程师身份加入幻腾智能,除了Web前端之外也开始接触Ruby
+- 高流量下的单体服务架构, 产生了很高的代码复杂度, 需要精致的编码技巧才好应对
+- 数据处理效率, Postgres的数据性能无法满足业务需求, 需要添加多层缓存来应对流量压力
+- 框架演进, 单体架构下的框架演进困难重重但又势在必行
 
-- Web前端重构,统一,规范Web前端的资源文件及使用方式[Rails + Web前端 + CDN管理]
-- 新版管理后台, 针对性的解决日常管理中遇到的问题[Bootstrap + Rails Grape]
+**2014-09 ~ 2015-01**
+
+初期以Web前端工程师身份加入幻腾智能, 然后接触到Ruby/Golang
+
+- Web前端重构,统一,规范Web前端的资源文件及使用方式 [Rails + Web前端 + CDN管理]
+- 新版管理后台, 针对性的解决日常管理中遇到的问题 [Bootstrap + Rails Grape]
 - 学习Ruby及Rails框架
 
-2015-02 ~ 2015-10
+阶段重点/难点
 
-在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
+- 快速学习Ruby 及 Ruby on Rails 框架
+- 采用领域驱动模式开发, 有极强的业务特殊性
 
-- Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务[Node.js + Redis(Pub/Sub)]
+**2015-02 ~ 2015-10**
+
+在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.
+因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
+
+- Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务 [Node.js + Redis(Pub/Sub)]
 - WebSocket Server: 允许浏览器链接到TCP Watcher,监控指令收发, 依赖TCP Watcher[Node.js + Redis(Pub/Sub)]
-- Scenario Watcher: 检测一组指令的执行结果, 依赖TCP Watcher[Ruby(EventMachine) + Redis(Pub/Sub)]
+- Scenario Watcher: 检测一组指令的执行结果, 依赖TCP Watcher [Ruby(EventMachine) + Redis(Pub/Sub)]
 - 异步服务:部署Sidekiq服务,取代DelayedJob
 - 框架升级: Rails4.1 -> Rails4.2
-- Web前端架构升级: 形成基于Node.js的编译型前端[Sass + React + Rails assets pipeline]
-    
-2015-10 ~ 2016-01
+- Web前端架构升级: 形成基于Node.js的编译型前端 [Sass + React + Rails assets pipeline]
 
-- 微服务: 无线开关被压住(硬件设备异常状态之一的捕捉)检测,作为独立服务运行, Long Press Checker, 依赖于TCP Watcher.
- Node.js + Redis(Pub/Sub)
+阶段重点/难点
+
+- 由单体服务转变成SOA, 并保持在线业务不中断
+- 框架升级, 并升级相应的gem库, 保证兼容性及正确性
+
+**2015-10 ~ 2016-01**
+
+- 微服务: 无线开关被异常(硬件设备异常状态之一的捕捉)检测,作为独立服务运行, Long Press Checker, 依赖于TCP Watcher.
+- Node.js + Redis(Pub/Sub)
 - 统一Web前端开发规范,前端页面开发方式,与后端的数据交互模式
 
-2016-02 ~ 2016-02
+阶段重点/难点
+
+- 硬件消息产生的高并发, 要求服务具有很高效率
+- 消息分发/订阅/去重
+
+**2016-02 ~ 2016-02**
 
 - 整理文档:服务器运维,数据库管理,多种服务的分别部署的方式,不是异常处理,线上服务异常处理,开发环境搭建,前端模板规范,JavaScript及CSS等静态文件目录结构,React使用规范
 
-2016-03 ~ 至今
+**2016-03 ~ 至今**
 
-- 加入金融工场, 任职前端技术经理
+- 加入金融工场, 任职技术经理
 - 创建 Web前端部门
 - 招聘 前端开发工程师
 - 建立新的研发流程, 划分新成立的Web前端职责范围, 明确开发任务, 优化原有研发中心的研发流程
 - 升级Web前端开发框架及技术栈
 - 结合公司特定业务, 优化Web前端的架构
-- 技术推广 / 跨部门合作 等等...
+- 技术推广 / 跨部门合作
+
+阶段重点/难点
+
+- 从头组建一个新部门
+- 持续推动部门内部技术进步
+- 推动研发中心的技术进步
     
 #### 作品展示
 
 *   六只脚网站 [http://www.foooooot.com/](http://www.foooooot.com/) 
+    
     六只脚通过GPS轨迹记录仪记录户外自助游线路轨迹,航迹,航点,提供GPS轨迹分享,轨迹下载,旅游景区景点及GPS设备资讯,感受你在户外旅游中的乐趣,分享您在自助游线路的轨迹路线,并提供手机GPS轨迹记录软件
     
     Web前端工程师, 为网站增加页面功能: 标签云,图片浏览列表,搜索功能等.
@@ -161,36 +196,38 @@
     HTML + CSS + JavaScript
 
 *   绿野户外网 [http://www.lvye.cn/](http://www.lvye.cn/)
+    
     绿野户外网是中国第一家户外运动网站,也是最具影响力的驴友论坛,作为优秀户外旅行活动网站,绿野为用户提供户外知识资讯,自助游线路,旅行装备评测,活动发起,户外旅行保险等服务
     
     全栈工程师,维护网站,增加新的功能模块:CMS管理后台,数据检索,前端结构升级,跨站互通(论坛和主站的互通). 优化服务性能(memcached + Xapian), 统一接口文档(RestructedText编写文档), 采用自动化部署方式(Python Fabric编写自动化不是脚本)
     
-    后端: Python[Django] + PHP[Discuz] + MySQL
+    后端: Python [Django] + PHP [Discuz] + MySQL + Xapian
     
     前端: HTML + CSS3 + JavaScript + Canvas
     
 *   面包旅行 [http://web.breadtrip.com/](http://web.breadtrip.com/)
+    
     面包旅行是一款旅途体验的记录和分享应用。你可以使用面包旅行记录旅途的每一分精彩和感动，珍藏美好的旅行回忆，也可以通过面友们分享的异域风景和不同文化，获得旅行灵感
     
     全栈工程师,维护网站,实现高并发下的业务功能.
     
-    后端: Python[Django] + Postgres
+    后端: Python [Django] + Postgres + Xapian
     
     前端: HTML5 + CSS3 + JavaScript
     
 *   幻腾智能 [https://huantengsmart.com/](https://huantengsmart.com/)
+    
     2013年携幻腾智能品牌进入无线轻量级智能家居市场，梦想让中国人先于美国享受最酷炫的数字化生活体验
     
-    全栈工程师,服务架构设计,以业务为驱动设计良好架构风格并实现代码.
+    全栈工程师, 服务架构设计, 以业务为驱动设计良好架构风格并实现代码.
     
     后端: Ruby(Rails) + Ruby(EventMachine) + Node.js + Redis + MySQL + Postgres
     
     前端: HTML5 + CSS3 + JavaScript + React + Node.js + ES6(ES2015)
 
 *   金融工场 [https://www.9888keji.com](https://www.9888keji.com)
-    ...
-
-    技术经理, Web前端架构设计. 重构, 不仅是代码还有研发流程(部门间配合)
+    
+    技术经理, 前端架构设计. 重构, 不仅是代码还有研发流程(部门间配合)
 
     后端: Caddy代理服务
 
@@ -230,4 +267,4 @@ my eyes.
 
 个人主页[http://delongw.github.io/](http://delongw.github.io/) (empty for now)
 
-``2017-10-08 updated``
+``2018-02-28 update``
