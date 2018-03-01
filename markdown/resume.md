@@ -260,6 +260,10 @@ my eyes.
 
 [Phantom TCP](https://github.com/delongw/phantom-tcp) Go
 > 使用Go语言编写的TCP Server库
+
+[JavaScript lib](https://www.npmjs.com/package/fw-javascripts)
+[JavaScript React](https://www.npmjs.com/package/fw-components)
+> ES6 JavaScript 公共库, 封装 网络/通用方法/组件等
     
 #### 参考资料
 
