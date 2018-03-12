@@ -1,0 +1,79 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="bootstrap-grid.min.css"/>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <style>
+        textarea {
+            width: 100%;
+            min-height: 400px;
+        }
+
+        #result {
+            width: 100%;
+            background: whitesmoke;
+            color: #333;
+            padding: 20px;
+        }
+
+        .red{
+    color: #e83e8c;
+        }
+
+        .green {
+    color: #28a745;
+        }
+    </style>
+    <script src="diff.js"></script>
+    <script>
+        function checkDiff(){
+            let v1 = document.getElementById('origin').value,
+                v2 = document.getElementById('target').value;
+
+            let result = JsDiff.diffChars(v1, v2);
+
+            let html = []
+            result.forEach(function(i){
+                console.log(i)
+                if(i.added){
+                    html.push('<span class="green">' + i.value + '</span>')
+                } else if (i.removed) {
+                    html.push('<span class="red">' + i.value + '</span>')
+                } else{
+                    html.push(i.value)
+                }
+            })
+            document.getElementById('result').innerHTML = html.join('');
+        }
+    </script>
+</head>
+
+<body>
+    <br />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <h3>origin</h3>
+                <textarea id="origin">123</textarea>
+            </div>
+            <div class="col-6">
+                <h3>target</h3>
+                <textarea id="target">01234</textarea>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-outline-info"
+                    onClick="checkDiff()">check diff</button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+</body>
