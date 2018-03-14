@@ -26,7 +26,7 @@ karabiner
 
 #### recess
 
-设置休息提醒
+设置休息提醒
 [https://itunes.apple.com/cn/app/recess/id621451282?mt=12](https://itunes.apple.com/cn/app/recess/id621451282?mt=12)
 
 #### hyperswitch
@@ -72,7 +72,7 @@ karabiner
 
 [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
-#### Vim
+#### Vim
 
 [https://www.vim.org/](https://www.vim.org/)
 
@@ -101,3 +101,7 @@ karabiner
 #### OminiPlan
 
 [https://www.omnigroup.com/omniplan](https://www.omnigroup.com/omniplan)
+
+#### Office
+
+Word / Excel / PowerPoint
