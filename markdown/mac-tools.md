@@ -76,6 +76,10 @@ karabiner
 
 [https://www.vim.org/](https://www.vim.org/)
 
+#### NeoVim
+
+[https://neovim.io/](https://neovim.io/)
+
 ## 辅助工具
 
 #### NordVPN
