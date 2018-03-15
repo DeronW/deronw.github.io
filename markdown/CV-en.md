@@ -39,7 +39,8 @@ dev tools
 
 ``software engineering``
     
-    build OA system, based on IBM Lotus platform
+    duties: build OA system, based on IBM Lotus platform
+
     skills: Web frontend and customer conmmunication
     
 #### Lvye Vision
@@ -47,32 +48,38 @@ dev tools
 ``senier software engineering``
 
     Lvye is a online travel services.
-    用户系统，搜索，支付对账，新闻管理，合作方对接等服务
-    
+
+    duties: user center system, search engine, payment system, CMS, partner connection
+
     skills: Python + Web frontend + Linux Operation
 
 #### Breadtrip
 
-    面包旅行后台架构研发，支撑大量用户及海量数据
-    Python + 运维
+``senier software engineering``
+
+    duties: retail system, API design, database model design
+
+    skills: Python + Linux Operation
     
-    软件工程师   研发部
+#### Huanteng Smart
 
-#### Huantengsmart
+``senier fullstack software engineering``
 
-    架构设计 服务开发
-    Ruby + Go + 运维 + Web前端
+    IoT(internet of things, smart hardware) developer
 
-    软件工程师(主程 + 全栈)     研发部
+    duties: architecture developer (software direction)
 
-### 金融工场
+    skills: Ruby + Golang + Web frontend + Linux Operation
 
-    前后端分离架构设计 大前端运维 混合开发
-    Node.js + ES6 + 前端架构
+### Financial Workshop
 
-    技术经理    研发中心
+``tech leader``
 
-### 参与项目
+    duties: refactory architecture of single service, separate it to micro service. make web frontend independent from backend. delivery formula of web frontend development.
+
+    skills: developer group management, Node.js/npm, ES6/7 , React, Gulp/Webpack, Mobx
+
+### Projects experience
 
 **2010-05 ~ 2011-03**
     
