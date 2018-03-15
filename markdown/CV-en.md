@@ -5,7 +5,8 @@
     birthday: 1988-08
     work experience: 8+ year
     email: w.del@qq.com
-    bachelor in Computer Science
+
+    Bachelor with Computer Science
     
 ### Skills
 
@@ -83,21 +84,21 @@ dev tools
 
 **2010-05 ~ 2011-03**
     
-在OA事业部都是基于 IBM Lotus 平台,开发企业办公自动化系统, 使用LotusScript语言
+Working on IBM Lotus platform, use LotusScript(localism of VB) develop OA system, within Clients business workflow
     
-- 2010-07 劲霸男装OA系统(维护升级)
-- 2010-10 新奥集团OA系统六期(驻现场[廊坊]提供技术支持和新功能开发)
-- 2011-01 东尚服装OA系统一期(初期设计, 功能原型)
+- 2010-07 K-Boxing internal OA system
+- 2010-10 ENN-bloc internal OA system
+- 2011-01 DHC-bloc innernal OA system
 
-阶段重点/难点
+POINTS
 
-- 业务与技术的适度结合
-- 沟通能力, 需要与需求方的大量需求沟通/调整
-- 文档型数据库, 区别与关系型数据库的使用方法
+- combine tech and special workflow
+- communications, lots of task describe with clients.
+- document database, use a special kind of database, store 2-dimension data and documents like Word and PDF
 
 **2011-04 ~ 2013-07**
 
-在联盈(绿野公司前身)从事Web开发, 前端+后端, 并完成若干公司内部项目
+In Lvye, working on Web development, include frontend and backend, and launch few new projects and accomplish them.
 
 - 六只脚网站 [Python(Django) + Web前端]
     - 与8264网站单点登录[Python + PHP + Web前端]
