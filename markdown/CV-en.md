@@ -237,42 +237,33 @@ dev tools
 
     [架构设计](https://github.com/DeronW/deronw.github.io/blob/master/markdown/Web%E5%89%8D%E7%AB%AF%E4%BB%8E0%E5%88%B0N.md)
 
-#### 自我评价
+#### Self judgement
 
-认真地做好每件事, 负责地写好每段代码
+Coding , I'm seriously.
 
 Good at learning, well this doesn't mean I'm new, that's means I have the passion in learning.
 6 years experience, when I realize that I have waste too much time on tiny detail. I should be more
 effictive. So I want to join a good company, that's the best in 
 my eyes.
 
+### Personal projects
 
-回想起来已经工作7年了,对于一个程序员来说现在正是发光发热的时候.时间逐渐把一个人的心性
-磨练成熟. 反观以前的自己总是那么稚嫩. 人生需要成长需要新的挑战, 这样才能在回首往事的时候说
-"我曾经历过".经历过挫折经历过荣耀, 不过最重要的还是,够精彩.遇到更多的人,做更多的事,让自己被
-更多的人了解.我想xx就是这样的一个地方. 
+[memory cache](https://github.com/delongw/node-cache) Node.js
+> generate a simple JSON structure in memory, support CURD and expired time
 
+[Integer cipher](https://github.com/delongw/ruby-id-cipher) Ruby
+> confuse integer number, use RC4 arithmetic (only support 32bit now)
 
-### 个人项目
-
-[内存数据结构](https://github.com/delongw/node-cache) Node.js
-> 在内存中标记一个JSON结构,具有简单的读/写API,可以设置数据过期时间
-
-[整数加密](https://github.com/delongw/ruby-id-cipher) Ruby
-> 使用RC4算法,把一个整数混淆成另一个整数,目前只支持32位运算
-
-[BeautifulSoup文档](https://github.com/delongw/beautifulsoup) Python
-> Python中用于解析HTML/XML的最常用的库中文版文档, 也是官方的中文版文档
+[BeautifulSoup Doc](https://github.com/delongw/beautifulsoup) Python
+> document translation, this is official Chinese version
 
 [Phantom TCP](https://github.com/delongw/phantom-tcp) Go
-> 使用Go语言编写的TCP Server库
+> Golang TCP server lib
 
 [JavaScript lib](https://www.npmjs.com/package/fw-javascripts)
 [JavaScript React](https://www.npmjs.com/package/fw-components)
-> ES6 JavaScript 公共库, 封装 网络/通用方法/组件等
+> ES6 JavaScript common lib, box net/utils/components etc.
     
-#### 参考资料
+#### Reference
 
-个人主页[http://delongw.github.io/](http://delongw.github.io/) (empty for now)
-
-``2018-02-28 update``
+* [https://github.com/deronw](https://github.com/deronw)
