@@ -100,83 +100,83 @@ POINTS
 
 In Lvye, working on Web development, include frontend and backend, and launch few new projects and accomplish them.
 
-- 六只脚网站 [Python(Django) + Web前端]
-    - 与8264网站单点登录[Python + PHP + Web前端]
-    - 网站框架升级, Django1.2 升级到 Django1.3
-- 绿野网 [PHP + Web前端]
-    - 自动化部署 [Ubuntu + Shell + Python Fabric]
-    - 服务整合 [PHP Discuz + PHP UCenter + Python Django + Xapian + MySQL]
-    - 绿野滑雪网站 [Python Django]
-- 天津智慧旅游项目, Web前端 [Web前端]
-- 中国国债分布式系统管理后台 [Java + Web前端]
+- Website (www.foooooot.com) developer [Python(Django) + Web frontend]
+    - SSO integrate
+    - Framework upgrade (Django and Web frontend)
+- Website (www.lvye.com) developer [PHP + Web frontend]
+    - CI(continue integrate) [Ubuntu + Shell + Python Fabrid]
+    - autorun script [PHP discuz + PHP UCenter + Python Django + Xapian + MySQL]
+- Smart travel(Tianjin) project [Python Django]
+- Backend management platform of China National Debt [Java + Web frontend]
 
-阶段重点/难点
+POINTS
 
-- 单点登录, 跨服务, 跨域名, 跨公司的单点登录(SSO)的单点登录模型
-- 运维自动化, 把手动运维工作整理升级成为自动化运维的脚本
-- 整合不同的服务, 基于PHP的Discuz服务与基于Python的Django服务互相打通
-- 搜索服务整合, 将Xzpian搜索引擎与Django服务整合到一起
+- SSO (Single Sign-On), accomplish syncronization login cross services/domain sites
+- automatic operation, make standards of deploy process
+- Integrate few different services (depend on different languages)
+- Integerate search service, combine Xapizn and Django
 
-2013-08 ~ 2014-08
+**2013-08 ~ 2014-08**
 
-面包旅行服务
+Working at BreadTrip, as backend developer 
 
-- Django项目维护,提供全栈技术支持 [Python + Django + Postgres + Web前端]
-- Web前端: 主营网站的前端开发
-- 软件框架升级: Django1.3 -> Django1.5
+- fullstack developer [Python + Django + Web frontend]
+- Web frontend, maintain official Website
+- Framework upgrade, Django1.3 -> Django1.5
 
-阶段重点/难点
+POINTS
 
-- 高流量下的单体服务架构, 产生了很高的代码复杂度, 需要精致的编码技巧才好应对
-- 数据处理效率, Postgres的数据性能无法满足业务需求, 需要添加多层缓存来应对流量压力
-- 框架演进, 单体架构下的框架演进困难重重但又势在必行
+- high concurrence requests, need excellent coding skills and profound understand in business. 
+- high performance is needed in data processing, only use Postgres is not enough but also need cache in different cache.
+- Framework evolution, in single service, it's hard to do upgrade, but must be.
 
 **2014-09 ~ 2015-01**
 
-初期以Web前端工程师身份加入幻腾智能, 然后接触到Ruby/Golang
+first working on Web frontend, then learn Ruby/Golang, and then working on them
 
-- Web前端重构,统一,规范Web前端的资源文件及使用方式 [Rails + Web前端 + CDN管理]
-- 新版管理后台, 针对性的解决日常管理中遇到的问题 [Bootstrap + Rails Grape]
-- 学习Ruby及Rails框架
+- refactory web frontend, uniform all frontend structure/files/coding style [Rails + Web frontend + CDN management]
+- backend management platform, and resolve special problem with business [Bootstrap + Rails / Grape]
+- learn Ruby On Rails framework
 
-阶段重点/难点
+POINTS
 
-- 快速学习Ruby 及 Ruby on Rails 框架
-- 采用领域驱动模式开发, 有极强的业务特殊性
+- fast learning, Ruby and Ruby on Rails framework
+- use DDD(Domain Driven Design) pattern, well this is because special domain should use special pattern in current domain.
 
 **2015-02 ~ 2015-10**
 
-在幻腾智能梳理整体服务结构,提出可行方案为智能硬件提供服务.
-因为服务对象是用户+智能硬件,服务上下游涉及十分广泛
+design specially service in IoT(Internet of things). such working need knowledage about software / hardware and whole chain through IoT service.
 
-- Node TCP Watcher: 硬件指令补发(通过软件弥补硬件在无限传输中丢掉的通讯包)服务 [Node.js + Redis(Pub/Sub)]
-- WebSocket Server: 允许浏览器链接到TCP Watcher,监控指令收发, 依赖TCP Watcher[Node.js + Redis(Pub/Sub)]
-- Scenario Watcher: 检测一组指令的执行结果, 依赖TCP Watcher [Ruby(EventMachine) + Redis(Pub/Sub)]
-- 异步服务:部署Sidekiq服务,取代DelayedJob
-- 框架升级: Rails4.1 -> Rails4.2
-- Web前端架构升级: 形成基于Node.js的编译型前端 [Sass + React + Rails assets pipeline]
+- Node TCP Watcher: hardware command emitter service [Node.js + Redis(Pub/Sub)]
+- WebSocket Server: show hardware state in browser, and moniter hardware command, depends on TCP Watcher[Node.js + Redis(Pub/Sub)]
+- Scenario Watcher: detect series commands execute result. depends on TCP Watcher [Ruby(EventMachine) + Redis(Pub/Sub)]
+- upgrade asynchronize, use Sidekiq instead of DelayedJob
+- upgrade framework, Rails 4.1 -> Rails 4.2
+- upgrade web frontend framework, compile source code to production code, based on Node.js [SASS + React + Rails assets pipeline]
 
-阶段重点/难点
+POINTS
 
-- 由单体服务转变成SOA, 并保持在线业务不中断
-- 框架升级, 并升级相应的gem库, 保证兼容性及正确性
+- smooth upgrade service architechture, from single service upgrade to SOA, no interrupt of course.
+- upgrade Rails and update gems which depends on, also make sure they are all work well.
 
 **2015-10 ~ 2016-01**
 
-- 微服务: 无线开关被异常(硬件设备异常状态之一的捕捉)检测,作为独立服务运行, Long Press Checker, 依赖于TCP Watcher.
-- Node.js + Redis(Pub/Sub)
-- 统一Web前端开发规范,前端页面开发方式,与后端的数据交互模式
+- create Micro service, and use it fix stubborn bugs(hardware long press check), depends on TCP Watcher [Node.js + Redis]
+- Uniform web frontend development starndards.
 
-阶段重点/难点
+POINTS
 
-- 硬件消息产生的高并发, 要求服务具有很高效率
-- 消息分发/订阅/去重
+- high performance concurrency, because IoT has too many command transmission
+- message distribute/subscribe/distinct
+- writing documents
+    - building development enviroument
+    - web frontend standards
+    - React usage and example
+    - error handling in different servers
+    - database management
+    - deployment docs for several servers
 
-**2016-02 ~ 2016-02**
-
-- 整理文档:服务器运维,数据库管理,多种服务的分别部署的方式,不是异常处理,线上服务异常处理,开发环境搭建,前端模板规范,JavaScript及CSS等静态文件目录结构,React使用规范
-
-**2016-03 ~ 至今**
+**2016-03 ~ 2018-04**
 
 - 加入金融工场, 任职技术经理
 - 创建 Web前端部门
@@ -186,7 +186,14 @@ In Lvye, working on Web development, include frontend and backend, and launch fe
 - 结合公司特定业务, 优化Web前端的架构
 - 技术推广 / 跨部门合作
 
-阶段重点/难点
+- join new company, as tech leader
+- prepare and build a new department
+- recruit talent new employees
+- build new workflow, clear responsibility of new department
+- upgrade web frontend tech stack, 
+- 
+
+POINTS
 
 - 从头组建一个新部门
 - 持续推动部门内部技术进步
