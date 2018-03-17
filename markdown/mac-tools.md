@@ -24,10 +24,11 @@ karabiner 键盘按键重新绑定
 
 [https://hazeover.com/touchswitcher.html](https://hazeover.com/touchswitcher.html)
 
-#### recess
+#### JustFocus
 
 设置休息提醒
-[https://itunes.apple.com/cn/app/recess/id621451282?mt=12](https://itunes.apple.com/cn/app/recess/id621451282?mt=12)
+
+[https://itunes.apple.com/cn/app/just-focus/id1142151959?mt=12](https://itunes.apple.com/cn/app/just-focus/id1142151959?mt=12)
 
 #### hyperswitch
 
@@ -116,6 +117,12 @@ HTTP网络抓捕工具
 
 [https://www.charlesproxy.com/](https://www.charlesproxy.com/)
 
+#### Whireshark
+
+world’s foremost and widely-used network protocol analyzer
+
+[https://www.wireshark.org/](https://www.wireshark.org/)
+
 #### Dash
 
 各种文档集合手册
@@ -145,3 +152,5 @@ HTTP网络抓捕工具
 居家旅行必备
 
 Word / Excel / PowerPoint
+
+Recommended tools gather, [Awsome-Mac](https://github.com/jaywcjlove/awesome-mac)
