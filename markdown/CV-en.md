@@ -178,74 +178,57 @@ POINTS
 
 **2016-03 ~ 2018-04**
 
-- 加入金融工场, 任职技术经理
-- 创建 Web前端部门
-- 招聘 前端开发工程师
-- 建立新的研发流程, 划分新成立的Web前端职责范围, 明确开发任务, 优化原有研发中心的研发流程
-- 升级Web前端开发框架及技术栈
-- 结合公司特定业务, 优化Web前端的架构
-- 技术推广 / 跨部门合作
-
 - join new company, as tech leader
 - prepare and build a new department
 - recruit talent new employees
 - build new workflow, clear responsibility of new department
-- upgrade web frontend tech stack, 
-- 
+- upgrade web frontend tech stack, follow tech tendency
+- generalize new tech and promote department cooperation
 
 POINTS
 
-- 从头组建一个新部门
-- 持续推动部门内部技术进步
-- 推动研发中心的技术进步
+- build new department
+- continuous promote department tech ability
     
-#### 作品展示
+#### Products
 
-*   六只脚网站 [http://www.foooooot.com/](http://www.foooooot.com/) 
+* SixFoot [http://www.foooooot.com/](http://www.foooooot.com/) 
     
-    六只脚通过GPS轨迹记录仪记录户外自助游线路轨迹,航迹,航点,提供GPS轨迹分享,轨迹下载,旅游景区景点及GPS设备资讯,感受你在户外旅游中的乐趣,分享您在自助游线路的轨迹路线,并提供手机GPS轨迹记录软件
-    
-    Web前端工程师, 为网站增加页面功能: 标签云,图片浏览列表,搜索功能等.
+    Web frontend engineering, develop all user interface functions and complex interactions, such as image preview list, search function, tag clouds and so on.
     
     HTML + CSS + JavaScript
 
-*   绿野户外网 [http://www.lvye.cn/](http://www.lvye.cn/)
-    
-    绿野户外网是中国第一家户外运动网站,也是最具影响力的驴友论坛,作为优秀户外旅行活动网站,绿野为用户提供户外知识资讯,自助游线路,旅行装备评测,活动发起,户外旅行保险等服务
-    
-    全栈工程师,维护网站,增加新的功能模块:CMS管理后台,数据检索,前端结构升级,跨站互通(论坛和主站的互通). 优化服务性能(memcached + Xapian), 统一接口文档(RestructedText编写文档), 采用自动化部署方式(Python Fabric编写自动化不是脚本)
-    
-    后端: Python [Django] + PHP [Discuz] + MySQL + Xapian
-    
-    前端: HTML + CSS3 + JavaScript + Canvas
-    
-*   面包旅行 [http://web.breadtrip.com/](http://web.breadtrip.com/)
-    
-    面包旅行是一款旅途体验的记录和分享应用。你可以使用面包旅行记录旅途的每一分精彩和感动，珍藏美好的旅行回忆，也可以通过面友们分享的异域风景和不同文化，获得旅行灵感
-    
-    全栈工程师,维护网站,实现高并发下的业务功能.
-    
-    后端: Python [Django] + Postgres + Xapian
-    
-    前端: HTML5 + CSS3 + JavaScript
-    
-*   幻腾智能 [https://huantengsmart.com/](https://huantengsmart.com/)
-    
-    2013年携幻腾智能品牌进入无线轻量级智能家居市场，梦想让中国人先于美国享受最酷炫的数字化生活体验
-    
-    全栈工程师, 服务架构设计, 以业务为驱动设计良好架构风格并实现代码.
-    
-    后端: Ruby(Rails) + Ruby(EventMachine) + Node.js + Redis + MySQL + Postgres
-    
-    前端: HTML5 + CSS3 + JavaScript + React + Node.js + ES6(ES2015)
+*   Lvye OTA [http://www.lvye.cn/](http://www.lvye.cn/)
 
-*   金融工场 [https://www.9888keji.com](https://www.9888keji.com)
+    maintain whole tech stack of main service. including CMS management, data research, communication cross domain, upgrade performance of API(use memcached + Xapian), uniform API data structure format and docs (RestructedText format), redact auto deploy script(Python + Fabric)
     
-    技术经理, 前端架构设计. 重构, 不仅是代码还有研发流程(部门间配合)
+    Backend: Python [Django] + PHP [Discuz] + MySQL + Xapian
+    
+    Frontend: HTML + CSS3 + JavaScript + Canvas
+    
+*   BreadTrip [http://web.breadtrip.com/](http://web.breadtrip.com/)
+    
+    Fullstack engineering, maintain main PC site, archive high performance and usable ability
+    
+    Backend: Python [Django] + Postgres + Xapian
+    
+    Frontend: HTML5 + CSS3 + JavaScript
+    
+*   Huanteng Smart [https://huantengsmart.com/](https://huantengsmart.com/)
+    
+    Fullstack engineering, architechture design, DDD(Domain Deriven Design)
+    
+    Backend: Ruby(Rails) + Ruby(EventMachine) + Node.js + Redis + MySQL + Postgres
+    
+    Frontend: HTML5 + CSS3 + JavaScript + React + Node.js + ES6(ES2015)
 
-    [架构设计](https://github.com/DeronW/deronw.github.io/blob/master/markdown/Web%E5%89%8D%E7%AB%AF%E4%BB%8E0%E5%88%B0N.md)
+*   Financial(FinTech) [https://www.9888keji.com](https://www.9888keji.com)
+    
+    tech leader, frontend architechture design, refactory, including code review, workflow, cooperation in different group/department.
 
-#### Self judgement
+    [architechture design](https://github.com/DeronW/deronw.github.io/blob/master/markdown/Web%E5%89%8D%E7%AB%AF%E4%BB%8E0%E5%88%B0N.md)
+
+#### Self Judgement
 
 Coding , I'm seriously.
 
