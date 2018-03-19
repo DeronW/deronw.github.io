@@ -54,6 +54,12 @@ karabiner 键盘按键重新绑定
 
 [http://enjoygineering.com/mounty/](http://enjoygineering.com/mounty/)
 
+use brew install
+
+If you prefer Homebrew , you probably want to do this:
+
+    brew cask install mounty
+
 #### Paste
 
 记录复制过的内容, 快速选择粘贴
