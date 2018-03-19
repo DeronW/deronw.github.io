@@ -2,21 +2,31 @@
 
 ## 系统增强
 
-#### homebrew 
+#### homebrew
+
 软件包管理工具
 
 [https://brew.sh/](https://brew.sh/)
 
-#### reverse scrolling 
+no comment, nobody should ignore it
+
+#### reverse scrolling
+
 纠正Mac触板及鼠标滚轮方向冲突
 
 [https://pilotmoon.com/scrollreverser/](https://pilotmoon.com/scrollreverser/)
+
+compatiable touchpad and non-apple mouse
+
+ps. sometimes Apple just a selfish asshole
 
 #### Key Remap
 
 karabiner 键盘按键重新绑定
 
 [https://pqrs.org/osx/karabiner/](https://pqrs.org/osx/karabiner/)
+
+time to show a true display of skills
 
 #### touchbar switcher
 
@@ -48,6 +58,8 @@ karabiner 键盘按键重新绑定
 
 [https://itunes.apple.com/cn/app/id1127253508](https://itunes.apple.com/cn/app/id1127253508)
 
+well, by default MacOS support unzip files, it can handle most files
+
 #### Mounty
 
 读取NTFS系统格式U盘
@@ -73,11 +85,22 @@ If you prefer Homebrew , you probably want to do this:
 
 [https://iterm2.com/](https://iterm2.com/)
 
+Actually I thought default Terminal + fish shell + tmux is enough for me,
+I don't really need iTerm2 or Zsh
+
+ps. I'm not new guy, opposite most people does't know the true power about shell or what they really want.
+
 #### XCode
 
 iOS开发工具及Mac下C编译工具库
 
 [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)
+
+really propose is install Command Line Tools
+
+after install XCode
+
+    xcode-select --install
 
 #### SwitcHosts
 
@@ -152,6 +175,8 @@ world’s foremost and widely-used network protocol analyzer
 类似Office Project, 任务管理工具, 甘特图, 燃尽图...
 
 [https://www.omnigroup.com/omniplan](https://www.omnigroup.com/omniplan)
+
+[http://www.pc6.com/mac/112021.html](http://www.pc6.com/mac/112021.html)
 
 #### Office
 
