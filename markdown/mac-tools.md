@@ -72,6 +72,16 @@ If you prefer Homebrew , you probably want to do this:
 
     brew cask install mounty
 
+#### New File Menu Free
+    
+右键新建文本文件
+
+create a plain text file through right click.
+
+[https://itunes.apple.com/cn/app/new-file-menu-free/id1066302071?l=en&mt=12](https://itunes.apple.com/cn/app/new-file-menu-free/id1066302071?l=en&mt=12)
+
+New File Menu Free 是免费版, 还有收费版(不加Free就可以了). 区别是免费版右键只能创建一个格式, 比如txt, 收费版右键可以有多种格式
+
 #### Paste
 
 记录复制过的内容, 快速选择粘贴
