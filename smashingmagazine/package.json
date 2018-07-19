@@ -1,0 +1,10 @@
+{
+    "name": "smashingmagazine",
+    "scripts": {
+        "start": "node ./watch.js"
+    },
+    "dependencies": {
+        "chalk": "^2.4.1",
+        "handlebars": "^4.0.11"
+    }
+}
