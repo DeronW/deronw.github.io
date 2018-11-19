@@ -1,0 +1,258 @@
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/moon.css" />
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css" />
+
+    <title>幻腾智能 -- GraphQL</title>
+    <style>
+        .reveal h2,
+        .reveal h3 {
+            text-transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h4>图形化查询语言</h4>
+                <h2>GraphQL</h2>
+                <p class="fragment">
+                    如果你不知道Graphql, 那么, 你就不会用GraphQL
+                </p>
+            </section>
+            <section>
+                <section><h3>GraphQL是什么</h3></section>
+                <section>
+                    <h3>一种为你而生的查询语言</h3>
+                    <p><a href="http://graphql.cn/">http://graphql.cn/</a></p>
+
+                    <ol>
+                        <li>请求你所要的数据 不多不少</li>
+                        <li>获取多个资源 只用一个请求</li>
+                        <li>描述所有可能类型系统</li>
+                        <li>强大的开发者工具</li>
+                        <li>API 演进 无需划分版本</li>
+                        <li>使用你现有的 数据和代码</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>设计原则</h3>
+                    <dl>
+                        <li>层次分明 (Hierarchical)</li>
+                        <li>以产品为中心 (Product‐centric)</li>
+                        <li>数据格式 (Strong‐typing)</li>
+                        <li>客户端定制 (Client‐specified queries)</li>
+                        <li>内省 (Introspective)</li>
+                    </dl>
+                </section>
+                <section>
+                    <h3>是什么, 不是什么</h3>
+                    <dl>
+                        <li>是一种规范, 不是一种实现</li>
+                        <li>是一种接口形式, 不是一套完整框架</li>
+                        <li>是一种定义方法, 不是一种编程语言</li>
+                        <li>是一个演进中的方案, 不是固定不变的方案</li>
+                        <li>是一种面向前端的接口, 不是通用接口方案</li>
+                    </dl>
+                </section>
+            </section>
+
+            <section>
+                <section><h3>GraphQL的服务端实现</h3></section>
+                <section><img src="./WX20181119-095335@2x.png" /></section>
+                <section><img src="./WX20181119-100327@2x.png" /></section>
+                <section><img src="WX20181119-100819@2x.png" /></section>
+            </section>
+
+            <section>
+                <section><h3>GraphQL的客户端实现</h3></section>
+                <section><img src="./WX20181119-100957@2x.png" /></section>
+                <section><img src="./WX20181119-100946@2x.png" /></section>
+                <section><img src="./WX20181119-101012@2x.png" /></section>
+            </section>
+
+            <section>
+                <section><h3>Apollo框架</h3></section>
+                <section>
+                    <h3>GraphQL的优秀实现</h3>
+                    <img src="./WX20181119-101944@2x.png" />
+                </section>
+                <section>
+                    <h3>特性</h3>
+                    <dl>
+                        <li>JavaScript实现</li>
+                        <li>同时包含 服务端/客户端</li>
+                        <li>功能完整</li>
+                        <li>优秀的调试平台</li>
+                    </dl>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h3>GraphQL vs. RESTful</h3>
+                    <table style="color: greenyellow; font-size: 30px">
+                        <tr>
+                            <td></td>
+                            <td>GraphQL</td>
+                            <td>RESTful</td>
+                        </tr>
+                        <tr>
+                            <td>定位</td>
+                            <td>传递意图</td>
+                            <td>操作资源</td>
+                        </tr>
+                        <tr>
+                            <td>uri 入口</td>
+                            <td>一个</td>
+                            <td>多个</td>
+                        </tr>
+                        <tr>
+                            <td>动词</td>
+                            <td>2个 (查询/变更)</td>
+                            <td>7个 (增删改查...)</td>
+                        </tr>
+                        <tr>
+                            <td>版本号</td>
+                            <td>推荐 不使用</td>
+                            <td>推荐 使用</td>
+                        </tr>
+                        <tr>
+                            <td>返回数据格式</td>
+                            <td>动态</td>
+                            <td>固定</td>
+                        </tr>
+                        <tr>
+                            <td>兼容性</td>
+                            <td>需要特定库支持</td>
+                            <td>广泛兼容</td>
+                        </tr>
+                        <tr>
+                            <td>接口间关系</td>
+                            <td>可以上下文关联</td>
+                            <td>独立</td>
+                        </tr>
+                        <tr>
+                            <td>上手难度</td>
+                            <td>高</td>
+                            <td>低</td>
+                        </tr>
+                    </table>
+                </section>
+                <section>
+                    <h3>GraphQL vs. RESTful vs. gRPC</h3>
+                    <p>GraphQL 是面向前端的接口语言规范</p>
+                    <p>RESTful 是一种API架构风格</p>
+                    <p>gRPC 是跨语言通信协议(gRPC-web)</p>
+                </section>
+            </section>
+            <section>
+                <section><h3>幻腾智能的 GraphQL</h3></section>
+                <section>
+                    <h3>项目背景</h3>
+                    <p>要通过 Mas平台V2接口实现样板间配置工具</p>
+                    <p>需要依赖一个(不存在)的业务服务端</p>
+                </section>
+                <section>
+                    <h3>前端需要自己的接口服务</h3>
+                    <dl>
+                        <li>客户端友好</li>
+                        <li>
+                            <dl>
+                                <li>接口灵活</li>
+                                <li>容易调试</li>
+                                <li>文档完整</li>
+                            </dl>
+                        </li>
+                        <li>跨平台</li>
+                        <li>
+                            <dl>
+                                <li>iOS</li>
+                                <li>Android</li>
+                                <li>Web</li>
+                            </dl>
+                        </li>
+                        <li>接口聚合 / 精简</li>
+                        <li>无状态服务</li>
+                    </dl>
+                </section>
+                <section><img src="./WX20181119-114008@2x.png" /></section>
+                <section>
+                    <p>
+                        <a href="https://web.huantengsmart.com/graphql/login"
+                            >幻腾智能Apollo平台</a
+                        >
+                    </p>
+                </section>
+            </section>
+
+            <section>
+                <section><h3>Thanks</h3></section>
+            </section>
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || "default", // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+            // parallaxBackgroundSize: '2100px 900px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [
+                {
+                    src: "lib/js/classList.js",
+                    condition: function() {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: "plugin/markdown/marked.js",
+                    condition: function() {
+                        return !!document.querySelector("[data-markdown]");
+                    }
+                },
+                {
+                    src: "plugin/markdown/markdown.js",
+                    condition: function() {
+                        return !!document.querySelector("[data-markdown]");
+                    }
+                },
+                {
+                    src: "plugin/highlight/highlight.js",
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: "plugin/zoom-js/zoom.js",
+                    async: true,
+                    condition: function() {
+                        return !!document.body.classList;
+                    }
+                },
+                {
+                    src: "plugin/notes/notes.js",
+                    async: true,
+                    condition: function() {
+                        return !!document.body.classList;
+                    }
+                }
+            ]
+        });
+    </script>
+</body>
