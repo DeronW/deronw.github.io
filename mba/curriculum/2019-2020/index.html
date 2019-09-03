@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>北理MBA 2019(一班) 选课辅助</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@fullcalendar/core@4.3.1/main.min.css"
+            crossorigin="anonymous"
+        />
+        <style>
+            .table tr td {
+                padding: 0.15rem;
+            }
+            .fixed-top {
+                background: white;
+                box-shadow: 0 0 5px #999;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="fixed-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <br />
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>总学分</td>
+                                    <td id="score"></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>是否冲突</td>
+                                    <td id="conflict"></td>
+                                    <td>
+                                        <button
+                                            class="btn btn-link btn-small"
+                                            data-toggle="modal"
+                                            data-target="#exampleModalScrollable"
+                                            style="padding: 0 15px"
+                                        >
+                                            详情
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="container" id="requiredCourse">
+            <div>必修课</div>
+        </div>
+        <br />
+        <div class="container" id="optionalCourse">
+            <div>选修课</div>
+        </div>
+        <br />
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalScrollable" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">冲突课程</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="conflictDetail">
+                        ...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            crossorigin="anonymous"
+        ></script>
+
+        <script src="https://unpkg.com/@fullcalendar/core@4.3.1/main.min.js"></script>
+        <script src="./source.js"></script>
+        <script>
+            必修课.forEach(name => {
+                let element = `
+<div class="row">
+    <div class="col">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" checked disabled />
+            <label class="custom-control-label">${name}</label>
+        </div>
+    </div>
+</div>
+                `;
+                $("#requiredCourse").append(element);
+            });
+
+            全部课程.filter(i => 必修课.indexOf(i.名称) < 0).forEach(i => {
+                let element = `
+<div class="row">
+    <div class="col">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="id-${i.名称}" />
+            <label class="custom-control-label" for="id-${i.名称}">${i.名称}</label>
+        </div>
+    </div>
+</div>
+                `;
+                $("#optionalCourse").append(element);
+                $("#id-" + i.名称).on("change", function(event) {
+                    check(i.名称, event.target.checked);
+                    summary();
+                });
+            });
+
+            function check(name, checked) {
+                for (let i = 0; i < 全部课程.length; i++) {
+                    if (全部课程[i].名称 == name) {
+                        全部课程[i].checked = checked;
+                    }
+                }
+            }
+
+            function isConflict() {
+                let selected = {},
+                    conflict = {};
+
+                全部课程.filter(i => i.checked).forEach(function(course) {
+                    course.日期.forEach(date => {
+                        if (selected[date]) {
+                            selected[date].push(course.名称);
+                        } else {
+                            selected[date] = [course.名称];
+                        }
+                    });
+                });
+
+                Object.keys(selected).forEach(date => {
+                    if (selected[date].length > 1) conflict[date] = selected[date];
+                });
+
+                console.log(selected, conflict);
+
+                let hasConflict = Object.keys(conflict).length > 0;
+                let html = hasConflict
+                    ? '<span class="badge badge-warning">冲突</span>'
+                    : '<span class="badge badge-success">无冲突</span>';
+
+                $("#conflict").html(html);
+                // Object.keys(conflict).length ? JSON.stringify(conflict) : "not"
+
+                if (hasConflict) {
+                    $("#conflictDetail").html("");
+                    Object.keys(conflict).forEach(date => {
+                        let element = conflict[date];
+                        $("#conflictDetail").append(`<div>${date}:${element}</div>`);
+                    });
+                } else {
+                    $("#conflictDetail").html("无冲突");
+                }
+            }
+
+            function totalScore() {
+                let score = 全部课程
+                    .filter(i => i.checked)
+                    .reduce((r, i) => {
+                        let name = i.名称.replace("（二）", "").replace("（一）", "");
+                        return r + 学分[name];
+                    }, 7);
+                $("#score").text(score);
+            }
+
+            function summary() {
+                totalScore();
+                isConflict();
+            }
+
+            summary();
+        </script>
+    </body>
+</html>
