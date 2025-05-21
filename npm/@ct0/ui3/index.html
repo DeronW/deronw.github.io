@@ -1,0 +1,57 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8" />
+  <!-- <script src="./dist/index.js"></script> -->
+  <script type="module">
+    import * as ct from "./dist/index.js";
+    window.message = ct.message;
+    window.ct = ct
+    console.log(ct);
+  </script>
+  <link rel="stylesheet" href="./dist/all.css" />
+</head>
+
+<body>
+  <h1>@ct0/ui3 组件</h1>
+
+  <h3>按钮</h3>
+  <ct-button disabled>Button</ct-button>
+
+
+  <h3>是和否文字</h3>
+  <ct-yes class="blue" style="display: block; width: 100px">Yes</ct-yes>
+  <ct-no></ct-no>
+
+  <br />
+  <br />
+  <h3>威胁等级</h3>
+  <ct-servity-critical></ct-servity-critical>
+  <ct-servity-high></ct-servity-high>
+  <ct-servity-medium></ct-servity-medium>
+  <ct-servity-low></ct-servity-low>
+  <ct-servity-info></ct-servity-info>
+
+
+  <h3>面包屑</h3>
+  <ct-breadcrumb items='[{"text": "a", "link": "https://wwww.baidu.com"}, {"text": "b", "click": "alert(1)"}]'>
+    <slot name="home">HOME</slot>
+  </ct-breadcrumb>
+
+
+  <h1>开发中</h1>
+  其它正在开发中的组件
+
+  <br />
+  <br />
+  <ct-user-permits name="lit2"></ct-user-permits>
+
+  <ct-not-exist></ct-not-exist>
+
+  <div>
+    <button onclick="message.success('成功')">message.success</button>
+    <button onclick="message.error('异常')">message.error</button>
+    <button onclick="message.warning('警告')">message.warning</button>
+    <button onclick="message.info('信息')">message.info</button>
+  </div>
+</body>
